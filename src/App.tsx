@@ -1,14 +1,19 @@
 import React from "react";
 import Navbar from "./components/navbar/navbar";
-import Hero from "./components/hero/hero";
+import HeroSection from "./components/hero/hero";
+import AboutUssection from "./components/sections/about.section";
+import OurServicesSection from "./components/sections/ourServices.section";
 import "./styles/App.scss";
 function App() {
-  return <div className="App">
-    <Navbar/>
-    <Hero/>
-  <div className="background"></div>
-
-  </div>;
+  return (
+    <div className="App">
+      <div className="background"></div>
+      <Navbar />
+      <HeroSection />
+      <AboutUssection />
+      <OurServicesSection />
+    </div>
+  );
 }
 
 export default App;
