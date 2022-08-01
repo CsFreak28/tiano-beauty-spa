@@ -1,3 +1,69 @@
-div{
-    color: red;
+.ourServicesSectionContainer {
+  margin-top: 5rem;
+  width: 100vw;
+  min-height: 250vh;
+  background-color: #075432;
+  color: rgb(218, 216, 216);
+  position: relative;
+  font-family: "ogg_light";
+  .title {
+    font-size: 5rem;
+    text-align: center;
+  }
+  .servicesContainer {
+    position: absolute;
+    // position: relative;
+    width: 400px;
+    height: 400px;
+    // img{
+    //   width: 200px;
+    // }
+    .serviceTitle {
+      font-size: 2rem;
+      text-align: center;
+    }
+    .serviceDescription {
+      text-align: center;
+    }
+    .imgsContainer {
+      position: relative;
+      // background-color: yellow;
+      img {
+        position: absolute;
+      }
+    }
+  }
+  .descriptionContainer {
+    position: absolute;
+    top: 250px;
+    left: 70px;
+  }
+  .firstContainer {
+    transform: translate(125%, 20%);
+    // background-color: red;
+  }
+  .secondContainer {
+    transform: translate(12%, 75%);
+  }
+  .thirdContainer {
+    transform: translate(225%, 75%);
+  }
+  .fourthContainer {
+    transform: translate(115%, 150%);
+  }
+  .fifthContainer {
+    transform: translate(12%, 225%);
+  }
+  .sixthContainer {
+  transform: translate(230%,265%);
+  }
+  .imageFirst {
+    margin-top: 2rem;
+  }
+  .firstImage {
+    z-index: 3;
+  }
+  .translateUp {
+    transform: translateY(-14%);
+  }
 }
