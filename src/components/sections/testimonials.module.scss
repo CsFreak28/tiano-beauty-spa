@@ -1,0 +1,79 @@
+.container {
+  background-color: #075432;
+  min-height: 120vh;
+  font-family: "ogg_light";
+  color: rgb(221, 219, 219);
+  font-size: 6rem;
+  position: relative;
+  text-align: center;
+//   margin-top: 5rem;
+  .testimonialsCarousel {
+    position: relative;
+    width: 100vw;
+    height: 100%;
+  }
+  .testimonialContainer {
+    width: 260px;
+    transition: 0.5s all;
+    height: 368px;
+    border-radius: 10px;
+    position: absolute;
+  }
+  .noneCenterTestimonial{
+    width: 160px;
+    height: 288px;
+    transition: 0.5s all;
+    border-radius: 10px;
+    position: absolute;
+    filter: grayscale(1);
+  }
+  .centerTestimonial {
+    background: url("../../assets/images/blackBeauty.jpg");
+    background-size: cover;
+    background-position: center center;
+    transform: translate(210%, 5%);
+  }
+  .firstTestimonial{
+    background: url("../../assets/images/testimonial2.jpg");
+    background-size: cover;
+    background-position: center center;
+    transform: translate(213%, 35%);
+  }
+  .secondTestimonial{
+    background: url("../../assets/images/testimonial3.jpg");
+    background-size: cover;
+    background-position: center center;
+    transform: translate(100%, 60%);
+  }
+  .thirdTestimonial{
+    background: url("../../assets/images/testimonial4.jpg");
+    background-size: cover;
+    background-position: center center;
+    transform: translate(-10%,80%);
+  }
+  .fourthTestimonial{
+    background: url("../../assets/images/testimonial5.jpg");
+    background-size: cover;
+    background-position: center center;
+    transform: translate(535%,35%);
+  }
+  .fifthTestimonial{
+    background: url("../../assets/images/testimonial6.jpg");
+    background-size: cover;
+    background-position: center center;
+    transform: translate(645%,60%);
+  }
+  .sixthTestimonial{
+    background: url("../../assets/images/testimonial7.jpg");
+    background-size: cover;
+    background-position: center center;
+    transform: translate(755%,80%);
+  }
+  .clientsTestimonial {
+    position: absolute;
+    bottom: 6%;
+    font-family: 'ogg_thin2';
+    left: 32%;
+    font-size: 35px;
+  }
+}
