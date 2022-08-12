@@ -124,7 +124,6 @@
   }
 }
 
-
 @media screen and (max-width: 300px) {
   .heroContainer {
     height: 120vh;
@@ -227,14 +226,13 @@
 //   }
 // }
 
-
 @media screen and (max-width: 400px) {
   .heroContainer {
     height: 120vh;
     .split {
-      display: flex;
-      flex-direction: column-reverse;
-      position: relative;
+      // display: flex;
+      // flex-direction: column-reverse;
+      // position: relative;
       .copyText {
         font-size: 2rem;
         width: 100%;
@@ -243,21 +241,12 @@
         left: 0%;
         text-align: center;
       }
-      .imgHolder {
-        width: 100%;
-        .heroImg {
-          left: 20%;
-          width: 50%;
-        }
-        .otherHeroImg {
-          left: 20%;
-          width: 60%;
-        }
+      .bookButtonContainer {
+        left: 25%;
       }
     }
   }
 }
-
 
 @media screen and (max-width: 350px) {
   .heroContainer {

@@ -1,27 +1,48 @@
 .container {
-  min-height: 100vh;
+  height: 120vh;
   width: 100vw;
   position: relative;
-  padding: 4rem;
-  margin-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // padding: 4rem;
+  outline: 2px solid rgb(255, 0, 234);
   font-family: "ogg_thin2";
-  p {
-    font-size: 5rem;
-    span {
-      color: #075432;
+  .content {
+    outline: 2px solid yellow;
+    // position: relative;
+    width: 60%;
+    height: 70%;
+    p {
+      font-size: 5rem;
+      top: 0;
+      position: absolute;
+      span {
+        color: #075432;
+      }
+    }
+    img {
+      top: 24%;
+      left: 2%;
+      margin: auto;
+      max-width: 100%;
+      // width: 100%;
+      z-index: -1;
     }
   }
-  img {
-    position: absolute;
-    top: 24%;
-    left: 2%;
-    z-index: -1;
+  .sideMessageContainer {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    outline: 1px solid blue;
   }
   .sideMessage {
-    position: absolute;
+    // position: absolute;
     right: 10%;
     top: 55%;
-    padding: 1rem;
+    margin: 40% 0;
+    // padding: 1rem;
+    outline: 2px solid red;
     p {
       font-size: 2.2rem;
     }
@@ -36,6 +57,79 @@
       padding: 3px;
       cursor: pointer;
       color: white;
+    }
+  }
+}
+
+@media only screen and (max-width: 1113px) {
+  .container {
+    height: 170vh;
+    flex-direction: column;
+    .content{
+      margin-top: 15vh;
+      p {
+        font-size: 3rem;
+        left: 20%;
+      }
+      img {
+      }
+    }
+    .sideMessage{
+      margin: 10% 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .container {
+    height: 170vh;
+    flex-direction: column;
+    .content{
+      margin-top: 15vh;
+      p {
+        font-size: 2.5rem;
+        top: 3%;
+      }
+      img {
+      }
+    }
+    .sideMessage{
+      margin: 10% 0;
+      align-self: flex-start;
+      p{
+        font-size: 1.7rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    height: 170vh;
+    flex-direction: column;
+    .content{
+      margin-top: 15vh;
+      height: fit-content;
+      p {
+        font-size: 6vw;
+        top: 3%;
+      }
+      img {
+      }
+    }
+    .sideMessageContainer{
+      width: 100%;
+    }
+    .sideMessage{
+      margin: 10% auto;
+      // align-self: flex-start;
+      width: 65%;
+      p{
+        font-size: 1.4rem;
+        margin: 0 auto;
+        // outline: 2px solid rgb(157, 253, 2);
+        // width: 100%;
+      }
     }
   }
 }

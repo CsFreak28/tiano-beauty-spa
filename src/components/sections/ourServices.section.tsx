@@ -17,20 +17,14 @@ const OurServicesSection = () => {
     <div className={Styles.ourServicesSectionContainer}>
       <p className={Styles.title}>Our Services</p>
       <div className={`${Styles.servicesContainer} ${Styles.firstContainer}`}>
-        <div className={`${Styles.imgsContainer} ${Styles.imageFirst}`}>
-          <img
-            src={TeethWhiteningImg}
-            alt="teeth whitening image"
-            className={Styles.translateUp}
-          />
-          <img src={TeethWhiteningImg2} alt="teeth whitening image" />
-          <div className={Styles.descriptionContainer}>
-            <p className={Styles.serviceTitle}>Teeth Whitening</p>
-            <p className={Styles.serviceDescription}>
-              get your teeth whitened today <br />
-              with our professional tools. <br />
-            </p>
-          </div>
+        <p className={Styles.serviceTitle}>Teeth Whitening</p>
+        <p className={Styles.serviceDescription}>
+          get your teeth whitened today <br />
+          with our professional tools. <br />
+        </p>
+        <div className={Styles.imgsContainer}>
+          <img src={TeethWhiteningImg} alt="body massage image" />
+          <img src={TeethWhiteningImg2} alt="body massage image" />
         </div>
       </div>
 
@@ -78,14 +72,12 @@ const OurServicesSection = () => {
 
       {/* fifth service */}
       <div className={`${Styles.servicesContainer} ${Styles.fifthContainer}`}>
-        <div>
-          <p className={Styles.serviceTitle}>Butt Enlargement</p>
-          <p className={Styles.serviceDescription}>
-            A woman's hair is definitely her <br />
-            pride, our job is to make it look <br />
-            good.
-          </p>
-        </div>
+        <p className={Styles.serviceTitle}>Butt Enlargement</p>
+        <p className={Styles.serviceDescription}>
+          A woman's hair is definitely her <br />
+          pride, our job is to make it look <br />
+          good.
+        </p>
         <div className={Styles.imgsContainer}>
           <img src={ButtEnlargementImg2} alt="hair treatment image" />
           <img src={ButtEnlargementImg1} alt="hair treatment image" />
@@ -94,20 +86,14 @@ const OurServicesSection = () => {
 
       {/* sixth service */}
       <div className={`${Styles.servicesContainer} ${Styles.sixthContainer}`}>
-        <div className={`${Styles.imgsContainer} ${Styles.imageFirst}`}>
+        <p className={Styles.serviceTitle}>Manicure</p>
+        <p className={Styles.serviceDescription}>
+          we will improve the appearance of your skin and nails with industry
+          standard practices.
+        </p>
+        <div className={Styles.imgsContainer}>
+          <img src={ManicureImg1} alt="manicure image" />
           <img src={ManicureImg2} alt="manicure image" />
-          <img
-            src={ManicureImg1}
-            alt="manicure image"
-            className={Styles.translateUp}
-          />
-          <div className={Styles.descriptionContainer}>
-            <p className={Styles.serviceTitle}>Manicure</p>
-            <p className={Styles.serviceDescription}>
-              we will improve the appearance of your skin and nails with
-              industry standard practices.
-            </p>
-          </div>
         </div>
       </div>
     </div>

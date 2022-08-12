@@ -2,10 +2,10 @@ import Styles from "./testimonials.module.scss";
 const TestimonialsSection = () => {
   return (
     <div className={Styles.container}>
-      Testimonials
+      <p>Testimonials</p>
       <div className={Styles.testimonialsCarousel}>
         <div
-          className={`${Styles.testimonialContainer} ${Styles.centerTestimonial}`}
+          className={`${Styles.centerTestimonialContainer} ${Styles.centerTestimonial}`}
         ></div>
 
         {/* //first testimonial */}
