@@ -1,0 +1,60 @@
+.bookContainer {
+  background-color: white;
+  font-family: "helvetica_medium";
+  position: absolute;
+  padding: 15px;
+  bottom: 8rem;
+  left: 1.5rem;
+  width: 80%;
+  z-index: 3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  // display: none;
+  .bookElement {
+    display: flex;
+    align-items: center;
+    h6 {
+      font-size: 14px;
+      font-family: "helvetica_medium";
+      color: #075432;
+    }
+    p {
+      font-size: 13px;
+      text-decoration: underline;
+      margin-top: 1rem;
+      cursor: pointer;
+      color: rgb(65, 65, 65);
+    }
+    svg {
+      transform: translate(-30%, 40%);
+    }
+    .line {
+      width: 1px;
+      height: 2rem;
+      background-color: rgb(66, 66, 66);
+      margin-left: 2rem;
+      align-self: flex-end;
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .bookContainer {
+    bottom: 12rem;
+    left: 10%;
+    .bookElement {
+      h6 {
+        font-size: 12px;
+      }
+      p {
+        font-size: 10px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 590px) {
+  .bookContainer {
+    display: none;
+  }
+}

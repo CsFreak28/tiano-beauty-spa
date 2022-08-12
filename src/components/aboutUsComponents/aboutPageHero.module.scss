@@ -1,0 +1,26 @@
+.container{
+    font-family: 'ogg_thin2';
+    position: absolute;
+    background-repeat: no-repeat;
+    background: url('../../assets/images/aboutus.jpg');
+    background-position: center center;
+    width: 100vw;
+    overflow: hidden;
+    height: 100vh;
+    background-size: cover;
+    top: 0;
+    z-index: -1;
+    .introText{
+        position: absolute;
+        bottom: -7rem;
+        left: 2%;
+        // background-color: red;
+        font-size: 18rem;
+    }
+}
+
+.relative{
+    height: 95vh;
+    width: 100vw;
+    opacity: 0;
+}

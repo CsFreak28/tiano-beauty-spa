@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  // outline: 3px solid black;
   z-index: 3;
   .authLinks {
     display: flex;
@@ -40,7 +41,7 @@
   .hamburgerMenu {
     cursor: pointer;
     display: none;
-    margin: 0 2rem;
+    margin: 0 1rem;
     div {
       width: 50px;
       height: 1px;
@@ -101,7 +102,9 @@
 }
 @media only screen and (max-width: 400px) {
   .container {
+    padding: 0;
     .hamburgerMenu {
+      padding: 0;
       div {
         width: 35px;
         height: 1px;

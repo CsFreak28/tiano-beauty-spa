@@ -1,0 +1,31 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  .shortText {
+    font-family: "helvetica_medium";
+    font-size: 11px;
+    color: rgb(122, 122, 122);
+    text-align: center;
+    left: 35%;
+  }
+  p{
+    font-family: 'ogg_thin2';
+    font-size: 4rem;
+    position: relative;
+    top: 15%;
+    text-align: center;
+    span{
+        color: #075432;
+    }
+  }
+  .topText {
+    position: absolute;
+    top: 0;
+  }
+  .bottomText{
+    position: absolute;
+    bottom: 3%;
+    left: 40%;
+  }
+}

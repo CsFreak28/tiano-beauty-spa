@@ -1,0 +1,60 @@
+.container {
+  background-color: #757575;
+  overflow: hidden;
+  .liTag {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    li {
+      width: 1px;
+      height: 100px;
+      background-color: black;
+      list-style: none;
+    }
+  }
+  .chapter {
+    font-family: "helvetica_medium";
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #222222;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .meetTheTeam {
+    font-size: 4rem;
+    text-align: center;
+  }
+  .founders {
+    display: flex;
+    justify-content: space-between;
+    .founderProfile {
+      margin-inline: auto;
+      .founderImage{
+        margin: auto;
+        width: 300px;
+        height: 400px;
+        border-radius: 11px;
+        position: relative;
+      }
+      .firstFounder {
+        background: url("../../assets/images/firstFounder\ \(1\).jpg");
+        background-size: cover;
+      }
+      .secondFounder{
+        background: url('../../assets/images/secondFounder\ \(1\).jpg');
+        background-size: cover;
+      }
+      .founderName{
+        text-align: center;
+        font-size: 2rem;
+        font-family: 'ogg_light';
+      }
+      .founderDescription{
+        font-family: 'helvetica_medium';
+        text-align: center;
+        font-size: 13px;
+        color: #2F2F2F;
+      }
+    }
+  }
+}

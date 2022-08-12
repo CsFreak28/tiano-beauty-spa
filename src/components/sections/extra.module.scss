@@ -1,0 +1,41 @@
+.container {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  padding: 4rem;
+  margin-top: 8rem;
+  font-family: "ogg_thin2";
+  p {
+    font-size: 5rem;
+    span {
+      color: #075432;
+    }
+  }
+  img {
+    position: absolute;
+    top: 24%;
+    left: 2%;
+    z-index: -1;
+  }
+  .sideMessage {
+    position: absolute;
+    right: 10%;
+    top: 55%;
+    padding: 1rem;
+    p {
+      font-size: 2.2rem;
+    }
+    button {
+      width: 7rem;
+      height: 2.4rem;
+      margin-top: 2rem;
+      font-family: "helvetica_medium";
+      border: none;
+      border-radius: 5px;
+      background-color: #075432;
+      padding: 3px;
+      cursor: pointer;
+      color: white;
+    }
+  }
+}

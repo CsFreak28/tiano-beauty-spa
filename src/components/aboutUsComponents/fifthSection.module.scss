@@ -1,0 +1,84 @@
+.container {
+  margin-top: 3rem;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  .liTag {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    li {
+      width: 1px;
+      height: 100px;
+      background-color: black;
+      list-style: none;
+    }
+  }
+  .chapter {
+    font-family: "helvetica_medium";
+    text-align: center;
+    color: rgb(75, 75, 75);
+  }
+  .servicesContainer {
+    position: relative;
+    // background-color: red;
+    margin-top: 8rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    p {
+      position: relative;
+    }
+  }
+  p {
+    font-size: 4.5rem;
+    cursor: pointer;
+  }
+  .expertise {
+    font-size: 5rem;
+    text-align: center;
+    cursor: auto;
+  }
+  .right {
+    position: relative;
+    right: -60%;
+  }
+  .bodyMassage {
+    right: -7%;
+  }
+  .buttEnlarge{
+    right: -45%;
+  }
+  .flexImages{
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+  }
+  .firstFlexImage{
+    width: 40vw;
+    height: 50vh;
+    margin: 1vw;
+    border-radius: 10px;
+    background: url('../../assets/images/massageImg.png');
+    background-size: cover;
+  }
+  .secondFlexImage{
+    width: 40vw;
+    height: 50vh;
+    margin: 1vw;
+    border-radius: 10px;
+    background: url('../../assets/images/massageImg2.png');
+    background-size: cover;
+  }
+  .firstParagraph{
+    font-size: 2rem;
+    text-align: center;
+  }
+  .secondParagraph{
+    font-size: 12px;
+    margin-top: 23vh;
+    color: rgb(100, 100, 100);
+    font-family: 'helvetica_medium';
+    text-align: center;
+    text-transform: uppercase;
+    }
+}

@@ -1,0 +1,71 @@
+.container {
+  position: relative;
+  height: 120vh;
+  width: 100vw;
+  font-family: "ogg_thin2";
+  .socialMedia {
+    position: absolute;
+    background-color: #075432;
+    font-size: 2rem;
+    width: 35%;
+    padding: 1rem;
+    border-radius: 7px;
+    height: 40%;
+    color: rgb(224, 220, 220);
+    right: 10%;
+    .socialMediaLinks {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: relative;
+      bottom: -30%;
+    }
+    .socialMediaLinks div {
+      cursor: pointer;
+    }
+  }
+  .contactUs {
+    height: 50%;
+    width: 100%;
+    position: relative;
+    top: 50%;
+    
+    .brandName{
+        position: absolute;
+        font-size: 3rem;
+        top: 45%;
+        left: 38%;
+    }
+    // background-color: red;
+    .contactUsFlex{
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem;
+        .contactLink{
+          position: relative;
+        }
+        p{
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 100px;
+        }
+    }
+    .copyright{
+        font-family: 'helvetica_medium';
+        font-size: 12px;
+        position: absolute;
+        bottom: 2%;
+        display: flex;
+        // background-color: red;
+        width: 98%;
+        justify-content: space-between;
+        .lastLinks{
+            display: flex;
+            p{
+                margin-left: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+  }
+}

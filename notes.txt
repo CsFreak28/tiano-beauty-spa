@@ -1,0 +1,14 @@
+breakpoints 
+
+300px
+270px
+400px
+800px
+700px
+850px
+
+three parts 
+authentication 
+functionality
+animations
+

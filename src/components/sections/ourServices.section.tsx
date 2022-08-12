@@ -78,12 +78,14 @@ const OurServicesSection = () => {
 
       {/* fifth service */}
       <div className={`${Styles.servicesContainer} ${Styles.fifthContainer}`}>
-        <p className={Styles.serviceTitle}>Butt Enlargement</p>
-        <p className={Styles.serviceDescription}>
-          A woman's hair is definitely her <br />
-          pride, our job is to make it look <br />
-          good.
-        </p>
+        <div>
+          <p className={Styles.serviceTitle}>Butt Enlargement</p>
+          <p className={Styles.serviceDescription}>
+            A woman's hair is definitely her <br />
+            pride, our job is to make it look <br />
+            good.
+          </p>
+        </div>
         <div className={Styles.imgsContainer}>
           <img src={ButtEnlargementImg2} alt="hair treatment image" />
           <img src={ButtEnlargementImg1} alt="hair treatment image" />
@@ -102,8 +104,8 @@ const OurServicesSection = () => {
           <div className={Styles.descriptionContainer}>
             <p className={Styles.serviceTitle}>Manicure</p>
             <p className={Styles.serviceDescription}>
-              we will improve the appearance of your skin and nails with industry standard
-              practices.
+              we will improve the appearance of your skin and nails with
+              industry standard practices.
             </p>
           </div>
         </div>

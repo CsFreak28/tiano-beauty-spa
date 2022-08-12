@@ -16,7 +16,6 @@ const EmailCollectionSection = () => {
         <input type="text" placeholder="email" />
         <button>SUBSCRIBE</button>
       </div>
-    div
     </div>
   );
 };

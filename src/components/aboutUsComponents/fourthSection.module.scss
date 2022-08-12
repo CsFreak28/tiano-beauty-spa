@@ -1,0 +1,86 @@
+.container {
+  background-color: #075432;
+  min-height: 100vh;
+  width: 100vw;
+  margin-top: 0;
+  overflow: hidden;
+  position: relative;
+  li {
+    width: 1px;
+    height: 146vh;
+    background-color: black;
+    list-style: none;
+    position: absolute;
+    left: 50%;
+  }
+  .displayImgContainer {
+    margin-top: 5rem;
+    z-index: 3;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 105%;
+    // background-color: yellow;
+    .displayimg {
+      width: 10vw;
+      height: 200px;
+      margin-right: 6vw;
+      border-radius: 8px;
+    }
+    .img1 {
+      background: url("../../assets/images/aboutimgdisplay1.jpg");
+      background-size: cover;
+    }
+    .img2 {
+      background: url("../../assets/images/aboutimgdisplay2.jpg");
+      background-size: cover;
+    }
+    .img3 {
+      background: url("../../assets/images/aboutimgdisplay3.jpg");
+      background-size: cover;
+    }
+    .img4 {
+      background: url("../../assets/images/aboutimgdisplay4.jpg");
+      background-size: cover;
+    }
+    .img5 {
+      background: url("../../assets/images/aboutimgdisplay5.jpg");
+      background-size: cover;
+    }
+    .img6 {
+      background: url("../../assets/images/aboutimgdisplay6.jpg");
+      background-size: cover;
+    }
+    .img7 {
+      background: url("../../assets/images/aboutimgdisplay7.jpg");
+      background-size: cover;
+      margin-left: 7vw;
+    }
+    .img8 {
+      background: url("../../assets/images/aboutimgdisplay8.jpg");
+      background-size: cover;
+      margin-left: 7vw;
+    }
+    .img9 {
+      width: 18vw;
+      height: 45vh;
+      // margin: 0;
+      background: url("../../assets/images/aboutimgdisplay4.jpg");
+      background-size: cover;
+      margin-left: 1vw;
+    }
+  }
+  .shortParagraph {
+    font-family: "helvetica_medium";
+    margin-top: 5vh;
+    text-align: center;
+    font-size: 13px;
+    color: rgb(216, 216, 216);
+  }
+  .secondParagraph{
+    margin-top:5rem;
+    font-size: 5rem;
+    text-align: center;
+    color: rgb(216, 216, 216);
+  }
+}
