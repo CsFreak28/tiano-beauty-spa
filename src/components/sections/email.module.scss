@@ -3,12 +3,11 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  min-height: 100vh;
+  height: fit-content;
   width: 100vw;
+  margin-top: 5rem;
   font-family: "ogg_thin2";
-  margin-top: 20rem;
   .innerContainer {
-    // background-color: blue;
   }
   .firstParagraph {
     font-size: 4rem;
@@ -19,27 +18,24 @@
     text-align: center;
   }
   .inputs {
-    justify-self: center;
-    width: fit-content;
-    // background-color: red;
   }
   input {
     padding: 0.7rem;
     background-color: #cccc;
     border: none;
     border-radius: 7px;
-    width:20rem;
-    font-family:'helvetica_medium';
+    width: 20rem;
+    font-family: "helvetica_medium";
   }
   input::placeholder {
     font-family: "helvetica_medium";
   }
-  input:focus{
+  input:focus {
     outline: none;
   }
   .inputs {
-    position: relative;
-    left: 35%;
+    display: flex;
+    justify-content: center;
   }
   button {
     width: 7rem;
@@ -54,5 +50,62 @@
     color: white;
     margin-left: 10px;
   }
-  
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    .firstParagraph {
+      font-size: 2.5rem;
+    }
+    .secondParagraph {
+      font-size: 1.6rem;
+    }
+  }
+}
+@media screen and (max-width: 1113px) {
+  .container {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    .firstParagraph {
+      font-size: 2rem;
+    }
+    .secondParagraph {
+      font-size: 1.2rem;
+    }
+    .inputElements {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 1rem;
+    }
+    button {
+      align-self: center;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container {
+    .firstParagraph {
+      font-size: 1.5rem;
+    }
+    .secondParagraph {
+      font-size: 1rem;
+    }
+    .inputElements {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 1rem;
+    }
+    input {
+      width: 15rem;
+    }
+    button {
+    }
+  }
 }

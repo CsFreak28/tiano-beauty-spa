@@ -59,7 +59,7 @@
     transform: translate(12%, 225%);
   }
   .sixthContainer {
-    transform: translate(210%, 265%);
+    transform: translate(210%, 245%);
   }
 
   .translateUp {
@@ -110,10 +110,17 @@
       transform: translate(120%, 20%);
     }
     .thirdContainer {
-      transform: translate(15%, 345%);
+      transform: translate(15%, 310%);
     }
+    .fourthContainer {
+      transform: translate(115%, 135%);
+    }
+    .fifthContainer{
+    transform: translate(12%, 205%);
+    }
+
     .sixthContainer {
-      transform: translate(115%, 265%);
+      transform: translate(115%, 255%);
     }
   }
 }
@@ -121,39 +128,40 @@
 @media only screen and (max-width: 420px) {
   .ourServicesSectionContainer {
     min-height: 420vh;
+    margin-top: 4rem;
     .title {
       font-size: 3rem;
     }
     .servicesContainer {
-      width: 80%;
+      width: 60%;
       .descriptionContainer {
       }
       .serviceTitle {
         font-size: 2rem;
       }
       .serviceDescription {
-        font-size: 1.2rem;
+        font-size: 1rem;
         .descriptionContainer {
         }
       }
     }
     .firstContainer {
-      transform: translate(10%, 20%);
+      transform: translate(26%, 20%);
     }
     .secondContainer {
-      transform: translate(10%, 125%);
+      transform: translate(26%, 125%);
     }
     .thirdContainer {
-      transform: translate(10%, 230%);
+      transform: translate(26%, 230%);
     }
     .fourthContainer {
-      transform: translate(10%, 335%);
+      transform: translate(26%, 335%);
     }
     .fifthContainer {
-      transform: translate(10%, 440%);
+      transform: translate(26%, 440%);
     }
     .sixthContainer {
-      transform: translate(10%, 545%);
+      transform: translate(26%, 545%);
     }
   }
 }

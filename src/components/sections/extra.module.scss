@@ -5,12 +5,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // padding: 4rem;
-  outline: 2px solid rgb(255, 0, 234);
+  margin-top: 5rem;
+  // padding: 1rem;
+  // outline: 2px solid rgb(255, 0, 234);
   font-family: "ogg_thin2";
   .content {
-    outline: 2px solid yellow;
-    // position: relative;
     width: 60%;
     height: 70%;
     p {
@@ -34,21 +33,18 @@
     position: relative;
     width: 40%;
     height: 100%;
-    outline: 1px solid blue;
   }
   .sideMessage {
-    // position: absolute;
-    right: 10%;
-    top: 55%;
-    margin: 40% 0;
-    // padding: 1rem;
-    outline: 2px solid red;
+    position: relative;
+    margin: 50% 0;
     p {
       font-size: 2.2rem;
     }
     button {
       width: 7rem;
       height: 2.4rem;
+      position: absolute;
+      // left: 40%;
       margin-top: 2rem;
       font-family: "helvetica_medium";
       border: none;
@@ -63,19 +59,25 @@
 
 @media only screen and (max-width: 1113px) {
   .container {
-    height: 170vh;
-    flex-direction: column;
-    .content{
+    height: 140vh;
+    // flex-direction: column;
+    .content {
       margin-top: 15vh;
       p {
         font-size: 3rem;
-        left: 20%;
-      }
-      img {
+        left: 15%;
+        top: 13%;
       }
     }
-    .sideMessage{
-      margin: 10% 0;
+    .sideMessage {
+      margin-top:90%; 
+      margin-left: 5%;
+      button {
+        left: 0%;
+      }
+      p{
+        font-size: 1.7rem;
+      }
     }
   }
 }
@@ -84,20 +86,22 @@
   .container {
     height: 170vh;
     flex-direction: column;
-    .content{
+    .content {
       margin-top: 15vh;
       p {
         font-size: 2.5rem;
         top: 3%;
       }
-      img {
-      }
     }
-    .sideMessage{
+    .sideMessage {
       margin: 10% 0;
       align-self: flex-start;
-      p{
+      p {
         font-size: 1.7rem;
+        text-align: center;
+      }
+      button {
+        left: 25%;
       }
     }
   }
@@ -105,30 +109,29 @@
 
 @media only screen and (max-width: 550px) {
   .container {
-    height: 170vh;
+    height: 120vh;
     flex-direction: column;
-    .content{
+    .content {
       margin-top: 15vh;
       height: fit-content;
       p {
         font-size: 6vw;
         top: 3%;
       }
-      img {
-      }
     }
-    .sideMessageContainer{
+    .sideMessageContainer {
       width: 100%;
     }
-    .sideMessage{
+    .sideMessage {
       margin: 10% auto;
       // align-self: flex-start;
       width: 65%;
-      p{
+      p {
         font-size: 1.4rem;
         margin: 0 auto;
-        // outline: 2px solid rgb(157, 253, 2);
-        // width: 100%;
+      }
+      button {
+        left: 28%;
       }
     }
   }

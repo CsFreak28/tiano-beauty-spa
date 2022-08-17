@@ -2,7 +2,6 @@
   background-color: #075432;
   min-height: 100vh;
   width: 100vw;
-  margin-top: 0;
   overflow: hidden;
   position: relative;
   li {
@@ -11,6 +10,7 @@
     background-color: black;
     list-style: none;
     position: absolute;
+    z-index: 0;
     left: 50%;
   }
   .displayImgContainer {
@@ -75,12 +75,104 @@
     margin-top: 5vh;
     text-align: center;
     font-size: 13px;
+    position: relative;
+    z-index: 1;
     color: rgb(216, 216, 216);
   }
-  .secondParagraph{
-    margin-top:5rem;
+  .secondParagraph {
+    margin-top: 5rem;
     font-size: 5rem;
     text-align: center;
     color: rgb(216, 216, 216);
+  }
+}
+
+@media (max-width: 1113px) {
+  .container {
+    .displayImgContainer {
+      .displayimg {
+        width: 12vw;
+      }
+    }
+  }
+}
+@media (max-width: 870px) {
+  .container {
+    .displayImgContainer {
+      .displayimg {
+        width: 14vw;
+        height: 150px;
+      }
+    }
+  }
+}
+@media (max-width: 450px) {
+  .container {
+    // margin-top: ;
+    li{
+      height: 100vh;
+    }
+    .displayImgContainer {
+      .displayimg {
+        width: 20vw;
+        height: 136px;
+      }
+      .img1 {
+      }
+      .img2 {
+        margin-left: 7vw;
+      }
+      .img3 {
+        margin-left: 7vw;
+      }
+      .img4 {
+        display: none;
+      }
+      .img5 {
+        display: none;
+      }
+      .img6 {
+      }
+      .img7 {
+        margin-right: 2vw;
+      }
+      .img8 {
+        margin-right: 3vw;
+      }
+    }
+    .shortParagraph{
+      font-size: 11px;
+      // background-color: rgba(255, 0, 0, 0.562);
+      margin-top: 50px;
+    }
+    .secondParagraph{
+      font-size: 3rem;
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .container {
+    margin-top: -4rem;
+    li{
+      height: 90vh;
+    }
+    .displayImgContainer {
+      .displayimg {
+        width: 20vw;
+        height: 120px;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    .displayImgContainer {
+      .displayimg {
+        width: 20vw;
+        height: 120px;
+      }
+    }
   }
 }

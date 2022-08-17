@@ -4,13 +4,8 @@ const AboutPageHero = () => {
   return (
     <div className={Styles.container}>
       {/* <img src={bgImg} alt="background image for about page" /> */}
-      <span className={Styles.introText}>About Us</span>
+      <p className={Styles.introText}>About Us</p>
     </div>
   );
 };
 export default AboutPageHero;
-
-export const AbsoluteDivCover = () => {
-  return <div className={Styles.relative}></div>;
-};
-

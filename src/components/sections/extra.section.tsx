@@ -1,4 +1,5 @@
 import Styles from "./extra.module.scss";
+import BookButton from "../bookComp/bookButton";
 import darkImage from "../../assets/images/dark image 1.jpg";
 const ExtraSection = () => {
   return (
@@ -19,6 +20,7 @@ const ExtraSection = () => {
             <span>recharged</span> <br /> and happy.
           </p>
           <button>BOOK NOW</button>
+          {/* <BookButton/> */}
         </div>
       </div>
     </div>

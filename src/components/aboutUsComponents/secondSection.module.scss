@@ -1,6 +1,6 @@
 .container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   .shortText {
     font-family: "helvetica_medium";
@@ -8,24 +8,41 @@
     color: rgb(122, 122, 122);
     text-align: center;
     left: 35%;
+    margin: 20px;
   }
-  p{
-    font-family: 'ogg_thin2';
+  p {
+    font-family: "ogg_thin2";
     font-size: 4rem;
     position: relative;
-    top: 15%;
+    margin: 5%;
+    // top: -15%;
     text-align: center;
-    span{
-        color: #075432;
+    span {
+      color: #075432;
     }
   }
   .topText {
-    position: absolute;
-    top: 0;
+    // position: absolute;
+    // top: 0;
   }
-  .bottomText{
-    position: absolute;
+  .bottomText {
+    // position: absolute;
     bottom: 3%;
     left: 40%;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    .shortText {
+    }
+    p {
+      font-size: 1.9rem;
+      width:100%;
+      margin-left: 0;
+      margin-right: 6%;
+      margin-bottom: 30%;
+      margin-top: 20%;
+    }
   }
 }

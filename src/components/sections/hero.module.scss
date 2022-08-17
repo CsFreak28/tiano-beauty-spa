@@ -9,6 +9,8 @@
   .bookButtonContainer {
     width: 100%;
     position: relative;
+    // outline: 2px solid black;
+    display: flex;
     left: 20%;
     .bookButton {
       width: 7rem;
@@ -43,14 +45,14 @@
   .heroImg {
     position: absolute;
     left: 10rem;
-    top: 5%;
+    top: 10%;
     z-index: 2;
     width: 50%;
   }
   .otherHeroImg {
     position: absolute;
     left: 7rem;
-    top: 4%;
+    top: 10%;
     width: 60%;
   }
   .imgHolder {
@@ -65,6 +67,9 @@
     .split {
       .copyText {
         font-size: 3rem;
+        .whitespace{
+          margin-left: 0.5rem;
+        }
       }
       .imgHolder {
         .heroImg {
@@ -124,38 +129,6 @@
   }
 }
 
-@media screen and (max-width: 300px) {
-  .heroContainer {
-    height: 120vh;
-    .split {
-      display: flex;
-      flex-direction: column-reverse;
-      position: relative;
-      .copyText {
-        font-size: 1.7rem;
-        width: 100%;
-        position: absolute;
-        top: 30%;
-        left: -10%;
-        // outline: 2px solid rgb(255, 3, 3);
-        // padding: auto;
-        text-align: center;
-        // margin-top: 50rem;
-      }
-      .imgHolder {
-        width: 100%;
-        .heroImg {
-          left: 20%;
-          width: 50%;
-        }
-        .otherHeroImg {
-          left: 20%;
-          width: 60%;
-        }
-      }
-    }
-  }
-}
 
 @media screen and (max-width: 460px) {
   .heroContainer {
@@ -186,7 +159,7 @@
     }
     .bookButtonContainer {
       width: 100%;
-      left: 30%;
+      left: 25%;
       padding-top: 30px;
       top: 50%;
       .bookButton {
@@ -196,35 +169,6 @@
   }
 }
 
-// @media screen and (max-width: 400px) {
-//   .heroContainer {
-//     height: 120vh;
-//     .split {
-//       display: flex;
-//       flex-direction: column-reverse;
-//       position: relative;
-//       .copyText {
-//         font-size: 2rem;
-//         width: 100%;
-//         position: absolute;
-//         top: 35%;
-//         left: 0%;
-//         text-align: center;
-//       }
-//       .imgHolder {
-//         width: 100%;
-//         .heroImg {
-//           left: 20%;
-//           width: 50%;
-//         }
-//         .otherHeroImg {
-//           left: 20%;
-//           width: 60%;
-//         }
-//       }
-//     }
-//   }
-// }
 
 @media screen and (max-width: 400px) {
   .heroContainer {
@@ -286,3 +230,36 @@
     }
   }
 }
+
+  @media screen and (max-width: 300px) {
+    .heroContainer {
+      height: 120vh;
+      .split {
+        display: flex;
+        flex-direction: column-reverse;
+        position: relative;
+        .copyText {
+          font-size: 1.7rem;
+          width: 100%;
+          position: absolute;
+          top: 30%;
+          left: -10%;
+          // outline: 2px solid rgb(255, 3, 3);
+          // padding: auto;
+          text-align: center;
+          // margin-top: 50rem;
+        }
+        .imgHolder {
+          width: 100%;
+          .heroImg {
+            left: 20%;
+            width: 50%;
+          }
+          .otherHeroImg {
+            left: 20%;
+            width: 60%;
+          }
+        }
+      }
+    }
+  }

@@ -1,15 +1,18 @@
 .container {
-  background-color: #075432;
-  height: 120vh;
+  background-color: #075433;
+  height: 130vh;
   font-family: "ogg_light";
   color: rgb(221, 219, 219);
   font-size: 6rem;
   position: relative;
   text-align: center;
+  overflow: hidden;
   .testimonialsCarousel {
     position: relative;
     width: 100vw;
+    margin-top: 2rem;
     height: 100%;
+    // background-color: rgba(255, 0, 0, 0.473);
   }
   .centerTestimonial {
     width: 20%;
@@ -36,37 +39,37 @@
     background: url("../../assets/images/testimonial2.jpg");
     background-size: cover;
     background-position: center center;
-    transform: translate(213%, 35%);
+    transform: translate(213%, 30%);
   }
   .secondTestimonial {
     background: url("../../assets/images/testimonial3.jpg");
     background-size: cover;
     background-position: center center;
-    transform: translate(100%, 60%);
+    transform: translate(100%, 30%);
   }
   .thirdTestimonial {
     background: url("../../assets/images/testimonial4.jpg");
     background-size: cover;
     background-position: center center;
-    transform: translate(-10%, 80%);
+    transform: translate(-10%, 30%);
   }
   .fourthTestimonial {
     background: url("../../assets/images/testimonial5.jpg");
     background-size: cover;
     background-position: center center;
-    transform: translate(535%, 35%);
+    transform: translate(535%, 30%);
   }
   .fifthTestimonial {
     background: url("../../assets/images/testimonial6.jpg");
     background-size: cover;
     background-position: center center;
-    transform: translate(645%, 60%);
+    transform: translate(645%, 30%);
   }
   .sixthTestimonial {
     background: url("../../assets/images/testimonial7.jpg");
     background-size: cover;
     background-position: center center;
-    transform: translate(755%, 80%);
+    transform: translate(755%, 30%);
   }
   .clientsTestimonial {
     position: absolute;
@@ -86,7 +89,6 @@
     }
     .centerTestimonial {
     }
-    
   }
 }
 
@@ -149,8 +151,9 @@
 }
 @media only screen and (max-width: 520px) {
   .container {
+    height: 90vh;
     .centerTestimonial {
-      height: 25%;
+      height: 35%;
       width: 30%;
       border-radius: 7px;
     }
@@ -182,7 +185,7 @@
     }
     .clientsTestimonial {
       position: absolute;
-      bottom: 50%;
+      bottom: 20%;
       font-family: "ogg_thin2";
       left: 20%;
       font-size: 5vw;
@@ -192,6 +195,7 @@
 
 @media only screen and (max-width: 450px) {
   .container {
+    margin-top: 2rem;
     .centerTestimonial {
       height: 25%;
       width: 30%;
@@ -207,10 +211,11 @@
     }
     .clientsTestimonial {
       position: absolute;
-      bottom: 50%;
+      bottom: 35%;
       font-family: "ogg_thin2";
-      left: 20%;
-      font-size: 5vw;
+      left: 0%;
+      font-size: 22px;
+      width: 100%;
     }
   }
 }

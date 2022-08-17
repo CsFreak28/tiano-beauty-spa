@@ -32,6 +32,29 @@
     color: black;
   }
 }
+.mobileNav{
+  height: 0vh;
+  width: 100vw;
+  background-color: #f3f3f3;
+  color: black;
+  position: absolute;
+  z-index: 10;
+  overflow: hidden;
+  top: 0px;
+  transition: 0.5s;
+  .innerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 43px;
+    height: 100%;
+    .navElement{
+      margin: 25px;
+      cursor: pointer;
+    }
+  }
+}
 body {
   font-family: "ogg_thin2";
   background-color: #f3f3f3;
@@ -44,8 +67,8 @@ body {
   left: -150%;
   right: -50%;
   bottom: -100%;
-  width: 500%;
-  height: 500vh;
+  width: 100vw;
+  height: 100vh;
   background: url("../assets/images/noise-transparent.png") transparent repeat 0
     0;
     z-index: -1;

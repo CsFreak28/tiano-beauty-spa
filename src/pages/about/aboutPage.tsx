@@ -6,12 +6,10 @@ import FifthSection from "../../components/aboutUsComponents/fifthSection";
 import SixthSection from "../../components/aboutUsComponents/sixthSection";
 import SeventhSection from "../../components/aboutUsComponents/seventhSection";
 import FooterSection from "../../components/sections/footer.section";
-import { AbsoluteDivCover } from "../../components/aboutUsComponents/aboutPageHero";
 function AboutPage() {
   return (
     <div>
       <AboutPageHero />
-      <AbsoluteDivCover/>
       <SecondSection />
       <ThirdSection/>
       <FourthSection/>

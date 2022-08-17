@@ -69,6 +69,7 @@ const HeroSection = () => {
           <span>...</span>
           <div className={Styles.bookButtonContainer}>
             <BookButton Styles={Styles} />
+            {/* <BookButton Styles={Styles} /> */}
           </div>
         </div>
         <div className={Styles.imgHolder}>

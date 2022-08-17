@@ -1,26 +1,48 @@
-.container{
-    font-family: 'ogg_thin2';
-    position: absolute;
-    background-repeat: no-repeat;
-    background: url('../../assets/images/aboutus.jpg');
-    background-position: center center;
-    width: 100vw;
-    overflow: hidden;
-    height: 100vh;
-    background-size: cover;
-    top: 0;
-    z-index: -1;
-    .introText{
-        position: absolute;
-        bottom: -7rem;
-        left: 2%;
-        // background-color: red;
-        font-size: 18rem;
+.container {
+  font-family: "ogg_thin2";
+  position: relative;
+  background-repeat: no-repeat;
+  background: url("../../assets/images/aboutus.jpg");
+  background-position: center center;
+  width: 100vw;
+  overflow: hidden;
+  height: 100vh;
+  background-size: cover;
+  top: 0;
+  z-index: -1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  .introText {
+    position: relative;
+    bottom: -17%;
+    left: -4%;
+    font-size: 18rem;
+  }
+}
+@media (max-width: 1113px) {
+  .container {
+    background-position: left top;
+    .introText {
+      font-size: 23vw;
+      bottom: -10%;
     }
+  }
 }
 
-.relative{
-    height: 95vh;
-    width: 100vw;
-    opacity: 0;
+@media (max-width: 700px) {
+  .container {
+    .introText {
+      font-size: 23vw;
+      bottom: -7%;
+    }
+  }
 }
+@media (max-width: 500px) {
+    .container {
+      .introText {
+        font-size: 23vw;
+        bottom: -5%;
+      }
+    }
+  }

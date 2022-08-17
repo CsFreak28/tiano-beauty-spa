@@ -12,3 +12,10 @@ authentication
 functionality
 animations
 
+
+
+todos
+bring our services closer to each other**
+reduce margin-top in email section and extra section**
+optimize and refactor the mobile navbar
+make about page responsive
