@@ -1,11 +1,11 @@
 .bookButton {
-  width: 7rem;
-  height: 2.4rem;
+  width: fit-content;
+  padding: 12px;
+  height: fit-content;
   font-family: "helvetica_medium";
   border: none;
   border-radius: 5px;
   background-color: #075432;
-  padding: 3px;
   cursor: pointer;
   color: white;
 }

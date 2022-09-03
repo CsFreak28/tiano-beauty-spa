@@ -29,7 +29,7 @@
     justify-content: space-between;
     .founderProfile {
       margin-inline: auto;
-      .founderImage{
+      .founderImage {
         margin: auto;
         width: 300px;
         height: 400px;
@@ -40,20 +40,54 @@
         background: url("../../assets/images/firstFounder\ \(1\).jpg");
         background-size: cover;
       }
-      .secondFounder{
-        background: url('../../assets/images/secondFounder\ \(1\).jpg');
+      .secondFounder {
+        background: url("../../assets/images/secondFounder\ \(1\).jpg");
         background-size: cover;
       }
-      .founderName{
+      .founderName {
         text-align: center;
         font-size: 2rem;
-        font-family: 'ogg_light';
+        font-family: "ogg_light";
       }
-      .founderDescription{
-        font-family: 'helvetica_medium';
+      .founderDescription {
+        font-family: "helvetica_medium";
         text-align: center;
         font-size: 13px;
-        color: #2F2F2F;
+        color: #2f2f2f;
+      }
+    }
+  }
+}
+@media (max-width: 730px) {
+  .container {
+    .founders {
+      .founderProfile {
+        .founderImage{
+          width: 35vw;
+          height: 40vw;
+        }
+        .founderName {
+          font-size: 1.5rem;
+        }
+        .founderDescription {
+          font-size: 11px;
+          padding: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:450px){
+  .container{
+    .founders{
+      flex-direction: column;
+      .founderProfile{
+        margin-bottom:40px;
+        .founderImage{
+          width: 40vw;
+          height: 30vh;
+        }
       }
     }
   }

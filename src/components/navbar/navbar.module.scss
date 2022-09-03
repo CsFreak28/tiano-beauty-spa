@@ -4,9 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // outline: 3px solid black;
-  position: absolute;
+  position: relative;
+  overflow: hidden;
   z-index: 20;
+  margin: 0;
   .authLinks {
     display: flex;
     p {

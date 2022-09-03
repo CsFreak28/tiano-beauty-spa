@@ -24,7 +24,7 @@ const OurServicesSection = () => {
         </p>
         <div className={Styles.imgsContainer}>
           <img src={TeethWhiteningImg} alt="body massage image" />
-          <img src={TeethWhiteningImg2} alt="body massage image" />
+          <img src={TeethWhiteningImg2} className = {Styles.firstImg} alt="body massage image" />
         </div>
       </div>
 

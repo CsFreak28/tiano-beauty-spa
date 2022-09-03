@@ -17,5 +17,10 @@ animations
 todos
 bring our services closer to each other**
 reduce margin-top in email section and extra section**
-optimize and refactor the mobile navbar
-make about page responsive
+optimize and refactor the mobile navbar**
+make about page responsive**
+
+
+dashboard greeting should be dynamic based on time 
+shift hero section more to the right
+tweak founder image in about section

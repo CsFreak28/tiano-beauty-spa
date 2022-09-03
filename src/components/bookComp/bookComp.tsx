@@ -28,7 +28,7 @@ const BookComp = () => {
           </p>
         </div>
       </div>
-      <BookButton/>
+      <BookButton text="BOOK NOW"/>
     </div>
   );
 };

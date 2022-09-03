@@ -1,6 +1,7 @@
 import Styles from "./navbar.module.scss";
 import { ReactComponent as LogoSvg } from "../../assets/svgs/logo.svg";
 import { Link } from "react-router-dom";
+import { auth } from "../../pages/auth/auth";
 const Navbar = ({
   mobileNav,
   random,
@@ -10,8 +11,6 @@ const Navbar = ({
   random: { current: HTMLDivElement };
   menuState: boolean;
 }) => {
-  console.log(menuState);
-  console.log("i have rendered");
   let hamburgerMenu = random;
   let menuIsOpened: boolean = false;
   function toggleHamburgerMenu(
@@ -30,17 +29,14 @@ const Navbar = ({
         middleLine.style.opacity = "0";
         firstLine.style.transform = "rotate(45deg) translateY(15px)";
         lastLine.style.transform = "rotate(-45deg) translateY(-15px)";
-        mobileNav.current.style.height = "100vh";
+        mobileNav.current.style.clipPath = "circle(82.8% at 57% 41%)";
         menuIsOpened = true;
         document.body.style.overflow = "hidden";
       } else {
         middleLine.style.opacity = "1";
         firstLine.style.transform = "rotate(0deg) translateY(0px)";
         lastLine.style.transform = "rotate(0deg) translateY(0px)";
-        mobileNav.current.style.height = "0vh";
-        // middleLine.style.margin = "0px";
-        // firstLine.style.margin = "0px";
-        // lastLine.style.margin = "0px";
+        mobileNav.current.style.clipPath = "circle(0.0% at 97% 4%)";
         menuIsOpened = false;
         document.body.style.overflowY = "scroll";
       }
@@ -49,8 +45,12 @@ const Navbar = ({
   return (
     <div className={Styles.container}>
       <div className={Styles.authLinks}>
-        <p>sign up</p>
-        <p>sign in</p>
+        <Link to="/auth/signUp">
+          <p>sign up</p>
+        </Link>
+        <Link to="/auth/signIn">
+          <p>sign in</p>
+        </Link>
       </div>
       <div className={Styles.logo}>
         <p>tiano</p>
@@ -64,7 +64,6 @@ const Navbar = ({
           <Link to={"/aboutus"}>
             <li>about us</li>
           </Link>
-          <li>our services</li>
         </ul>
       </div>
       <div

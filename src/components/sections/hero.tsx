@@ -3,11 +3,14 @@ import HeroImg from "../../assets/images/heroImg.png";
 import SecondHeroImg from "../../assets/images/otherHeroImg.png";
 import BookComp from "../bookComp/bookComp";
 import BookButton from "../bookComp/bookButton";
+import { NotNowButton } from "../bookComp/bookButton";
 const HeroSection = () => {
   return (
     <div className={Styles.heroContainer}>
       <div className={Styles.split}>
         <div className={Styles.copyText}>
+          <p>
+
           <span>r</span>
           <span>e</span>
           <span>l</span>
@@ -67,9 +70,10 @@ const HeroSection = () => {
           <span>l</span>
           <span>f</span>
           <span>...</span>
+          </p>
           <div className={Styles.bookButtonContainer}>
-            <BookButton Styles={Styles} />
-            {/* <BookButton Styles={Styles} /> */}
+            <NotNowButton Styles={Styles}/>
+            <BookButton Styles={Styles} text='BOOK NOW'/>
           </div>
         </div>
         <div className={Styles.imgHolder}>

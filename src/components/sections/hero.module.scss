@@ -2,16 +2,19 @@
   justify-content: space-between;
   display: flex;
   font-family: "ogg_thin2";
+  // overflow-x: scroll;
   // outline: 2px solid rgb(193, 224, 17);
   height: 100vh;
   width: 100vw;
   position: relative;
   .bookButtonContainer {
-    width: 100%;
-    position: relative;
-    // outline: 2px solid black;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    bottom: 10px;
     display: flex;
-    left: 20%;
+    // left: 20%;
+    right:-20%;
     .bookButton {
       width: 7rem;
       height: 2.4rem;
@@ -20,8 +23,21 @@
       border-radius: 5px;
       background-color: #075432;
       padding: 3px;
+      margin: 7px;
       cursor: pointer;
       color: white;
+      display: none;
+    }
+    .notNowButton{
+      width: 7rem;
+      height: 2.4rem;
+      font-family: "helvetica_medium";
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 3px;
+      margin: 7px;
+      cursor: pointer;
+      color: black;
       display: none;
     }
   }
@@ -44,20 +60,19 @@
   }
   .heroImg {
     position: absolute;
-    left: 10rem;
+    left: 11rem;
     top: 10%;
     z-index: 2;
-    width: 50%;
+    width: 40%;
   }
   .otherHeroImg {
     position: absolute;
-    left: 7rem;
+    left: 8rem;
     top: 10%;
-    width: 60%;
+    width: 50%;
   }
   .imgHolder {
     position: relative;
-    // outline: 2px solid rgb(25, 250, 145);
     width: 60%;
     height: 100%;
   }
@@ -97,10 +112,12 @@
   .heroContainer {
     height: 120vh;
     .bookButtonContainer {
-      width: 100%;
-      left: 35%;
-      top: 10%;
+      width: fit-content;
+      right: 28%;
       .bookButton {
+        display: block;
+      }
+      .notNowButton{
         display: block;
       }
     }
@@ -158,10 +175,7 @@
       }
     }
     .bookButtonContainer {
-      width: 100%;
-      left: 25%;
-      padding-top: 30px;
-      top: 50%;
+      right: 23%;
       .bookButton {
         display: block;
       }
@@ -186,7 +200,8 @@
         text-align: center;
       }
       .bookButtonContainer {
-        left: 25%;
+        // left: 25%;
+        right: 20%;
       }
     }
   }
@@ -220,10 +235,7 @@
       }
     }
     .bookButtonContainer {
-      width: 100%;
-      left: 15%;
-      top: 50%;
-      padding-top: 30px;
+      right: 12%;
       .bookButton {
         display: block;
       }

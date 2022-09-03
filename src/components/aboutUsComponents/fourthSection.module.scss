@@ -98,6 +98,9 @@
 }
 @media (max-width: 870px) {
   .container {
+    li{
+      height: 110vh;
+    }
     .displayImgContainer {
       .displayimg {
         width: 14vw;

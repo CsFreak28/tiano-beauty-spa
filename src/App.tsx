@@ -6,7 +6,10 @@ import { Route, Routes } from "react-router-dom";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import "./styles/App.scss";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import Authenticate from "./pages/auth/authenticate";
+import DashBoard from "./pages/dashboard/dashboard";
+import ProtectedRoutes from "./pages/auth/protectedRoutes";
+import { ProfileOverview } from "./pages/dashboard/dashboardComponents";
 function App() {
   let mobileNavRef = useRef<any>(null);
   let hamburgerMenu = useRef<any>(null);
@@ -24,25 +27,36 @@ function App() {
       middleLine.style.opacity = "1";
       firstLine.style.transform = "rotate(0deg) translateY(0px)";
       lastLine.style.transform = "rotate(0deg) translateY(0px)";
-      mobileNavRef.current.style.height = "0vh";
+      mobileNavRef.current.style.clipPath = "circle(0.0% at 97% 4%)";
       document.body.style.overflowY = "scroll";
       setMenuState((oldState) => !oldState);
     }
   }
+  const [userIsLoggedIn, setUserIsLoggedIn] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (visualViewport !== null) {
+      visualViewport.addEventListener("resize", (e) => {
+        if (visualViewport && visualViewport.width > 700) {
+          document.body.style.overflowY = "scroll";
+        }
+      });
+    }
+  }, []);
   return (
     <div className="App">
       <div className="background"></div>
       <div ref={mobileNavRef} className="mobileNav">
         <div className="innerContainer">
-          <Link to="/">
+          <Link to="/auth/signUp">
             <div className="navElement" onClick={removeMobileNavBar}>
               sign up
             </div>
           </Link>{" "}
-          <Link to="/">
+          <Link to="/auth/signIn">
             <div className="navElement" onClick={removeMobileNavBar}>
               sign in
-            </div>  
+            </div>
           </Link>
           <Link to="/">
             {" "}
@@ -52,11 +66,6 @@ function App() {
           </Link>
           <Link to="/aboutus" onClick={removeMobileNavBar}>
             <div className="navElement">about us</div>
-          </Link>
-          <Link to="/">
-            <div className="navElement" onClick={removeMobileNavBar}>
-              our services
-            </div>
           </Link>
         </div>
       </div>
@@ -68,6 +77,24 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/aboutus" element={<AboutPage />} />
+        <Route
+          path="/auth/:typeOfAuth"
+          element={<Authenticate />}
+        />
+        <Route element={<ProtectedRoutes />}>
+          <Route element={<DashBoard />}>
+            <Route
+              path="/auth/dashboard/profile"
+              element={<ProfileOverview />}
+            />
+          </Route>
+        </Route>
+        <Route
+          path="*"
+          element={(() => {
+            return <div style={{ fontSize: "50px" }}>page not found</div>;
+          })()}
+        ></Route>
       </Routes>
     </div>
   );

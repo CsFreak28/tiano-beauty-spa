@@ -1,0 +1,175 @@
+.userNameComp {
+  p {
+    font-size: 2.5rem;
+  }
+}
+.DashboardHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profileOverViewContainer {
+  width: 68%;
+  margin-top: 4%;
+  margin-left: 6%;
+  margin-right: 2%;
+  font-family: 'helvetica_medium';
+  .featuresFlexContainer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    .featuresInnerContainer {
+      width: 25%;
+    }
+  }
+}
+.featureComp {
+  border: 1px solid rgb(34, 34, 34);
+  padding: 20px;
+  border-radius: 7px;
+  background-color: white;
+  width: 25%;
+  position: relative;
+  .optionsIconContainer {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    cursor: pointer;
+  }
+  .featuresContainer {
+    .featureIconContainer {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+    }
+    p {
+      text-align: center;
+      margin: 12px 0px;
+    }
+    .heading {
+      font-size: 14px;
+    }
+    .subheading {
+      font-size: 11px;
+      color: rgb(24, 23, 23);
+    }
+  }
+}
+
+.dashboardNavBar {
+  background-color: #075432;
+  border-radius: 8px;
+  position: relative;
+  width: 4%;
+  height: 80vh;
+  .dashboardNavBarIconContainer {
+    display: flex;
+    margin: 3.5rem 0px;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .exitIcon {
+    position: absolute;
+    bottom: 2rem;
+    left: 0.5rem;
+  }
+}
+
+.extraDetailsContainer {
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  border: 1px solid black;
+  width: 25%;
+  height: 60vh;
+}
+
+.refferalComp {
+  position: relative;
+  background-color: white;
+  width: 100%;
+  margin-top: 1rem;
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 15px;
+  .optionsIconContainer {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    cursor: pointer;
+  }
+  .refferalData {
+    .compTitle {
+      font-size: 14px;
+    }
+    .refferalFlex {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      .dataAmount {
+        font-size: 2.1rem;
+      }
+      .percentageContainer {
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-left: 5px;
+        .percentage {
+          font-size: 13px;
+        }
+        .positiveResultText {
+          color: green;
+        }
+        .negativeResultText{
+            color: red;
+        }
+      }
+      .positiveResult {
+        background-color: rgba(0, 128, 0, 0.562);
+      }
+      .negativeResult{
+        background-color: rgba(255, 0, 0, 0.644);
+      }
+    }
+  }
+}
+
+
+.discountData{
+  width: 54%;
+  position: relative;
+  background-image: linear-gradient(#0754339d,white);
+  border-radius: 12px;
+  border: 1px solid black;
+  margin-top: 1rem;
+  padding: 15px;
+  .optionsIconContainer {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    cursor: pointer;
+  }
+  .discountTitle{
+    display: flex;
+    width: fit-content;
+    font-size: 1.2rem;
+  }
+  .middleLine{
+    width: 94%;
+    height: 1px;
+    background-color: rgb(88, 88, 88);
+    list-style: none;
+    position: absolute;
+    top: 50%;
+  }
+  .discountDetails{
+    position: absolute;
+    bottom: 18%;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    .discountNumber{
+      font-size: 1.3rem;
+      text-align: center;
+    }
+  }
+}
