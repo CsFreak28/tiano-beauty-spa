@@ -12,8 +12,7 @@
   }
   .servicesContainer {
     position: absolute;
-    width: 30%;
-    // outline: 2px solid rgb(255, 5, 5);
+    width: 25%;
     height: 400px;
 
     .serviceTitle {
@@ -24,7 +23,7 @@
       text-align: center;
     }
     .firstImg{
-      left: 5%;
+      left: 3%;
     }
     .imgsContainer {
       position: relative;
@@ -45,22 +44,22 @@
   
   }
   .firstContainer {
-    transform: translate(125%, 10%);
+    transform: translate(145%, 10%);
   }
   .secondContainer {
     transform: translate(12%, 75%);
   }
   .thirdContainer {
-    transform: translate(225%, 75%);
+    transform: translate(265%, 75%);
   }
   .fourthContainer {
-    transform: translate(115%, 150%);
+    transform: translate(145%, 150%);
   }
   .fifthContainer {
-    transform: translate(12%, 225%);
+    transform: translate(12%, 235%);
   }
   .sixthContainer {
-    transform: translate(210%, 245%);
+    transform: translate(265%, 235%);
   }
 
   .translateUp {

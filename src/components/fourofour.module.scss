@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+  .innerDiv{
+  }
+  .mainText {
+    font-size: 25vw;
+    font-family: "helvetica_medium";
+  }
+  svg {
+    transform: translateY(-10px);
+    fill: #075432;
+    scale: 9;
+  }
+  .secondaryText{
+    font-size: 1.8vw;
+    text-align: center;
+    font-family: 'helvetica_medium';
+  }
+}

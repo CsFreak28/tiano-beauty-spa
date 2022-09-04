@@ -18,7 +18,7 @@ import { ReactComponent as ReplyIcon } from "../../assets/svgs/replyIcon.svg";
 import { ReactComponent as CheckMarkIcon } from "../../assets/svgs/secondCheckMark.svg";
 import { ReactComponent as TrashCanIcon } from "../../assets/svgs/trashcan.svg";
 import { ReactComponent as ReScheduleIcon } from "../../assets/svgs/redoIcon.svg";
-
+import { useRef } from "react";
 import UserProfilePicture from "../../assets/images/userProfPic.png";
 import { useNavigate, useOutletContext } from "react-router-dom";
 export const ProfileOverview = () => {
@@ -202,8 +202,9 @@ export const DashboardNavBar = () => {
     <div className={Styles.dashboardNavBar}>
       <div
         className={Styles.dashboardNavBarIconContainer}
-        onClick={() => {
+        onClick={(e) => {
           navigate("/auth/dashboard/profile");
+          console.log(e.clientY);
         }}
       >
         <ProfileIcon />
@@ -229,6 +230,7 @@ export const DashboardNavBar = () => {
       >
         <ExitIcon />
       </div>
+      <div className={Styles.pageIndicator}></div>
     </div>
   );
 };

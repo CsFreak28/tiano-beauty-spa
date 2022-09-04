@@ -72,6 +72,17 @@
     position: absolute;
     bottom: 2rem;
     left: 0.5rem;
+    // transform: translate(30%, 40%);
+  }
+  .pageIndicator{
+    background-color: white;
+    width: 3px;
+    height: 40px;
+    border-radius: 50px;
+    position: absolute;
+    top: 7%;
+    transition: all 0.5s;
+    right: 4%;
   }
 }
 

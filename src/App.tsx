@@ -10,6 +10,7 @@ import Authenticate from "./pages/auth/authenticate";
 import DashBoard from "./pages/dashboard/dashboard";
 import ProtectedRoutes from "./pages/auth/protectedRoutes";
 import { SettingsPage } from "./pages/dashboard/dashboardComponents2";
+import { FourOFourPage } from "./components/404Page";
 import {
   ProfileOverview,
   NotficationPage,
@@ -99,9 +100,7 @@ function App() {
         </Route>
         <Route
           path="*"
-          element={(() => {
-            return <div style={{ fontSize: "50px" }}>page not found</div>;
-          })()}
+          element={<FourOFourPage/>}
         ></Route>
       </Routes>
     </div>
