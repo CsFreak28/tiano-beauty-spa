@@ -7,10 +7,20 @@ import { ReactComponent as LastSessionIcon } from "../../assets/svgs/lastsession
 import { ReactComponent as SettingsIcon } from "../../assets/svgs/settingsIcon.svg";
 import { ReactComponent as ProfileIcon } from "../../assets/svgs/profileIcon.svg";
 import { ReactComponent as NotificationIcon } from "../../assets/svgs/notificationIcon.svg";
+import { ReactComponent as ExtraNotificationIcon } from "../../assets/svgs/extraNotificationIcon.svg";
 import { ReactComponent as ExitIcon } from "../../assets/svgs/exitIcon.svg";
 import { ReactComponent as WRefIcon } from "../../assets/svgs/wRefIcon.svg";
 import { ReactComponent as WoutRefIcon } from "../../assets/svgs/woutRefIcon.svg";
-import { useOutletContext } from "react-router-dom";
+import { ReactComponent as MsgIcon } from "../../assets/svgs/msgIcon.svg";
+import { ReactComponent as CalendarIcon } from "../../assets/svgs/calendarIcon.svg";
+import { ReactComponent as DropdownIcon } from "../../assets/svgs/dropdown.svg";
+import { ReactComponent as ReplyIcon } from "../../assets/svgs/replyIcon.svg";
+import { ReactComponent as CheckMarkIcon } from "../../assets/svgs/secondCheckMark.svg";
+import { ReactComponent as TrashCanIcon } from "../../assets/svgs/trashcan.svg";
+import { ReactComponent as ReScheduleIcon } from "../../assets/svgs/redoIcon.svg";
+
+import UserProfilePicture from "../../assets/images/userProfPic.png";
+import { useNavigate, useOutletContext } from "react-router-dom";
 export const ProfileOverview = () => {
   return (
     <div className={Styles.profileOverViewContainer}>
@@ -57,6 +67,87 @@ export const ProfileOverview = () => {
     </div>
   );
 };
+
+export const NotficationPage = () => {
+  return (
+    <div className={Styles.notificationPage}>
+      <p className={Styles.pageTitle}>My Notifications</p>
+      <div className={Styles.notificationsContainer}>
+        <div className={Styles.notification}>
+          <div className={Styles.titleFlex}>
+            <p className={Styles.notificationTitle}>successful re-schedule</p>
+            <p className={Styles.timeStamp}>5 mins ago</p>
+          </div>
+          <p className={Styles.notificationMessage}>
+            your appointment re-schedule was successful.
+          </p>
+          <div className={Styles.actions}>
+            <div className={Styles.buttonsContainer}>
+              <div className={Styles.markButton}>mark as seen</div>
+              <div className={Styles.otherActionButton}>
+                reply <ReplyIcon />
+              </div>
+            </div>
+            <div className={Styles.checkMark}>
+              <CheckMarkIcon />
+            </div>
+          </div>
+        </div>
+        <div className={Styles.notification}>
+          <div className={Styles.titleFlex}>
+            <p className={Styles.notificationTitle}>appointment booked</p>
+            <p className={Styles.timeStamp}>23 mins ago</p>
+          </div>
+          <p className={Styles.notificationMessage}>
+            your appointment scheduling was successful.
+          </p>
+          <div className={Styles.actions}>
+            <div className={Styles.buttonsContainer}>
+              <div className={Styles.markButton}>mark as seen</div>
+              <div className={Styles.otherActionButton}>
+                reply <ReplyIcon />
+              </div>
+            </div>
+            <div className={Styles.checkMark}>
+              <CheckMarkIcon />
+            </div>
+          </div>
+        </div>
+        <div className={Styles.notification}>
+          <div className={Styles.titleFlex}>
+            <p
+              className={Styles.notificationTitle}
+              style={{
+                color: "red",
+              }}
+            >
+              appointment was cancelled
+            </p>
+            <p className={Styles.timeStamp}>5 mins ago</p>
+          </div>
+          <p className={Styles.notificationMessage}>
+            we were notified recently to cancel your appointment.
+          </p>
+          <div className={Styles.actions}>
+            <div className={Styles.buttonsContainer}>
+              <div className={Styles.markButton}>mark as seen</div>
+              <div className={Styles.otherActionButton}>
+                re-schedule <ReScheduleIcon />
+              </div>
+            </div>
+            <div className={Styles.checkMark}>
+              <CheckMarkIcon />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={Styles.trashCanContainer}>
+        <TrashCanIcon />
+      </div>
+    </div>
+  );
+};
+
 const UserNameComp = (props: { name: string }) => {
   return (
     <div className={Styles.userNameComp}>
@@ -94,10 +185,7 @@ const FeatureComp = (props: {
         <OptionsIcon />
       </div>
       <div className={Styles.featuresContainer}>
-        <div className={Styles.featureIconContainer}>
-          {/* <NextApptIcon /> */}
-          {<props.icon />}
-        </div>
+        <div className={Styles.featureIconContainer}>{<props.icon />}</div>
         <p className={Styles.heading}>{props.heading}</p>
         <p className={Styles.subheading}>
           {props.subHeading} <br />
@@ -109,15 +197,31 @@ const FeatureComp = (props: {
 };
 
 export const DashboardNavBar = () => {
+  const navigate = useNavigate();
   return (
     <div className={Styles.dashboardNavBar}>
-      <div className={Styles.dashboardNavBarIconContainer}>
+      <div
+        className={Styles.dashboardNavBarIconContainer}
+        onClick={() => {
+          navigate("/auth/dashboard/profile");
+        }}
+      >
         <ProfileIcon />
       </div>
-      <div className={Styles.dashboardNavBarIconContainer}>
+      <div
+        className={Styles.dashboardNavBarIconContainer}
+        onClick={() => {
+          navigate("/auth/dashboard/notifications");
+        }}
+      >
         <NotificationIcon />
       </div>
-      <div className={Styles.dashboardNavBarIconContainer}>
+      <div
+        className={Styles.dashboardNavBarIconContainer}
+        onClick={() => {
+          navigate("/auth/dashboard/settings");
+        }}
+      >
         <SettingsIcon />
       </div>
       <div
@@ -130,9 +234,39 @@ export const DashboardNavBar = () => {
 };
 
 export const ExtraDetails = () => {
-  return <div className={Styles.extraDetailsContainer}>
-    
-  </div>;
+  return (
+    <div className={Styles.extraDetailsContainer}>
+      <div className={Styles.iconFlex}>
+        <div className={Styles.innerIconFlex}>
+          <div>
+            <CalendarIcon />
+          </div>
+          <div>
+            <ExtraNotificationIcon />
+          </div>
+          <div>
+            <MsgIcon />
+          </div>
+        </div>
+        <div className={Styles.profileImgContainer}>
+          <img src={UserProfilePicture} alt="" />
+          <DropdownIcon />
+        </div>
+      </div>
+      <div className={Styles.extraDetailsInnerContainer}>
+        <p className={Styles.primaryText}>Next appointment status</p>
+        <p className={Styles.secondaryText}>in progress</p>
+        <div className={Styles.progressBarContainer}>
+          <div className={Styles.mainProgressBar}></div>
+        </div>
+        <p className={Styles.primaryText}>Remaining 3 days</p>
+        <p className={Styles.secondaryText}>
+          to your teeth whitening appointment
+        </p>
+        <div className={Styles.viewStatus}>view status</div>
+      </div>
+    </div>
+  );
 };
 
 const RefferalsDetail = (props: {
@@ -204,5 +338,3 @@ const DiscountData = () => {
     </div>
   );
 };
-
-

@@ -9,7 +9,11 @@ import "./styles/App.scss";
 import Authenticate from "./pages/auth/authenticate";
 import DashBoard from "./pages/dashboard/dashboard";
 import ProtectedRoutes from "./pages/auth/protectedRoutes";
-import { ProfileOverview } from "./pages/dashboard/dashboardComponents";
+import { SettingsPage } from "./pages/dashboard/dashboardComponents2";
+import {
+  ProfileOverview,
+  NotficationPage,
+} from "./pages/dashboard/dashboardComponents";
 function App() {
   let mobileNavRef = useRef<any>(null);
   let hamburgerMenu = useRef<any>(null);
@@ -32,7 +36,6 @@ function App() {
       setMenuState((oldState) => !oldState);
     }
   }
-  const [userIsLoggedIn, setUserIsLoggedIn] = useState<boolean>(false);
 
   useEffect(() => {
     if (visualViewport !== null) {
@@ -77,15 +80,20 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/aboutus" element={<AboutPage />} />
-        <Route
-          path="/auth/:typeOfAuth"
-          element={<Authenticate />}
-        />
+        <Route path="/auth/:typeOfAuth" element={<Authenticate />} />
         <Route element={<ProtectedRoutes />}>
           <Route element={<DashBoard />}>
             <Route
               path="/auth/dashboard/profile"
               element={<ProfileOverview />}
+            />
+            <Route
+              path="/auth/dashboard/notifications"
+              element={<NotficationPage />}
+            />
+            <Route
+              path="/auth/dashboard/settings"
+              element={<SettingsPage />}
             />
           </Route>
         </Route>

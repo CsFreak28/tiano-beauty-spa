@@ -22,5 +22,11 @@ make about page responsive**
 
 
 dashboard greeting should be dynamic based on time 
+dashboard backend functionality
+background grain effect adjustment
 shift hero section more to the right
 tweak founder image in about section
+add chat page
+notifications text expanding...
+notifications drag and drop in trash can
+404 page

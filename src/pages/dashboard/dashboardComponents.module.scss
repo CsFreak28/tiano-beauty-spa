@@ -13,7 +13,7 @@
   margin-top: 4%;
   margin-left: 6%;
   margin-right: 2%;
-  font-family: 'helvetica_medium';
+  font-family: "helvetica_medium";
   .featuresFlexContainer {
     display: flex;
     justify-content: center;
@@ -64,7 +64,7 @@
   height: 80vh;
   .dashboardNavBarIconContainer {
     display: flex;
-    margin: 3.5rem 0px;
+    margin: 3rem 0px;
     justify-content: center;
     cursor: pointer;
   }
@@ -81,6 +81,63 @@
   border: 1px solid black;
   width: 25%;
   height: 60vh;
+  font-family: "helvetica_medium";
+  padding: 1rem 1.5rem;
+  .iconFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .innerIconFlex {
+      display: flex;
+      gap: 15px;
+    }
+    .profileImgContainer {
+      // background-color: red;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+  }
+  .extraDetailsInnerContainer {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    .primaryText {
+      margin: 10px 0px;
+      font-size: 13px;
+    }
+    .secondaryText {
+      color: rgb(54, 54, 54);
+      font-size: 12px;
+      margin: 10px 0px;
+    }
+    .viewStatus {
+      background-color: #075432;
+      color: #f3f3f3;
+      font-size: 14px;
+      width: 80%;
+      padding: 0.5rem;
+      text-align: center;
+      border-radius: 8px;
+      margin: 1rem 0rem;
+    }
+    .progressBarContainer {
+      width: 80%;
+      background-color: #acabab;
+      height: 1rem;
+      border-radius: 50px;
+      position: relative;
+      .mainProgressBar {
+        position: absolute;
+        width: 74%;
+        background-color: #075432;
+        height: 100%;
+        border-radius: 50px;
+      }
+    }
+  }
 }
 
 .refferalComp {
@@ -119,25 +176,24 @@
         .positiveResultText {
           color: green;
         }
-        .negativeResultText{
-            color: red;
+        .negativeResultText {
+          color: red;
         }
       }
       .positiveResult {
         background-color: rgba(0, 128, 0, 0.562);
       }
-      .negativeResult{
+      .negativeResult {
         background-color: rgba(255, 0, 0, 0.644);
       }
     }
   }
 }
 
-
-.discountData{
+.discountData {
   width: 54%;
   position: relative;
-  background-image: linear-gradient(#0754339d,white);
+  background-image: linear-gradient(#0754339d, white);
   border-radius: 12px;
   border: 1px solid black;
   margin-top: 1rem;
@@ -148,12 +204,12 @@
     top: 10px;
     cursor: pointer;
   }
-  .discountTitle{
+  .discountTitle {
     display: flex;
     width: fit-content;
     font-size: 1.2rem;
   }
-  .middleLine{
+  .middleLine {
     width: 94%;
     height: 1px;
     background-color: rgb(88, 88, 88);
@@ -161,15 +217,107 @@
     position: absolute;
     top: 50%;
   }
-  .discountDetails{
+  .discountDetails {
     position: absolute;
     bottom: 18%;
     display: flex;
     width: 90%;
     justify-content: space-between;
-    .discountNumber{
+    .discountNumber {
       font-size: 1.3rem;
       text-align: center;
     }
+  }
+}
+
+.notificationPage {
+  position: relative;
+  width: 68%;
+  height: 30rem;
+  margin-top: 4%;
+  margin-left: 6%;
+  margin-right: 2%;
+  font-family: "helvetica_medium";
+  background-color: #D9D9D9;
+  padding: 20px;
+  border-radius: 15px;
+  overflow-y: scroll;
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+  .notificationsContainer {
+    margin-top: 2.4rem;
+    .notification {
+      background-color: white;
+      padding: 15px 30px;
+      width: 60%;
+      border-radius: 10px;
+      border: 1px solid black;
+      position:relative;
+      margin-top: 2rem;
+      .titleFlex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .notificationTitle {
+          color: #075432;
+        }
+        .timeStamp {
+          font-size: 12px;
+          color: rgb(82, 82, 82);
+        }
+      }
+      .notificationMessage {
+        font-size: 14px;
+        cursor: pointer;
+        width: 70%;
+        margin-top: 0.7rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .buttonsContainer {
+          display: flex;
+          gap: 13px;
+          font-size: 12px;
+          align-items: center;
+          margin-top: 1rem;
+          .markButton {
+            background-color: #07543388;
+            color: #075432;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          .otherActionButton {
+            background-color: #829606;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            gap: 3px;
+          }
+        }
+        .checkMark {
+          justify-self: end;
+          position: absolute;
+          bottom: 12%;
+          right: 7%;
+        }
+      }
+    }
+  }
+  .trashCanContainer{
+    position: sticky;
+    display: flex;
+    justify-content: end;
+    bottom: 6%;
+    right: 5%;
+    cursor: pointer;
   }
 }
