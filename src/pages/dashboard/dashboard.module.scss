@@ -1,12 +1,17 @@
 .dashboardContainer {
-  overflow: hidden;
   min-height: 100vh;
   position: relative;
   padding: 10px 3rem;
-  .pageLayoutFlex{
+  .pageLayoutFlex {
     display: flex;
     margin-top: 2rem;
     width: 100%;
-    // background-color: rgba(187, 255, 0, 0.438);
+  }
+}
+@media screen and (max-width: 800px) {
+  .dashboardContainer {
+    padding: 10px 1rem;
+    .pageLayoutFlex {
+    }
   }
 }

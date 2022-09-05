@@ -24,45 +24,47 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 export const ProfileOverview = () => {
   return (
     <div className={Styles.profileOverViewContainer}>
-      <div className={Styles.featuresFlexContainer}>
-        <FeatureComp
-          heading="August 1st 2022"
-          subHeading="Your next"
-          underHeading="appointment"
-          icon={NextApptIcon}
-          optionsIconFunctionality={() => true}
-        />
-        <FeatureComp
-          heading="July 1st 2022"
-          subHeading="Your last"
-          underHeading="appointment"
-          icon={LastApptIcon}
-          optionsIconFunctionality={() => true}
-        />
-        <FeatureComp
-          heading="Butt Enlargement"
-          subHeading="Your last"
-          underHeading="spa session activity"
-          icon={LastSessionIcon}
-          optionsIconFunctionality={() => true}
-        />
-      </div>
-      <div className={Styles.featuresFlexContainer}>
-        <div className={Styles.featuresInnerContainer}>
-          <RefferalsDetail
-            compTitle="Number of refferals"
-            dataAmount="12"
-            percentage={10}
-            progressStatus={true}
+      <div className={Styles.responsiveFlex}>
+        <div className={Styles.featuresFlexContainer}>
+          <FeatureComp
+            heading="August 1st 2022"
+            subHeading="Your next"
+            underHeading="appointment"
+            icon={NextApptIcon}
+            optionsIconFunctionality={() => true}
           />
-          <RefferalsDetail
-            compTitle="Active refferals"
-            dataAmount="08"
-            percentage={4}
-            progressStatus={false}
+          <FeatureComp
+            heading="July 1st 2022"
+            subHeading="Your last"
+            underHeading="appointment"
+            icon={LastApptIcon}
+            optionsIconFunctionality={() => true}
+          />
+          <FeatureComp
+            heading="Butt Enlargement"
+            subHeading="Your last"
+            underHeading="spa session activity"
+            icon={LastSessionIcon}
+            optionsIconFunctionality={() => true}
           />
         </div>
-        <DiscountData />
+        <div className={Styles.featuresFlexContainer}>
+          <div className={Styles.featuresInnerContainer}>
+            <RefferalsDetail
+              compTitle="Number of refferals"
+              dataAmount="12"
+              percentage={10}
+              progressStatus={true}
+            />
+            <RefferalsDetail
+              compTitle="Active refferals"
+              dataAmount="08"
+              percentage={4}
+              progressStatus={false}
+            />
+          </div>
+          <DiscountData />
+        </div>
       </div>
     </div>
   );
@@ -322,14 +324,14 @@ const DiscountData = () => {
       </div>
       <li className={Styles.middleLine}></li>
       <div className={Styles.discountDetails}>
-        <div>
+        <div className={Styles.numberContainer}>
           <p>with refferals</p>
           <p className={Styles.discountNumber}>
             <WRefIcon />
             42%
           </p>
         </div>
-        <div>
+        <div className={Styles.numberContainer}>
           <p>without refferals</p>
           <p className={Styles.discountNumber}>
             <WoutRefIcon />
