@@ -4,6 +4,7 @@ import SecondHeroImg from "../../assets/images/otherHeroImg.png";
 import BookComp from "../bookComp/bookComp";
 import BookButton from "../bookComp/bookButton";
 import { NotNowButton } from "../bookComp/bookButton";
+import { DatePick } from "../bookComp/datePick";
 const HeroSection = () => {
   return (
     <div className={Styles.heroContainer}>

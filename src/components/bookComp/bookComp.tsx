@@ -1,7 +1,9 @@
 import Styles from "./bookComp.module.scss";
 import BookButton from "./bookButton";
 import { ReactComponent as BookArrow } from "../../assets/svgs/bookArrow.svg";
+import { DatePick } from "./datePick";
 const BookComp = () => {
+  
   return (
     <div className={Styles.bookContainer}>
       <div className={Styles.bookElement}>

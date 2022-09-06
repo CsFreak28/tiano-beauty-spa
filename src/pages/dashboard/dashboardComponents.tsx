@@ -17,6 +17,7 @@ import { ReactComponent as DropdownIcon } from "../../assets/svgs/dropdown.svg";
 import { ReactComponent as ReplyIcon } from "../../assets/svgs/replyIcon.svg";
 import { ReactComponent as CheckMarkIcon } from "../../assets/svgs/secondCheckMark.svg";
 import { ReactComponent as TrashCanIcon } from "../../assets/svgs/trashcan.svg";
+import { toggleExpandParagraph } from "../helperFunctions";
 import { ReactComponent as ReScheduleIcon } from "../../assets/svgs/redoIcon.svg";
 import { useRef } from "react";
 import UserProfilePicture from "../../assets/images/userProfPic.png";
@@ -70,6 +71,49 @@ export const ProfileOverview = () => {
   );
 };
 
+const notification = (props: {
+  notificationTitle: string;
+  notificationStatus: boolean;
+  notificationMessage: string;
+  timeMessageArrived: string;
+  otherButtonType: string;
+}) => {
+  return (
+    <div className={Styles.notification}>
+      <div className={Styles.optionsIconContainer}>
+        <OptionsIcon />
+      </div>
+      <div className={Styles.titleFlex}>
+        <p
+          className={Styles.notificationTitle}
+          style={{
+            color: props.notificationStatus ? "" : "red",
+          }}
+        >
+          {props.notificationTitle}
+        </p>
+        <p className={Styles.timeStamp}>{props.timeMessageArrived}</p>
+      </div>
+      <p className={Styles.notificationMessage}>{props.notificationMessage}</p>
+      <div className={Styles.actions}>
+        <div className={Styles.buttonsContainer}>
+          <div className={Styles.markButton}>mark as seen</div>
+          <div className={Styles.otherActionButton}>
+            reply{" "}
+            {props.otherButtonType == "reply" ? (
+              <ReplyIcon />
+            ) : (
+              <ReScheduleIcon />
+            )}
+          </div>
+        </div>
+        <div className={Styles.checkMark}>
+          <CheckMarkIcon />
+        </div>
+      </div>
+    </div>
+  );
+};
 export const NotficationPage = () => {
   return (
     <div className={Styles.notificationPage}>

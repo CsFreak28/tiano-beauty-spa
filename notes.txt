@@ -19,18 +19,20 @@ bring our services closer to each other**
 reduce margin-top in email section and extra section**
 optimize and refactor the mobile navbar**
 make about page responsive**
+shift hero section more to the right**
+404 page**
+footer section in sign up and sign in page**
+tweak founder image in about section**
+
+
 
 
 dashboard greeting should be dynamic based on time 
 dashboard backend functionality
-footer section in sign up and sign in page**
 background grain effect adjustment
-shift hero section more to the right**
-tweak founder image in about section**
 add chat page
 notifications text expanding...
 notifications drag and drop in trash can
-404 page**
 change overview icon
 make the navbar sticky
 

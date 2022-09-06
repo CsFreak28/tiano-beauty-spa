@@ -11,7 +11,6 @@ import DashBoard from "./pages/dashboard/dashboard";
 import ProtectedRoutes from "./pages/auth/protectedRoutes";
 import { SettingsPage } from "./pages/dashboard/dashboardComponents2";
 import { FourOFourPage } from "./components/404Page";
-import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import {
   ProfileOverview,
   NotficationPage,
