@@ -76,6 +76,9 @@ export const NotficationPage = () => {
       <p className={Styles.pageTitle}>My Notifications</p>
       <div className={Styles.notificationsContainer}>
         <div className={Styles.notification}>
+          <div className={Styles.optionsIconContainer}>
+            <OptionsIcon />
+          </div>
           <div className={Styles.titleFlex}>
             <p className={Styles.notificationTitle}>successful re-schedule</p>
             <p className={Styles.timeStamp}>5 mins ago</p>
@@ -96,6 +99,9 @@ export const NotficationPage = () => {
           </div>
         </div>
         <div className={Styles.notification}>
+          <div className={Styles.optionsIconContainer}>
+            <OptionsIcon />
+          </div>
           <div className={Styles.titleFlex}>
             <p className={Styles.notificationTitle}>appointment booked</p>
             <p className={Styles.timeStamp}>23 mins ago</p>
@@ -116,6 +122,9 @@ export const NotficationPage = () => {
           </div>
         </div>
         <div className={Styles.notification}>
+          <div className={Styles.optionsIconContainer}>
+            <OptionsIcon />
+          </div>
           <div className={Styles.titleFlex}>
             <p
               className={Styles.notificationTitle}

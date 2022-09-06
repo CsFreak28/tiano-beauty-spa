@@ -31,3 +31,10 @@ add chat page
 notifications text expanding...
 notifications drag and drop in trash can
 404 page**
+change overview icon
+make the navbar sticky
+
+
+problems and issues
+responsive design doesnt look good and work well on iphone
+notifications not scrolling in iphone

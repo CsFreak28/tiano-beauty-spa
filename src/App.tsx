@@ -11,6 +11,7 @@ import DashBoard from "./pages/dashboard/dashboard";
 import ProtectedRoutes from "./pages/auth/protectedRoutes";
 import { SettingsPage } from "./pages/dashboard/dashboardComponents2";
 import { FourOFourPage } from "./components/404Page";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import {
   ProfileOverview,
   NotficationPage,
@@ -49,7 +50,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <div className="background"></div>
+      {/* <div className="background"></div> */}
       <div ref={mobileNavRef} className="mobileNav">
         <div className="innerContainer">
           <Link to="/auth/signUp">
@@ -92,16 +93,10 @@ function App() {
               path="/auth/dashboard/notifications"
               element={<NotficationPage />}
             />
-            <Route
-              path="/auth/dashboard/settings"
-              element={<SettingsPage />}
-            />
+            <Route path="/auth/dashboard/settings" element={<SettingsPage />} />
           </Route>
         </Route>
-        <Route
-          path="*"
-          element={<FourOFourPage/>}
-        ></Route>
+        <Route path="*" element={<FourOFourPage />}></Route>
       </Routes>
     </div>
   );

@@ -63,7 +63,7 @@
   position: relative;
   width: 4%;
   height: 80vh;
-  svg{
+  svg {
     fill: white;
   }
   .dashboardNavBarIconContainer {
@@ -272,6 +272,13 @@
       border: 1px solid black;
       position: relative;
       margin-top: 2rem;
+      .optionsIconContainer {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        cursor: pointer;
+        display: none;
+      }
       .titleFlex {
         display: flex;
         align-items: center;
@@ -332,7 +339,7 @@
   .trashCanContainer {
     position: sticky;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     bottom: 6%;
     right: 5%;
     cursor: pointer;
@@ -345,6 +352,61 @@
   }
   .dashboardNavBar {
     width: 6%;
+  }
+  .notificationPage {
+    .notificationsContainer {
+      .notification {
+        width: 80%;
+      }
+    }
+  }
+}
+@media (max-width: 650px) {
+  .profileOverViewContainer {
+    margin-left: 1%;
+  }
+  .dashboardNavBar {
+    width: 6%;
+  }
+  .notificationPage {
+    width: 90%;
+    .notificationsContainer {
+      .notification {
+        width: 90%;
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .profileOverViewContainer {
+    margin-left: 1%;
+  }
+  .dashboardNavBar {
+    width: 6%;
+  }
+  .notificationPage {
+    width: 100%;
+    .notificationsContainer {
+      .notification {
+        width: 100%;
+        .optionsIconContainer{
+          display: block;
+        }
+        .titleFlex {
+          .notificationTitle {
+            font-size: 4vw;
+          }
+        }
+        .actions {
+          .buttonsContainer {
+            // flex-direction: column-reverse;
+            .markButton {
+              display: none;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -397,7 +459,7 @@
   }
 }
 
-@media (max-width: 970px) {
+@media (max-width: 1010px) {
   .extraDetailsContainer {
     width: 30%;
     height: 50%;
@@ -430,7 +492,8 @@
     margin-left: 1%;
     width: 100%;
     .featuresFlexContainer {
-      flex-direction: column;
+      // flex-direction: column;
+      flex-wrap: wrap;
       .featuresInnerContainer {
         width: 100%;
       }
@@ -441,13 +504,13 @@
     width: 90%;
     height: 50px;
     padding: 15px 0px;
-    z-index: 20;
+    z-index: 15;
     top: 90%;
     border-radius: 100px;
     display: flex;
     justify-content: space-around;
     background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     backdrop-filter: blur(9px);
     -webkit-backdrop-filter: blur(9px);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -468,7 +531,7 @@
     }
   }
   .featureComp {
-    width: 70%;
+    width: 45%;
     margin: auto;
   }
   .refferalComp {
@@ -480,5 +543,8 @@
     width: 70%;
     margin: auto;
     height: 40vh;
+    .discountDetails{
+      text-align: center;
+    }
   }
 }
