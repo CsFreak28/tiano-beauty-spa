@@ -19,7 +19,7 @@ import { ReactComponent as CheckMarkIcon } from "../../assets/svgs/secondCheckMa
 import { ReactComponent as TrashCanIcon } from "../../assets/svgs/trashcan.svg";
 import { toggleExpandParagraph } from "../helperFunctions";
 import { ReactComponent as ReScheduleIcon } from "../../assets/svgs/redoIcon.svg";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import UserProfilePicture from "../../assets/images/userProfPic.png";
 import { useNavigate, useOutletContext } from "react-router-dom";
 export const ProfileOverview = () => {
@@ -71,13 +71,15 @@ export const ProfileOverview = () => {
   );
 };
 
-const notification = (props: {
+const Notification = (props: {
   notificationTitle: string;
   notificationStatus: boolean;
   notificationMessage: string;
   timeMessageArrived: string;
-  otherButtonType: string;
+  otherButtonType: "reply" | "re-schedule";
 }) => {
+  const [showParagraph, setShowParagraph] = useState<boolean>(true);
+  const paragraphRef = useRef<any>(null);
   return (
     <div className={Styles.notification}>
       <div className={Styles.optionsIconContainer}>
@@ -87,19 +89,31 @@ const notification = (props: {
         <p
           className={Styles.notificationTitle}
           style={{
-            color: props.notificationStatus ? "" : "red",
+            color: props.notificationStatus === true ? "" : "red",
           }}
         >
           {props.notificationTitle}
         </p>
         <p className={Styles.timeStamp}>{props.timeMessageArrived}</p>
       </div>
-      <p className={Styles.notificationMessage}>{props.notificationMessage}</p>
+      <p
+        className={Styles.notificationMessage}
+        ref={paragraphRef}
+        onClick={() => {
+          toggleExpandParagraph(
+            paragraphRef.current,
+            showParagraph,
+            setShowParagraph
+          );
+        }}
+      >
+        {props.notificationMessage}
+      </p>
       <div className={Styles.actions}>
         <div className={Styles.buttonsContainer}>
           <div className={Styles.markButton}>mark as seen</div>
           <div className={Styles.otherActionButton}>
-            reply{" "}
+            {props.otherButtonType}{" "}
             {props.otherButtonType == "reply" ? (
               <ReplyIcon />
             ) : (
@@ -119,82 +133,27 @@ export const NotficationPage = () => {
     <div className={Styles.notificationPage}>
       <p className={Styles.pageTitle}>My Notifications</p>
       <div className={Styles.notificationsContainer}>
-        <div className={Styles.notification}>
-          <div className={Styles.optionsIconContainer}>
-            <OptionsIcon />
-          </div>
-          <div className={Styles.titleFlex}>
-            <p className={Styles.notificationTitle}>successful re-schedule</p>
-            <p className={Styles.timeStamp}>5 mins ago</p>
-          </div>
-          <p className={Styles.notificationMessage}>
-            your appointment re-schedule was successful.
-          </p>
-          <div className={Styles.actions}>
-            <div className={Styles.buttonsContainer}>
-              <div className={Styles.markButton}>mark as seen</div>
-              <div className={Styles.otherActionButton}>
-                reply <ReplyIcon />
-              </div>
-            </div>
-            <div className={Styles.checkMark}>
-              <CheckMarkIcon />
-            </div>
-          </div>
-        </div>
-        <div className={Styles.notification}>
-          <div className={Styles.optionsIconContainer}>
-            <OptionsIcon />
-          </div>
-          <div className={Styles.titleFlex}>
-            <p className={Styles.notificationTitle}>appointment booked</p>
-            <p className={Styles.timeStamp}>23 mins ago</p>
-          </div>
-          <p className={Styles.notificationMessage}>
-            your appointment scheduling was successful.
-          </p>
-          <div className={Styles.actions}>
-            <div className={Styles.buttonsContainer}>
-              <div className={Styles.markButton}>mark as seen</div>
-              <div className={Styles.otherActionButton}>
-                reply <ReplyIcon />
-              </div>
-            </div>
-            <div className={Styles.checkMark}>
-              <CheckMarkIcon />
-            </div>
-          </div>
-        </div>
-        <div className={Styles.notification}>
-          <div className={Styles.optionsIconContainer}>
-            <OptionsIcon />
-          </div>
-          <div className={Styles.titleFlex}>
-            <p
-              className={Styles.notificationTitle}
-              style={{
-                color: "red",
-              }}
-            >
-              appointment was cancelled
-            </p>
-            <p className={Styles.timeStamp}>5 mins ago</p>
-          </div>
-          <p className={Styles.notificationMessage}>
-            we were notified recently to cancel your appointment.
-          </p>
-          <div className={Styles.actions}>
-            <div className={Styles.buttonsContainer}>
-              <div className={Styles.markButton}>mark as seen</div>
-              <div className={Styles.otherActionButton}>
-                re-schedule <ReScheduleIcon />
-              </div>
-            </div>
-            <div className={Styles.checkMark}>
-              <CheckMarkIcon />
-            </div>
-          </div>
-        </div>
+        <Notification
+          notificationTitle="successful re-schedule"
+          notificationMessage="your appointment re-schedule was successful"
+          notificationStatus
+          otherButtonType="reply"
+          timeMessageArrived="5 mins ago"
+        />
+        <Notification
+          notificationTitle="appointment booked"
+          notificationMessage="appointment booking was successful, we will be expecting you on thursday 25th october"
+          otherButtonType="reply"
+          timeMessageArrived="23 mins ago"
+          notificationStatus
+        />
+        <Notification
+          notificationTitle="appointment cancelled"
+          notificationStatus={false}
+          notificationMessage="your appointment booked for thursday 25th october has been cancelled"
+          otherButtonType="re-schedule"
+          timeMessageArrived="23 mins ago"
+        />
       </div>
       <div className={Styles.trashCanContainer}>
         <TrashCanIcon />

@@ -296,8 +296,9 @@
         cursor: pointer;
         width: 70%;
         margin-top: 0.7rem;
-        overflow:hidden;
+        overflow: hidden;
         text-overflow: ellipsis;
+        background-color: red;
         white-space: nowrap;
       }
       .actions {
@@ -389,7 +390,7 @@
     .notificationsContainer {
       .notification {
         width: 100%;
-        .optionsIconContainer{
+        .optionsIconContainer {
           display: block;
         }
         .titleFlex {
@@ -543,7 +544,7 @@
     width: 70%;
     margin: auto;
     height: 40vh;
-    .discountDetails{
+    .discountDetails {
       text-align: center;
     }
   }

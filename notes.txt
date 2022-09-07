@@ -23,15 +23,16 @@ shift hero section more to the right**
 404 page**
 footer section in sign up and sign in page**
 tweak founder image in about section**
+notifications text expanding...**
 
 
 
 
 dashboard greeting should be dynamic based on time 
+notifications 5 mins ago feature
 dashboard backend functionality
 background grain effect adjustment
 add chat page
-notifications text expanding...
 notifications drag and drop in trash can
 change overview icon
 make the navbar sticky
