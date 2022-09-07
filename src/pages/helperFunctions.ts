@@ -8,7 +8,6 @@ export function toggleExpandParagraph(
 ): void {
   if (expandParagraph) {
     paragraph.style.overflow = "visible";
-    // paragraph.style.height='100px'
     paragraph.style.whiteSpace = "normal";
     paragraph.style.width = "100%";
     setParagraphFn((expandParagraph) => !expandParagraph);
@@ -20,6 +19,4 @@ export function toggleExpandParagraph(
   }
 }
 
-export function expandBookComp(){
-
-}
+export function expandBookComp() {}

@@ -5,7 +5,7 @@
   padding: 15px;
   bottom: 8rem;
   left: 2rem;
-  width: 80%;
+  width: 85%;
   z-index: 3;
   display: flex;
   justify-content: space-around;
@@ -18,11 +18,12 @@
       font-size: 14px;
       font-family: "helvetica_medium";
       color: #075432;
+      margin-bottom: 1rem;
     }
     p {
       font-size: 13px;
       text-decoration: underline;
-      margin-top: 1rem;
+      // margin-top: 0.9rem;
       cursor: pointer;
       color: rgb(65, 65, 65);
     }
@@ -35,6 +36,39 @@
       background-color: rgb(66, 66, 66);
       margin-left: 2rem;
       align-self: flex-end;
+    }
+    .emailInput {
+      padding: 5px 10px;
+      font-family: "helvetica_medium";
+
+    }
+    .emailInput::placeholder {
+      font-family: "helvetica_medium";
+    }
+    .emailInput:focus {
+      outline: none;
+    }
+  }
+  .counterComp {
+    display: flex;
+    align-items: center;
+    .numberOfPeople {
+      font-size: 1.2rem;
+    }
+    .button {
+      margin: 0px 10px;
+      padding: 5px 10px;
+      display: flex;
+      height: 30px;
+      border-radius: 5px;
+      justify-content: center;
+      align-items: center;
+      background-color: #075432;
+      svg {
+        transform: translateY(10%);
+      }
+    }
+    .plusButton {
     }
   }
 }

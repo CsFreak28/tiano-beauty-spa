@@ -3,6 +3,8 @@ import BookButton from "./bookButton";
 import { ReactComponent as BookArrow } from "../../assets/svgs/bookArrow.svg";
 import { DatePick } from "./datePick";
 import { useState } from "react";
+import { ReactComponent as MinusIcon } from "../../assets/svgs/minusIcon.svg";
+import { ReactComponent as PlusIcon } from "../../assets/svgs/plusIcon.svg";
 const BookComp = () => {
   const [showDateInput, setShowDateInput] = useState<boolean>(false);
   function getDiscountDate(): string {
@@ -18,24 +20,24 @@ const BookComp = () => {
   }
   let discountDate = getDiscountDate();
   function toggleShowDateInput() {
-    setShowDateInput((prev) => !prev);
+    setShowDateInput((prev) => true);
   }
   return (
     <div className={Styles.bookContainer}>
       <div className={Styles.bookElement}>
         <div>
           <h6>Arrival date</h6>
-          <p onClick={toggleShowDateInput}>
-            {showDateInput ? (
-              <DatePick />
-            ) : (
-              <>
+          {showDateInput ? (
+            <DatePick />
+          ) : (
+            <>
+              <p onClick={toggleShowDateInput}>
                 pick now <BookArrow />
-              </>
-            )}
-          </p>
+              </p>
+            </>
+          )}
         </div>
-        <div className={Styles.line}></div>
+        {!showDateInput && <div className={Styles.line}></div>}
       </div>
       <div className={Styles.bookElement}>
         <div>
@@ -47,9 +49,7 @@ const BookComp = () => {
       <div className={Styles.bookElement}>
         <div>
           <h6>Number of people</h6>
-          <p>
-            pick now <BookArrow />
-          </p>
+          <Counter />
         </div>
         <div className={Styles.line}></div>
       </div>
@@ -57,7 +57,11 @@ const BookComp = () => {
         <div>
           <h6>Your email</h6>
           <p>
-            pick now <BookArrow />
+            <input
+              type="text"
+              placeholder="uwagideon092@gm..."
+              className={Styles.emailInput}
+            />
           </p>
         </div>
       </div>
@@ -66,3 +70,29 @@ const BookComp = () => {
   );
 };
 export default BookComp;
+
+function Counter() {
+  const [numberOfPeople, setNumberOfPeople] = useState<number>(1);
+  function reduceNumberOfPeople() {
+    if (numberOfPeople > 1) {
+      setNumberOfPeople((prev) => prev - 1);
+    }
+  }
+  function increaseNumberOfPeople() {
+    setNumberOfPeople((prev) => prev + 1);
+  }
+  return (
+    <div className={Styles.counterComp}>
+      <div className={Styles.button} onClick={reduceNumberOfPeople}>
+        <MinusIcon />
+      </div>
+      <div className={Styles.numberOfPeople}>{numberOfPeople}</div>
+      <div
+        className={`${Styles.button} ${Styles.plusButton}`}
+        onClick={increaseNumberOfPeople}
+      >
+        <PlusIcon />
+      </div>
+    </div>
+  );
+}

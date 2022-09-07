@@ -10,10 +10,11 @@ export const DatePick = () => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-        label="First example"
+        label="pick a date"
         value={value}
         onChange={(newValue) => {
           setValue(newValue);
+          console.log(newValue)
         }}
         renderInput={(params) => <TextField {...params} />}
       />

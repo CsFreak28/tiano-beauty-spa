@@ -24,11 +24,12 @@ shift hero section more to the right**
 footer section in sign up and sign in page**
 tweak founder image in about section**
 notifications text expanding...**
+getDiscount function **
+number of people counter **
 
-
-
-getDiscount function 
+tweak the hero section book component when going responsive
 dashboard greeting should be dynamic based on time 
+tweak fourofourpage
 notifications 5 mins ago feature
 dashboard backend functionality
 background grain effect adjustment
@@ -41,3 +42,5 @@ make the navbar sticky
 problems and issues
 responsive design doesnt look good and work well on iphone
 notifications not scrolling in iphone
+
+
