@@ -27,7 +27,7 @@ notifications text expanding...**
 
 
 
-
+getDiscount function 
 dashboard greeting should be dynamic based on time 
 notifications 5 mins ago feature
 dashboard backend functionality
