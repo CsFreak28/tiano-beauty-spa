@@ -2,11 +2,30 @@ import Styles from "./bookComp.module.scss";
 import BookButton from "./bookButton";
 import { ReactComponent as BookArrow } from "../../assets/svgs/bookArrow.svg";
 import { DatePick } from "./datePick";
-import { useState, useEffect, useReducer } from "react";
+import { useState, useReducer, useRef } from "react";
 import { ReactComponent as MinusIcon } from "../../assets/svgs/minusIcon.svg";
 import { ReactComponent as PlusIcon } from "../../assets/svgs/plusIcon.svg";
+import { ReactComponent as DropDownIcon } from "../../assets/svgs/dropdown.svg";
 const BookComp = () => {
+  interface DropDown {
+    show: boolean;
+    services: Array<string>;
+    currentChosenService: string;
+  }
   const [showDateInput, setShowDateInput] = useState<boolean>(false);
+  const svg = useRef<any>(null);
+  const [DropDownDetails, setDropDownDetails] = useState<DropDown>({
+    show: false,
+    services: [
+      "teeth whitening",
+      "butt enlargement",
+      "manicure",
+      "body massage",
+      "facials",
+      "Hair treatment",
+    ],
+    currentChosenService: "body massage",
+  });
   interface appointmentDetails {
     appointmentDate: string;
     numberOfPeople: number;
@@ -53,17 +72,7 @@ const BookComp = () => {
     email: "",
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  function getDiscountDate(): string {
-    let currentDate = new Date();
-    let todaysDate = currentDate.getDate() + 1;
-    let currentDateToNumber = new Date(currentDate.setDate(10)).getDate();
-    let discountDate = new Date(
-      currentDate.setDate(currentDateToNumber + todaysDate)
-    );
-    let discountDateLocaleString = discountDate.toLocaleDateString();
-    return discountDateLocaleString;
-  }
-  let discountDate = getDiscountDate();
+
   function toggleShowDateInput() {
     setShowDateInput((prev) => true);
   }
@@ -84,13 +93,6 @@ const BookComp = () => {
           )}
         </div>
         {!showDateInput && <div className={Styles.line}></div>}
-      </div>
-      <div className={Styles.bookElement}>
-        <div>
-          <h6>Next discount</h6>
-          <p>{discountDate}</p>
-        </div>
-        <div className={Styles.line}></div>
       </div>
       <div className={Styles.bookElement}>
         <div>
@@ -117,13 +119,55 @@ const BookComp = () => {
             />
           </p>
         </div>
+        <div className={Styles.line}></div>
       </div>
       <div className={Styles.bookElement}>
         <div>
-          <h6>Next discount</h6>
-          <p>{discountDate}</p>
+          <h6>Which service</h6>
+          <div className={Styles.dropdown}>
+            <div
+              className={Styles.chosenService}
+              onClick={() => {
+                !DropDownDetails.show
+                  ? (svg.current.style.transform = "rotate(180deg)")
+                  : (svg.current.style.transform = "rotate(0deg)");
+                setDropDownDetails((prev) => {
+                  return { ...prev, show: !prev.show };
+                });
+              }}
+            >
+              <div className={Styles.chosenServiceTitle}>
+                {DropDownDetails.currentChosenService}
+              </div>
+              <div ref={svg} className={Styles.svgContainer}>
+                <DropDownIcon />
+              </div>
+            </div>
+            {DropDownDetails.show && (
+              <div className={Styles.dropDownComp}>
+                {DropDownDetails.services.map((service) => {
+                  if (service !== DropDownDetails.currentChosenService) {
+                    return (
+                      <div
+                        className={Styles.service}
+                        onClick={() => {
+                          setDropDownDetails((prev) => {
+                            return {
+                              ...prev,
+                              currentChosenService: service,
+                            };
+                          });
+                        }}
+                      >
+                        {service}
+                      </div>
+                    );
+                  }
+                })}
+              </div>
+            )}
+          </div>
         </div>
-        <div className={Styles.line}></div>
       </div>
       <BookButton text="BOOK NOW" />
     </div>
