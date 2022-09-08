@@ -12,19 +12,42 @@ const BookComp = () => {
   );
   interface appointmentDetails {
     appointmentDate: string;
-    numberOfPeople: string;
+    numberOfPeople: number;
     email: string;
   }
   interface ActionInterface {
     payload: string;
     type: string;
   }
-  function reducer(state: appointmentDetails, action: any) {
+  function reducer(state: appointmentDetails, action: ActionInterface) {
+    if (action.type == "IncreaseNumberOfPeople") {
+      let numberOfPeople = state.numberOfPeople + 1;
+      return {
+        ...state,
+        numberOfPeople: numberOfPeople,
+      };
+    } else if (action.type == "DecreaseNumberOfPeople") {
+      let numberOfPeopleIsGreaterThanZero = state.numberOfPeople > 1;
+      if (numberOfPeopleIsGreaterThanZero) {
+        let numberOfPeople = state.numberOfPeople - 1;
+        return {
+          ...state,
+          numberOfPeople: numberOfPeople,
+        };
+      } else {
+        return state;
+      }
+    } else if (action.type === "updateEmail") {
+      return {
+        ...state,
+        email: action.payload,
+      };
+    }
     return state;
   }
   const initialState: appointmentDetails = {
     appointmentDate: "",
-    numberOfPeople: "",
+    numberOfPeople: 1,
     email: "",
   };
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -74,7 +97,10 @@ const BookComp = () => {
       <div className={Styles.bookElement}>
         <div>
           <h6>Number of people</h6>
-          <Counter />
+          <Counter
+            numberOfPeople={state.numberOfPeople}
+            updateNumberOfPeople={dispatch}
+          />
         </div>
         <div className={Styles.line}></div>
       </div>
@@ -86,6 +112,10 @@ const BookComp = () => {
               type="text"
               placeholder="uwagideon092@gm..."
               className={Styles.emailInput}
+              value={state.email}
+              onChange={(e) => {
+                dispatch({ type: "updateEmail", payload: e.target.value });
+              }}
             />
           </p>
         </div>
@@ -96,25 +126,32 @@ const BookComp = () => {
 };
 export default BookComp;
 
-function Counter() {
-  const [numberOfPeople, setNumberOfPeople] = useState<number>(1);
-  function reduceNumberOfPeople() {
-    if (numberOfPeople > 1) {
-      setNumberOfPeople((prev) => prev - 1);
-    }
-  }
-  function increaseNumberOfPeople() {
-    setNumberOfPeople((prev) => prev + 1);
-  }
+function Counter(props: {
+  numberOfPeople: number;
+  updateNumberOfPeople: React.Dispatch<any>;
+}) {
   return (
     <div className={Styles.counterComp}>
-      <div className={Styles.button} onClick={reduceNumberOfPeople}>
+      <div
+        className={Styles.button}
+        onClick={() => {
+          props.updateNumberOfPeople({
+            type: "DecreaseNumberOfPeople",
+            payload: "",
+          });
+        }}
+      >
         <MinusIcon />
       </div>
-      <div className={Styles.numberOfPeople}>{numberOfPeople}</div>
+      <div className={Styles.numberOfPeople}>{props.numberOfPeople}</div>
       <div
         className={`${Styles.button} ${Styles.plusButton}`}
-        onClick={increaseNumberOfPeople}
+        onClick={() => {
+          props.updateNumberOfPeople({
+            type: "IncreaseNumberOfPeople",
+            payload: "",
+          });
+        }}
       >
         <PlusIcon />
       </div>
