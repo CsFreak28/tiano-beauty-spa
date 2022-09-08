@@ -7,9 +7,6 @@ import { ReactComponent as MinusIcon } from "../../assets/svgs/minusIcon.svg";
 import { ReactComponent as PlusIcon } from "../../assets/svgs/plusIcon.svg";
 const BookComp = () => {
   const [showDateInput, setShowDateInput] = useState<boolean>(false);
-  const [appointmentDate, setAppointmentDate] = useState<string | undefined>(
-    ""
-  );
   interface appointmentDetails {
     appointmentDate: string;
     numberOfPeople: number;
@@ -20,13 +17,13 @@ const BookComp = () => {
     type: string;
   }
   function reducer(state: appointmentDetails, action: ActionInterface) {
-    if (action.type == "IncreaseNumberOfPeople") {
+    if (action.type === "IncreaseNumberOfPeople") {
       let numberOfPeople = state.numberOfPeople + 1;
       return {
         ...state,
         numberOfPeople: numberOfPeople,
       };
-    } else if (action.type == "DecreaseNumberOfPeople") {
+    } else if (action.type === "DecreaseNumberOfPeople") {
       let numberOfPeopleIsGreaterThanZero = state.numberOfPeople > 1;
       if (numberOfPeopleIsGreaterThanZero) {
         let numberOfPeople = state.numberOfPeople - 1;
@@ -42,6 +39,11 @@ const BookComp = () => {
         ...state,
         email: action.payload,
       };
+    } else if (action.type === "updateAppointmentDate") {
+      return {
+        ...state,
+        appointmentDate: action.payload,
+      };
     }
     return state;
   }
@@ -51,10 +53,6 @@ const BookComp = () => {
     email: "",
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  function updateAppointmentDate(newApptDate: string | undefined) {
-    return setAppointmentDate((prev) => newApptDate);
-  }
-  useEffect(() => {}, [appointmentDate]);
   function getDiscountDate(): string {
     let currentDate = new Date();
     let todaysDate = currentDate.getDate() + 1;
@@ -71,12 +69,12 @@ const BookComp = () => {
   }
   return (
     <div className={Styles.bookContainer}>
-      {appointmentDate}
+      {state.appointmentDate}
       <div className={Styles.bookElement}>
         <div>
           <h6>Arrival date</h6>
           {showDateInput ? (
-            <DatePick setDate={updateAppointmentDate} />
+            <DatePick setDate={dispatch} />
           ) : (
             <>
               <p onClick={toggleShowDateInput}>
@@ -119,6 +117,13 @@ const BookComp = () => {
             />
           </p>
         </div>
+      </div>
+      <div className={Styles.bookElement}>
+        <div>
+          <h6>Next discount</h6>
+          <p>{discountDate}</p>
+        </div>
+        <div className={Styles.line}></div>
       </div>
       <BookButton text="BOOK NOW" />
     </div>

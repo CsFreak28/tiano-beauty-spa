@@ -37,7 +37,7 @@ add chat page
 notifications drag and drop in trash can
 change overview icon
 make the navbar sticky
-
+add which appointment would you like to book
 
 problems and issues
 responsive design doesnt look good and work well on iphone

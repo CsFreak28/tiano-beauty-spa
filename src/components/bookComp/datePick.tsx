@@ -6,13 +6,14 @@ import { useState } from "react";
 import { Dayjs } from "dayjs";
 import React from "react";
 import { useEffect } from "react";
-export const DatePick = (props: {
-  setDate: (newApptDate: string | undefined) => void;
-}) => {
+export const DatePick = (props: { setDate: React.Dispatch<any> }) => {
   const [value, setValue] = useState<Dayjs | null>();
   useEffect(() => {
     if (value) {
-      props.setDate(value?.toString());
+      props.setDate({
+        type: "updateAppointmentDate",
+        payload: value.toString(),
+      });
     }
   }, [value]);
   return (
