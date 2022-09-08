@@ -4,9 +4,17 @@ import TextField from "@mui/material/TextField";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useState } from "react";
 import { Dayjs } from "dayjs";
-export const DatePick = () => {
+import React from "react";
+import { useEffect } from "react";
+export const DatePick = (props: {
+  setDate: (newApptDate: string | undefined) => void;
+}) => {
   const [value, setValue] = useState<Dayjs | null>();
-  console.log(value)
+  useEffect(() => {
+    if (value) {
+      props.setDate(value?.toString());
+    }
+  }, [value]);
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
@@ -14,7 +22,7 @@ export const DatePick = () => {
         value={value}
         onChange={(newValue) => {
           setValue(newValue);
-          console.log(newValue)
+          console.log(newValue);
         }}
         renderInput={(params) => <TextField {...params} />}
       />

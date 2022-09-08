@@ -2,8 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // height: 100vh;
-  .innerDiv{
+  height: 90vh;
+  .innerDiv {
+    position: relative;
   }
   .mainText {
     font-size: 25vw;
@@ -14,9 +15,34 @@
     fill: #075432;
     scale: 9;
   }
-  .secondaryText{
+  .secondaryText {
     font-size: 1.8vw;
     text-align: center;
-    font-family: 'helvetica_medium';
+    font-family: "helvetica_medium";
+    position: absolute;
   }
 }
+
+@media screen and (max-width: 750px) {
+.container{
+  svg{
+    scale: 4;
+  }
+  .secondaryText{
+    font-size: 3vw;
+  }
+}
+}
+
+@media screen and (max-width: 450px) {
+  .container{
+    svg{
+      scale: 4;
+    }
+    .secondaryText{
+      font-size: 4vw;
+      margin-top: 1.5rem;
+    }
+  }
+  }
+  

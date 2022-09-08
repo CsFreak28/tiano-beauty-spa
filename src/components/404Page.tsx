@@ -8,7 +8,7 @@ export const FourOFourPage = () => {
           4 <Logo /> 4
         </p>
         <p className={Styles.secondaryText}>oops... the page you were looking for was not found 🤔</p>
-      </div>
+    </div>
     </div>
   );
 };

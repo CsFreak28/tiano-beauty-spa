@@ -2,15 +2,39 @@ import Styles from "./bookComp.module.scss";
 import BookButton from "./bookButton";
 import { ReactComponent as BookArrow } from "../../assets/svgs/bookArrow.svg";
 import { DatePick } from "./datePick";
-import { useState } from "react";
+import { useState, useEffect, useReducer } from "react";
 import { ReactComponent as MinusIcon } from "../../assets/svgs/minusIcon.svg";
 import { ReactComponent as PlusIcon } from "../../assets/svgs/plusIcon.svg";
 const BookComp = () => {
   const [showDateInput, setShowDateInput] = useState<boolean>(false);
+  const [appointmentDate, setAppointmentDate] = useState<string | undefined>(
+    ""
+  );
+  interface appointmentDetails {
+    appointmentDate: string;
+    numberOfPeople: string;
+    email: string;
+  }
+  interface ActionInterface {
+    payload: string;
+    type: string;
+  }
+  function reducer(state: appointmentDetails, action: any) {
+    return state;
+  }
+  const initialState: appointmentDetails = {
+    appointmentDate: "",
+    numberOfPeople: "",
+    email: "",
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
+  function updateAppointmentDate(newApptDate: string | undefined) {
+    return setAppointmentDate((prev) => newApptDate);
+  }
+  useEffect(() => {}, [appointmentDate]);
   function getDiscountDate(): string {
     let currentDate = new Date();
     let todaysDate = currentDate.getDate() + 1;
-    // console.log(currentDate.setDate(10));
     let currentDateToNumber = new Date(currentDate.setDate(10)).getDate();
     let discountDate = new Date(
       currentDate.setDate(currentDateToNumber + todaysDate)
@@ -24,11 +48,12 @@ const BookComp = () => {
   }
   return (
     <div className={Styles.bookContainer}>
+      {appointmentDate}
       <div className={Styles.bookElement}>
         <div>
           <h6>Arrival date</h6>
           {showDateInput ? (
-            <DatePick />
+            <DatePick setDate={updateAppointmentDate} />
           ) : (
             <>
               <p onClick={toggleShowDateInput}>
