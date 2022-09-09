@@ -1,4 +1,6 @@
 import React from "react";
+import { app } from "./auth/firebase.config";
+import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 export function dashboardNavBarHandler(e: MouseEvent) {}
 
 export function toggleExpandParagraph(
@@ -19,6 +21,21 @@ export function toggleExpandParagraph(
   }
 }
 
-export function dropdown(){ 
-  
+export async function bookAppointmentAnonymously(appoitmentDetails: {
+  appointmentDate: string;
+  numberOfPeople: number;
+  email: string;
+  service: string;
+  bookedOn: string;
+}) {
+  const db = getFirestore(app);
+  const collectionRef = collection(db, "anonymous appointments");
+  await addDoc(collectionRef, {
+    ...appoitmentDetails,
+  });
+  getDocs(collectionRef).then((data) => {
+    data.docs.forEach((doc) => {
+      console.log(doc.data());
+    });
+  });
 }
