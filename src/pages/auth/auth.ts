@@ -34,11 +34,11 @@ export async function signUp(credentials: authCredentials) {
           email: credentials.email,
           phoneNumber: credentials.phoneNumber,
           //if the reffersCode input was empty, add a string of no refferer to the user
-          //object
           refferersCode:
             credentials.refferalCode !== ""
               ? credentials.refferalCode
               : "no refferer",
+          currentAppointment: "",
         }).then(() => {
           //confirm if the document was added to firedbase firestore
           const docRef = doc(db, "users", data.user.uid);
