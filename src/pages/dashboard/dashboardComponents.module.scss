@@ -1,0 +1,547 @@
+.userNameComp {
+  p {
+    font-size: 2.5rem;
+  }
+}
+.DashboardHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profileOverViewContainer {
+  width: 68%;
+  margin-top: 4%;
+  margin-left: 6%;
+  margin-right: 2%;
+  font-family: "helvetica_medium";
+  .featuresFlexContainer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    .featuresInnerContainer {
+      width: 25%;
+    }
+  }
+}
+.featureComp {
+  border: 1px solid rgb(34, 34, 34);
+  padding: 20px;
+  border-radius: 7px;
+  background-color: white;
+  width: 25%;
+  position: relative;
+  .optionsIconContainer {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    cursor: pointer;
+  }
+  .featuresContainer {
+    .featureIconContainer {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+    }
+    p {
+      text-align: center;
+      margin: 12px 0px;
+      padding: 5px;
+    }
+    .heading {
+      font-size: 14px;
+    }
+    .subheading {
+      font-size: 11px;
+      color: rgb(24, 23, 23);
+    }
+  }
+}
+
+.dashboardNavBar {
+  background-color: #075432;
+  border-radius: 8px;
+  position: relative;
+  width: 4%;
+  height: 80vh;
+  svg {
+    fill: white;
+  }
+  .dashboardNavBarIconContainer {
+    display: flex;
+    margin: 3rem 0px;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .exitIcon {
+    position: absolute;
+    bottom: 2rem;
+    right: 5%;
+  }
+  .pageIndicator {
+    background-color: white;
+    width: 3px;
+    height: 40px;
+    border-radius: 50px;
+    position: absolute;
+    top: 7%;
+    transition: all 0.5s;
+    right: 4%;
+  }
+}
+
+.extraDetailsContainer {
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  border: 1px solid black;
+  width: 25%;
+  height: 60vh;
+  font-family: "helvetica_medium";
+  padding: 1rem 1.5rem;
+  img {
+    max-width: 100%;
+  }
+  .iconFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .innerIconFlex {
+      display: flex;
+      gap: 15px;
+    }
+    .profileImgContainer {
+      // background-color: red;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+  }
+  .extraDetailsInnerContainer {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    .primaryText {
+      margin: 10px 0px;
+      font-size: 13px;
+    }
+    .secondaryText {
+      color: rgb(54, 54, 54);
+      font-size: 12px;
+      margin: 10px 0px;
+    }
+    .viewStatus {
+      background-color: #075432;
+      color: #f3f3f3;
+      font-size: 14px;
+      width: 80%;
+      padding: 0.5rem;
+      text-align: center;
+      border-radius: 8px;
+      margin: 1rem 0rem;
+    }
+    .progressBarContainer {
+      width: 80%;
+      background-color: #acabab;
+      height: 1rem;
+      border-radius: 50px;
+      position: relative;
+      .mainProgressBar {
+        position: absolute;
+        width: 74%;
+        background-color: #075432;
+        height: 100%;
+        border-radius: 50px;
+      }
+    }
+  }
+}
+
+.refferalComp {
+  position: relative;
+  background-color: white;
+  width: 100%;
+  margin-top: 1rem;
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 15px;
+  .optionsIconContainer {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    cursor: pointer;
+  }
+  .refferalData {
+    .compTitle {
+      font-size: 14px;
+    }
+    .refferalFlex {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      .dataAmount {
+        font-size: 2.1rem;
+      }
+      .percentageContainer {
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-left: 5px;
+        .percentage {
+          font-size: 13px;
+        }
+        .positiveResultText {
+          color: green;
+        }
+        .negativeResultText {
+          color: red;
+        }
+      }
+      .positiveResult {
+        background-color: rgba(0, 128, 0, 0.562);
+      }
+      .negativeResult {
+        background-color: rgba(255, 0, 0, 0.644);
+      }
+    }
+  }
+}
+
+.discountData {
+  width: 54%;
+  position: relative;
+  background-image: linear-gradient(#0754339d, white);
+  border-radius: 12px;
+  border: 1px solid black;
+  margin-top: 1rem;
+  padding: 15px;
+  .optionsIconContainer {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    cursor: pointer;
+  }
+  .discountTitle {
+    display: flex;
+    width: fit-content;
+    font-size: 1.2rem;
+  }
+  .middleLine {
+    width: 94%;
+    height: 1px;
+    background-color: rgb(88, 88, 88);
+    list-style: none;
+    position: absolute;
+    top: 50%;
+  }
+  .discountDetails {
+    position: absolute;
+    bottom: 18%;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    .discountNumber {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+  }
+}
+
+.notificationPage {
+  position: relative;
+  width: 68%;
+  height: 30rem;
+  margin-top: 4%;
+  margin-left: 6%;
+  margin-right: 2%;
+  font-family: "helvetica_medium";
+  background-color: #d9d9d9;
+  padding: 20px;
+  border-radius: 15px;
+  overflow-y: scroll;
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+  .notificationsContainer {
+    margin-top: 2.4rem;
+    .notification {
+      background-color: white;
+      padding: 15px 30px;
+      width: 60%;
+      border-radius: 10px;
+      border: 1px solid black;
+      position: relative;
+      margin-top: 2rem;
+      .optionsIconContainer {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        cursor: pointer;
+        display: none;
+      }
+      .titleFlex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .notificationTitle {
+          color: #075432;
+        }
+        .timeStamp {
+          font-size: 12px;
+          color: rgb(82, 82, 82);
+        }
+      }
+      .notificationMessage {
+        font-size: 14px;
+        cursor: pointer;
+        width: 70%;
+        margin-top: 0.7rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .buttonsContainer {
+          display: flex;
+          gap: 13px;
+          font-size: 12px;
+          align-items: center;
+          margin-top: 1rem;
+          .markButton {
+            background-color: #07543388;
+            color: #075432;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          .otherActionButton {
+            background-color: #829606;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            gap: 3px;
+          }
+        }
+        .checkMark {
+          justify-self: end;
+          position: absolute;
+          bottom: 12%;
+          right: 7%;
+        }
+      }
+    }
+  }
+  .trashCanContainer {
+    position: sticky;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 6%;
+    right: 5%;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1000px) {
+  .profileOverViewContainer {
+    margin-left: 1%;
+  }
+  .dashboardNavBar {
+    width: 6%;
+  }
+  .notificationPage {
+    .notificationsContainer {
+      .notification {
+        width: 80%;
+      }
+    }
+  }
+}
+@media (max-width: 650px) {
+  .profileOverViewContainer {
+    margin-left: 1%;
+  }
+  .dashboardNavBar {
+    width: 6%;
+  }
+  .notificationPage {
+    width: 90%;
+    .notificationsContainer {
+      .notification {
+        width: 90%;
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .profileOverViewContainer {
+    margin-left: 1%;
+  }
+  .dashboardNavBar {
+    width: 6%;
+  }
+  .notificationPage {
+    width: 100%;
+    .notificationsContainer {
+      .notification {
+        width: 100%;
+        .optionsIconContainer {
+          display: block;
+        }
+        .titleFlex {
+          .notificationTitle {
+            font-size: 4vw;
+          }
+        }
+        .actions {
+          .buttonsContainer {
+            // flex-direction: column-reverse;
+            .markButton {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .profileOverViewContainer {
+    margin-left: 1%;
+    width: 60%;
+    .featuresFlexContainer {
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      .featuresInnerContainer {
+        width: 40%;
+      }
+    }
+  }
+  .refferalComp {
+    margin: 0;
+    margin-top: 20px;
+  }
+  .dashboardNavBar {
+    width: 7%;
+    position: sticky;
+    top: 20px;
+  }
+  .featureComp {
+    width: 40%;
+    margin-top: 0;
+  }
+  .discountData {
+    width: 40%;
+    margin-top: 0;
+    border-radius: 5px;
+    background-color: white;
+    .discountTitle {
+      font-size: 1rem;
+    }
+    .middleLine {
+      width: 70%;
+      top: 30%;
+    }
+    .discountDetails {
+      bottom: 20%;
+      flex-direction: column;
+    }
+    .numberContainer {
+      margin-top: 30px;
+    }
+  }
+}
+
+@media (max-width: 1010px) {
+  .extraDetailsContainer {
+    width: 30%;
+    height: 50%;
+  }
+}
+@media (max-width: 750px) {
+  .profileOverViewContainer {
+    width: 90%;
+  }
+  .extraDetailsContainer {
+    display: none;
+  }
+  .dashboardNavBar {
+    .exitIcon {
+      right: 0%;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .userNameComp {
+    p {
+      font-size: 1.8rem;
+    }
+  }
+  .DashboardHeaderContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .profileOverViewContainer {
+    margin-left: 1%;
+    width: 100%;
+    .featuresFlexContainer {
+      flex-wrap: wrap;
+      .featuresInnerContainer {
+        width: 100%;
+      }
+    }
+  }
+  .dashboardNavBar {
+    position: fixed;
+    width: 90%;
+    height: 50px;
+    padding: 15px 0px;
+    z-index: 15;
+    top: 90%;
+    border-radius: 100px;
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    .dashboardNavBarIconContainer {
+      width: 100%;
+      margin: 0;
+      width: fit-content;
+      svg {
+        transform: scale(0.8);
+        fill: #075432;
+      }
+    }
+    .exitIcon {
+      position: static;
+    }
+    .pageIndicator {
+      display: none;
+    }
+  }
+  .featureComp {
+    width: 45%;
+    margin: auto;
+  }
+  .refferalComp {
+    width: 70%;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+  .discountData {
+    width: 70%;
+    margin: auto;
+    height: 40vh;
+    .discountDetails {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+.container {
+  width: 100vw;
+  min-height: 160vh;
+  background-color: #d9d9d9;
+  margin-top: 25vh;
+  overflow: hidden;
+  .liTag {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    li {
+      width: 1px;
+      height: 100px;
+      background-color: black;
+      list-style: none;
+    }
+  }
+  .chapter {
+    font-family: "helvetica_medium";
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #222222;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .founderName {
+    text-align: center;
+    font-size: 4rem;
+    font-family: "ogg_light";
+  }
+  .founderDetails {
+    background-color: #989898;
+    height: 100%;
+    p {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    .founderImage {
+      background: url("../../assets/images/tianoFounder\ \(1\).jpg");
+      background-size: cover;
+      border-radius: 14px;
+      max-width: 40%;
+      height: 60vh;
+      position: relative;
+      left: 30%;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+// @media (max-width: 1000px) {
+//   .container {
+//     .founderDetails {
+//       .founderImage {
+//         height: 45vh;
+//       }
+//     }
+//   }
+// }
+
+@media (max-width: 700px) {
+  .container {
+    .founderDetails {
+      .founderImage {
+        height: 40vh;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    .founderName{
+      font-size: 3rem;
+    }
+    .founderDetails {
+      p{
+        font-size: 1.3rem;
+        padding: 15px;
+      }
+      .founderImage {
+        max-width: 45%;
+        left: 30%;
+        height: 30vh;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    .founderDetails {
+      .founderImage {
+        max-width: 45%;
+        left: 30%;
+        height: 25vh;
+      }
+    }
+  }
+}

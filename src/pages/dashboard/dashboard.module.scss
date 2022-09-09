@@ -1,0 +1,15 @@
+.dashboardContainer {
+  min-height: 100vh;
+  position: relative;
+  padding: 10px 3rem;
+  .pageLayoutFlex {
+    display: flex;
+    margin-top: 2rem;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .dashboardContainer {
+    padding: 10px 1rem;
+  }
+}

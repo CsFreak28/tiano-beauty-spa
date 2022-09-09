@@ -1,0 +1,36 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #075433;
+  .chapter {
+    font-family: "helvetica_medium";
+    font-size: 13px;
+    color: rgb(151, 149, 149);
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .liTag {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    li {
+      width: 1px;
+      height: 100px;
+      background-color: black;
+      list-style: none;
+    }
+  }
+  .paragraph {
+    font-size: 4rem;
+    text-align: center;
+    color: #f3f3f3;
+    margin: 5%;
+  }
+}
+@media (max-width:600px){
+  .container{
+    .paragraph{
+      font-size: 2rem;
+    }
+  }
+}

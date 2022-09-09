@@ -1,0 +1,93 @@
+.settingsContainer {
+  position: relative;
+  width: 68%;
+  margin-top: 4%;
+  margin-left: 6%;
+  margin-right: 2%;
+  font-family: "helvetica_medium";
+  background-color: #d9d9d9;
+  padding: 20px;
+  border-radius: 15px;
+  .heading {
+    display: flex;
+    justify-content: space-between;
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  .userSettingsContainer {
+    .setting {
+      margin: 1rem 0px;
+    }
+    .appointmentConfirmationContainer{
+      margin-top: 2.5rem;
+    }
+    .appointmentConfirmationMethods {
+      display: flex;
+      gap: 10px;
+      margin-top: 0.6rem;
+      .currentAppointmentMethod {
+        padding: 8px;
+        font-size: 0.9rem;
+        width: 8rem;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 20px;
+        background-color: #075432;
+        color: #d9d9d9;
+        border: 1px solid black;
+      }
+      .appointmentMethod {
+        padding: 8px;
+        font-size: 0.9rem;
+        width: 8rem;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 20px;
+        background-color: white;
+        border: 1px solid black;
+      }
+    }
+  }
+  .saveButtons {
+    display: flex;
+    margin-top: 3rem;
+    gap: 10px;
+    .saveSettings {
+      padding: 10px;
+      color: #d9d9d9;
+      background-color: #075432;
+      font-size: 0.9rem;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+    .reverseChanges {
+      padding: 10px 25px;
+      background-color: #829606;
+      cursor: pointer;
+      font-size: 0.9rem;
+      border-radius: 7px;
+    }
+  }
+}
+
+
+@media screen and (max-width:590px){
+.settingsContainer{
+  width: 80%;
+  .userSettingsContainer{
+    .setting{
+      font-size: 0.9rem;
+    }
+    .appointmentConfirmationMethods{
+      flex-wrap: wrap;
+    }
+  }
+}
+}
+@media screen and (max-width:500px){
+  .settingsContainer{
+    width: 100%;
+    margin-left: 0;
+  }
+  }

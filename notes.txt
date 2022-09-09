@@ -1,0 +1,47 @@
+breakpoints 
+
+300px
+270px
+400px
+800px
+700px
+850px
+
+three parts 
+authentication 
+functionality
+animations
+
+
+
+todos
+bring our services closer to each other**
+reduce margin-top in email section and extra section**
+optimize and refactor the mobile navbar**
+make about page responsive**
+shift hero section more to the right**
+404 page**
+footer section in sign up and sign in page**
+tweak founder image in about section**
+notifications text expanding...**
+getDiscount function **
+number of people counter **
+
+tweak the hero section book component when going responsive
+dashboard greeting should be dynamic based on time 
+tweak fourofourpage
+notifications 5 mins ago feature
+dashboard backend functionality
+background grain effect adjustment
+add chat page
+notifications drag and drop in trash can
+change overview icon
+make the navbar sticky
+add which appointment would you like to book
+make bookcomponent responsive
+
+problems and issues
+responsive design doesnt look good and work well on iphone
+notifications not scrolling in iphone
+
+

@@ -1,0 +1,132 @@
+.container {
+  position: relative;
+  height: fit-content;
+  width: 100vw;
+  font-family: "ogg_thin2";
+  margin-top: 6rem;
+  z-index: 10;
+  .socialMedia {
+    position: relative;
+    background-color: #075432;
+    font-size: 2rem;
+    width: 35%;
+    padding: 1rem;
+    border-radius: 7px;
+    height: 40vh;
+    color: rgb(224, 220, 220);
+    right: -60%;
+    .socialMediaLinks {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: relative;
+      bottom: -30%;
+    }
+    .socialMediaLinks div {
+      cursor: pointer;
+    }
+  }
+  .contactUs {
+    height: 60%;
+    width: 100%;
+    position: relative;
+    .brandName {
+      position: absolute;
+      font-size: 4vw;
+      top: 47%;
+      left: 35%;
+    }
+    // background-color: red;
+    .contactUsFlex {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem;
+      .contactLink {
+        position: relative;
+      }
+      p {
+        font-size: 2.4vw;
+        text-align: center;
+        margin-bottom: 100px;
+      }
+    }
+    .copyright {
+      font-family: "helvetica_medium";
+      font-size: 12px;
+      position: absolute;
+      bottom: 2%;
+      display: flex;
+      // background-color: red;
+      width: 98%;
+      justify-content: space-between;
+      align-items: center;
+      .lastLinks {
+        display: flex;
+        p {
+          margin-left: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    .socialMedia {
+      width: 50%;
+      right: -45%;
+    }
+  }
+}
+
+@media screen and (width: 550px) {
+  .container {
+    .socialMedia {
+      width: 95%;
+      position: static;
+    }
+    .contactUs {
+      .contactUsFlex {
+        p {
+          font-size: 4vw;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    .socialMedia {
+      width: 100%;
+      position: static;
+    }
+    .contactUs {
+      .brandName {
+        top: 33%;
+        left: 22%;
+        font-size: 8vw;
+      }
+      .contactUsFlex {
+        flex-direction: column;
+        p {
+          font-size: 5.5vw;
+        }
+      }
+      .copyright{
+        font-size: 11px;
+        gap: 10px;
+        flex-direction: column-reverse;
+        color: rgb(46, 46, 46);
+        .lastLinks{
+          display: none;
+        }
+        .copyrightText{
+          padding: 12px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

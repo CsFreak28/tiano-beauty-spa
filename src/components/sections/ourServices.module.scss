@@ -1,8 +1,8 @@
 .ourServicesSectionContainer {
-  margin-top: 5rem;
+  margin-top: 10rem;
   width: 100vw;
   min-height: 250vh;
-  background-color: #075432;
+  background-color:#075432;
   color: rgb(218, 216, 216);
   position: relative;
   font-family: "ogg_light";
@@ -12,12 +12,9 @@
   }
   .servicesContainer {
     position: absolute;
-    // position: relative;
-    width: 400px;
+    width: 25%;
     height: 400px;
-    // img{
-    //   width: 200px;
-    // }
+
     .serviceTitle {
       font-size: 2rem;
       text-align: center;
@@ -25,45 +22,147 @@
     .serviceDescription {
       text-align: center;
     }
+    .firstImg{
+      left: 3%;
+    }
     .imgsContainer {
       position: relative;
-      // background-color: yellow;
+      width: 100%;
+      height: 50%;
       img {
         position: absolute;
+        max-width: 100%;
       }
+    }
+    .descriptionContainer {
+      position: absolute;
+      bottom: 10%;
+      left: 10%;
     }
   }
   .descriptionContainer {
-    position: absolute;
-    top: 250px;
-    left: 70px;
+  
   }
   .firstContainer {
-    transform: translate(125%, 20%);
-    // background-color: red;
+    transform: translate(145%, 10%);
   }
   .secondContainer {
     transform: translate(12%, 75%);
   }
   .thirdContainer {
-    transform: translate(225%, 75%);
+    transform: translate(265%, 75%);
   }
   .fourthContainer {
-    transform: translate(115%, 150%);
+    transform: translate(145%, 150%);
   }
   .fifthContainer {
-    transform: translate(12%, 225%);
+    transform: translate(12%, 235%);
   }
   .sixthContainer {
-  transform: translate(230%,265%);
+    transform: translate(265%, 235%);
   }
-  .imageFirst {
-    margin-top: 2rem;
-  }
-  .firstImage {
-    z-index: 3;
-  }
+
   .translateUp {
     transform: translateY(-14%);
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .ourServicesSectionContainer {
+    .title {
+      font-size: 4rem;
+    }
+    .servicesContainer {
+      .descriptionContainer {
+      }
+      .serviceTitle {
+        font-size: 1.5rem;
+      }
+      .serviceDescription {
+        font-size: 0.9rem;
+        .descriptionContainer {
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .ourServicesSectionContainer {
+    min-height: 270vh;
+    .title {
+      font-size: 4rem;
+    }
+    .servicesContainer {
+      width: 43%;
+      .descriptionContainer {
+      }
+      .serviceTitle {
+        font-size: 1.5rem;
+      }
+      .serviceDescription {
+        font-size: 0.9rem;
+        .descriptionContainer {
+        }
+      }
+    }
+    .firstContainer {
+      transform: translate(120%, 20%);
+    }
+    .thirdContainer {
+      transform: translate(15%, 310%);
+    }
+    .fourthContainer {
+      transform: translate(115%, 135%);
+    }
+    .fifthContainer{
+    transform: translate(12%, 205%);
+    }
+
+    .sixthContainer {
+      transform: translate(115%, 255%);
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .ourServicesSectionContainer {
+    min-height: 420vh;
+    margin-top: 4rem;
+    .title {
+      font-size: 3rem;
+    }
+    .servicesContainer {
+      width: 63%;
+      
+      .serviceTitle {
+        font-size: 2rem;
+      }
+      .serviceDescription {
+        font-size: 1rem;
+        
+      }
+    }
+    .firstImg{
+      left: 0;
+    }
+    .firstContainer {
+      transform: translate(29%, 20%);
+    }
+    .secondContainer {
+      transform: translate(29%, 125%);
+    }
+    .thirdContainer {
+      transform: translate(29%, 230%);
+    }
+    .fourthContainer {
+      transform: translate(29%, 335%);
+    }
+    .fifthContainer {
+      transform: translate(29%, 440%);
+    }
+    .sixthContainer {
+      transform: translate(29%, 545%);
+    }
   }
 }

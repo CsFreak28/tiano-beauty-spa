@@ -11,12 +11,13 @@ const EmailCollectionSection = () => {
         <p className={Styles.secondParagraph}>
           give us your email for updates <br /> on discounts, events, etc
         </p>
+        <div className={Styles.inputs}>
+          <div className={Styles.inputElements}>
+            <input type="text" placeholder="email" />
+            <button>SUBSCRIBE</button>
+          </div>
+        </div>
       </div>
-      <div className={Styles.inputs}>
-        <input type="text" placeholder="email" />
-        <button>SUBSCRIBE</button>
-      </div>
-    div
     </div>
   );
 };

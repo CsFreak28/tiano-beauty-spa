@@ -1,0 +1,137 @@
+.bookContainer {
+  background-color: white;
+  font-family: "helvetica_medium";
+  position: absolute;
+  padding: 15px;
+  bottom: 8rem;
+  left: 1rem;
+  width: 90%;
+  z-index: 3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  // display: none;
+  .bookElement {
+    display: flex;
+    align-items: center;
+    position: relative;
+    h6 {
+      font-size: 14px;
+      font-family: "helvetica_medium";
+      color: #075432;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 13px;
+      text-decoration: underline;
+      cursor: pointer;
+      color: rgb(65, 65, 65);
+    }
+    svg {
+      transform: translate(-30%, 40%);
+    }
+    .line {
+      width: 1px;
+      height: 2rem;
+      background-color: rgb(66, 66, 66);
+      margin-left: 2rem;
+      align-self: flex-end;
+    }
+    .emailInput {
+      padding: 7px 10px;
+      font-family: "helvetica_medium";
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+    .emailInput::placeholder {
+      font-family: "helvetica_medium";
+    }
+    .emailInput:focus {
+      outline: none;
+    }
+    .dropdown {
+      cursor: pointer;
+      .chosenService {
+        font-size: 13px;
+        background-color: white;
+        border: 1px solid black;
+        color: #5e5e5e;
+        padding: 7px 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .chosenServiceTitle {
+          margin-right: 0.5rem;
+        }
+        .svgContainer {
+          transition: 0.2s all;
+        }
+        svg {
+          transform: translateY(10%);
+        }
+      }
+    }
+    .dropDownComp {
+      position: absolute;
+      left: -30%;
+      box-shadow: 8px 10px 15px -1px rgba(0, 0, 0, 0.23);
+      -webkit-box-shadow: 8px 10px 15px -1px rgba(0, 0, 0, 0.23);
+      -moz-box-shadow: 8px 10px 15px -1px rgba(0, 0, 0, 0.23);
+      width: 210%;
+      margin-top: 10px;
+      border-radius: 7px;
+      color: #000000;
+      display: flex;
+      flex-wrap: wrap;
+      background-color: white;
+      padding: 10px;
+      font-size: 14px;
+      .service {
+        margin: 20px;
+        color: #000000;
+        border-bottom: 1px solid rgb(73, 73, 73);
+      }
+    }
+  }
+  .counterComp {
+    display: flex;
+    align-items: center;
+    .numberOfPeople {
+      font-size: 1.2rem;
+    }
+    .button {
+      margin: 0px 10px;
+      padding: 5px 10px;
+      display: flex;
+      height: 30px;
+      border-radius: 5px;
+      justify-content: center;
+      align-items: center;
+      background-color: #075432;
+      svg {
+        transform: translateY(10%);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .bookContainer {
+    bottom: 12rem;
+    left: 10%;
+    .bookElement {
+      h6 {
+        font-size: 12px;
+      }
+      p {
+        font-size: 10px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 590px) {
+  .bookContainer {
+    display: none;
+  }
+}

@@ -16,21 +16,19 @@ const OurServicesSection = () => {
   return (
     <div className={Styles.ourServicesSectionContainer}>
       <p className={Styles.title}>Our Services</p>
-      <div className={`${Styles.servicesContainer} ${Styles.firstContainer}`}>
-        <div className={`${Styles.imgsContainer} ${Styles.imageFirst}`}>
+      <div className={`${Styles.servicesContainer} ${Styles.thirdContainer}`}>
+        <p className={Styles.serviceTitle}>Teeth Whitening</p>
+        <p className={Styles.serviceDescription}>
+          get your teeth whitened today <br />
+          with our professional tools. <br />
+        </p>
+        <div className={Styles.imgsContainer}>
+          <img src={TeethWhiteningImg} alt="body massage image" />
           <img
-            src={TeethWhiteningImg}
-            alt="teeth whitening image"
-            className={Styles.translateUp}
+            src={TeethWhiteningImg2}
+            className={Styles.firstImg}
+            alt="body massage image"
           />
-          <img src={TeethWhiteningImg2} alt="teeth whitening image" />
-          <div className={Styles.descriptionContainer}>
-            <p className={Styles.serviceTitle}>Teeth Whitening</p>
-            <p className={Styles.serviceDescription}>
-              get your teeth whitened today <br />
-              with our professional tools. <br />
-            </p>
-          </div>
         </div>
       </div>
 
@@ -49,13 +47,14 @@ const OurServicesSection = () => {
       </div>
 
       {/* //third service */}
-      <div className={`${Styles.servicesContainer} ${Styles.thirdContainer}`}>
+      <div className={`${Styles.servicesContainer} ${Styles.firstContainer}`}>
         <p className={Styles.serviceTitle}>Facials</p>
         <p className={Styles.serviceDescription}>
           We will improve the appearance <br />
           of your skin with industry <br />
           standard practices.
         </p>
+
         <div className={Styles.imgsContainer}>
           <img src={FacialsImg2} alt="facials image" />
           <img src={FacialsImg1} alt="facials image" />
@@ -92,20 +91,14 @@ const OurServicesSection = () => {
 
       {/* sixth service */}
       <div className={`${Styles.servicesContainer} ${Styles.sixthContainer}`}>
-        <div className={`${Styles.imgsContainer} ${Styles.imageFirst}`}>
+        <p className={Styles.serviceTitle}>Manicure</p>
+        <p className={Styles.serviceDescription}>
+          we will improve the appearance of your skin and nails with industry
+          standard practices.
+        </p>
+        <div className={Styles.imgsContainer}>
+          <img src={ManicureImg1} alt="manicure image" />
           <img src={ManicureImg2} alt="manicure image" />
-          <img
-            src={ManicureImg1}
-            alt="manicure image"
-            className={Styles.translateUp}
-          />
-          <div className={Styles.descriptionContainer}>
-            <p className={Styles.serviceTitle}>Manicure</p>
-            <p className={Styles.serviceDescription}>
-              we will improve the appearance of your skin and nails with industry standard
-              practices.
-            </p>
-          </div>
         </div>
       </div>
     </div>
