@@ -6,6 +6,7 @@ import {
   getDoc,
   doc,
   getDocs,
+  updateDoc,
 } from "firebase/firestore";
 import { DocumentSnapshot, DocumentData } from "firebase/firestore";
 import { app } from "../auth/firebase.config";
@@ -37,6 +38,7 @@ function setAppointment(currentUserDocument: DocumentSnapshot<DocumentData>) {
   let currentAppointment: string = "";
   if (currentUserDocument.exists()) {
     if (currentUserDocument.data().currentAppointment !== "") {
+      console.log('user actually has an appointment')
       currentAppointment = currentUserDocument.data().currentAppointment;
     }
   } else {
@@ -60,13 +62,29 @@ async function checkIfUserBookedAnonymously(
       console.log(userDoc.size);
       if (userDoc.size > 1) {
         returnText = "multiple appointments";
+        let userId = currentUserDocument.data()?.id;
+        userDoc.forEach((document) => {
+          console.log(document.data().appointmentDate);
+          let appointmentDate = document.data().appointmentDate;
+          let apptDate = new Date(appointmentDate);
+          let docRef = doc(db, "users", userId);
+          updateDoc(docRef, {
+            currentAppointment: apptDate,
+          });
+        });
+      } else {
+        userDoc.forEach((document) => {
+          console.log(document.data().appointmentDate);
+          let appointmentDate = document.data().appointmentDate;
+          let apptDate = new Date(appointmentDate);
+          returnText = apptDate.toDateString();
+        });
+        let userId = currentUserDocument?.data()?.id;
+        let docRef = doc(db, "users", userId);
+        updateDoc(docRef, {
+          currentAppointment: returnText,
+        });
       }
-      userDoc.forEach((doc) => {
-        console.log(doc.data().appointmentDate);
-        let appointmentDate = doc.data().appointmentDate;
-        let apptDate = new Date(appointmentDate);
-        returnText = apptDate.toDateString();
-      });
     } else {
       console.log("this user did not book an anonymous appointment");
     }
@@ -79,3 +97,4 @@ async function checkIfUserBookedAnonymously(
   console.log(returnText);
   return returnText;
 }
+
