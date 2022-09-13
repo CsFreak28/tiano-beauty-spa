@@ -59,15 +59,24 @@
   .heroImg {
     position: absolute;
     left: 11rem;
-    top: 10%;
+    top: 5%;
     z-index: 2;
     width: 40%;
   }
   .otherHeroImg {
     position: absolute;
     left: 8rem;
-    top: 10%;
+    top: 5%;
     width: 50%;
+    // transform:rotate(30deg)
+  }
+  .secondHeroImg{
+    position: absolute;
+    left: 10rem;
+    top: 6%;
+    opacity: 0.5;
+    width: 40%;
+    transform: rotate(30deg);
   }
   .imgHolder {
     position: relative;
