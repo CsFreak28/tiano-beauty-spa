@@ -11,10 +11,47 @@ import ButtEnlargementImg1 from "../../assets/images/buttEnlargement.png";
 import ButtEnlargementImg2 from "../../assets/images/buttEnlargement2.png";
 import ManicureImg1 from "../../assets/images/manicure1.png";
 import ManicureImg2 from "../../assets/images/manicure2.png";
+import { useEffect, useRef } from "react";
 
 const OurServicesSection = () => {
+  const container = useRef<any>(null);
+  useEffect(() => {
+    console.log(ManicureImg1);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target as HTMLDivElement;
+          let children = [
+            ...lazyImage.querySelectorAll(".ourServices_imgsContainer__-EUfM"),
+          ];
+          children.forEach((child) => {
+            let images = child.querySelectorAll("img");
+            images.forEach((img) => {
+              img.src = img.dataset.src !== undefined ? img.dataset.src : "";
+            });
+          });
+          observer.unobserve(lazyImage);
+        }
+      });
+    });
+    if (container.current !== null) {
+      let classNameOfServiceImgContainer =
+        ".ourServices_servicesContainer__xqwLA";
+      let servicesContainer = container.current as HTMLDivElement;
+      let ArrayOfChildren = [
+        ...servicesContainer.querySelectorAll(classNameOfServiceImgContainer),
+      ];
+      ArrayOfChildren.forEach((service) => {
+        observer.observe(service);
+        // let children = [
+        //   ...service.querySelectorAll(".ourServices_imgsContainer__-EUfM"),
+        // ];
+      });
+    }
+  }, []);
+
   return (
-    <div className={Styles.ourServicesSectionContainer}>
+    <div className={Styles.ourServicesSectionContainer} ref={container}>
       <p className={Styles.title}>Our Services</p>
       <div className={`${Styles.servicesContainer} ${Styles.thirdContainer}`}>
         <p className={Styles.serviceTitle}>Teeth Whitening</p>
@@ -23,11 +60,16 @@ const OurServicesSection = () => {
           with our professional tools. <br />
         </p>
         <div className={Styles.imgsContainer}>
-          <img src={TeethWhiteningImg} alt="body massage image" />
           <img
-            src={TeethWhiteningImg2}
+            data-src={TeethWhiteningImg}
+            alt="body massage image"
+            loading="lazy"
+          />
+          <img
+            data-src={TeethWhiteningImg2}
             className={Styles.firstImg}
             alt="body massage image"
+            loading="lazy"
           />
         </div>
       </div>
@@ -41,8 +83,16 @@ const OurServicesSection = () => {
           masseuses.
         </p>
         <div className={Styles.imgsContainer}>
-          <img src={BodyMassageImg2} alt="body massage image" />
-          <img src={BodyMassageImg1} alt="body massage image" />
+          <img
+            data-src={BodyMassageImg2}
+            alt="body massage image"
+            loading="lazy"
+          />
+          <img
+            data-src={BodyMassageImg1}
+            alt="body massage image"
+            loading="lazy"
+          />
         </div>
       </div>
 
@@ -56,8 +106,8 @@ const OurServicesSection = () => {
         </p>
 
         <div className={Styles.imgsContainer}>
-          <img src={FacialsImg2} alt="facials image" />
-          <img src={FacialsImg1} alt="facials image" />
+          <img data-src={FacialsImg2} alt="facials image" loading="lazy" />
+          <img data-src={FacialsImg1} alt="facials image" loading="lazy" />
         </div>
       </div>
 
@@ -70,8 +120,16 @@ const OurServicesSection = () => {
           good.
         </p>
         <div className={Styles.imgsContainer}>
-          <img src={HairTreatmentImg2} alt="hair treatment image" />
-          <img src={HairTreatmentImg1} alt="hair treatment image" />
+          <img
+            data-src={HairTreatmentImg2}
+            alt="hair treatment image"
+            loading="lazy"
+          />
+          <img
+            data-src={HairTreatmentImg1}
+            alt="hair treatment image"
+            loading="lazy"
+          />
         </div>
       </div>
 
@@ -84,8 +142,16 @@ const OurServicesSection = () => {
           good.
         </p>
         <div className={Styles.imgsContainer}>
-          <img src={ButtEnlargementImg2} alt="hair treatment image" />
-          <img src={ButtEnlargementImg1} alt="hair treatment image" />
+          <img
+            data-src={ButtEnlargementImg2}
+            alt="hair treatment image"
+            loading="lazy"
+          />
+          <img
+            data-src={ButtEnlargementImg1}
+            alt="hair treatment image"
+            loading="lazy"
+          />
         </div>
       </div>
 
@@ -97,8 +163,8 @@ const OurServicesSection = () => {
           standard practices.
         </p>
         <div className={Styles.imgsContainer}>
-          <img src={ManicureImg1} alt="manicure image" />
-          <img src={ManicureImg2} alt="manicure image" />
+          <img data-src={ManicureImg1} alt="manicure image" loading="lazy" />
+          <img data-src={ManicureImg2} alt="manicure image" loading="lazy" />
         </div>
       </div>
     </div>
