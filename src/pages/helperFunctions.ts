@@ -32,6 +32,9 @@ export async function bookAppointmentAnonymously(appoitmentDetails: {
   const collectionRef = collection(db, "anonymous appointments");
   await addDoc(collectionRef, {
     ...appoitmentDetails,
+    completedAppointment: false,
+    completedOn: "",
+    appointmentType: "anonymous",
   });
   getDocs(collectionRef).then((data) => {
     data.docs.forEach((doc) => {

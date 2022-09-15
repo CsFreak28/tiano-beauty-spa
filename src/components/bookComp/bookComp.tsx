@@ -2,16 +2,19 @@ import Styles from "./bookComp.module.scss";
 import BookButton from "./bookButton";
 import { ReactComponent as BookArrow } from "../../assets/svgs/bookArrow.svg";
 import { DatePick } from "./datePick";
-import { useState, useReducer, useRef } from "react";
+import { useState, useReducer, useRef, useContext, useEffect } from "react";
 import { ReactComponent as MinusIcon } from "../../assets/svgs/minusIcon.svg";
 import { ReactComponent as PlusIcon } from "../../assets/svgs/plusIcon.svg";
 import { ReactComponent as DropDownIcon } from "../../assets/svgs/dropdown.svg";
+import { ThemeContext } from "../../App";
+interface DropDown {
+  show: boolean;
+  services: Array<string>;
+  currentChosenService: string;
+}
+
 const BookComp = () => {
-  interface DropDown {
-    show: boolean;
-    services: Array<string>;
-    currentChosenService: string;
-  }
+  const closeElements = useContext(ThemeContext);
   const [showDateInput, setShowDateInput] = useState<boolean>(false);
   const svg = useRef<any>(null);
   const [DropDownDetails, setDropDownDetails] = useState<DropDown>({
@@ -26,6 +29,7 @@ const BookComp = () => {
     ],
     currentChosenService: "body massage",
   });
+
   interface appointmentDetails {
     appointmentDate: string;
     numberOfPeople: number;
@@ -35,6 +39,16 @@ const BookComp = () => {
     payload: string;
     type: string;
   }
+  useEffect(() => {
+    window.addEventListener("click", () => {
+      setDropDownDetails((prev) => {
+        return {
+          ...prev,
+          show: false,
+        };
+      });
+    });
+  }, []);
   function reducer(state: appointmentDetails, action: ActionInterface) {
     if (action.type === "IncreaseNumberOfPeople") {
       let numberOfPeople = state.numberOfPeople + 1;
@@ -72,13 +86,11 @@ const BookComp = () => {
     email: "",
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-
   function toggleShowDateInput() {
     setShowDateInput((prev) => true);
   }
   return (
     <div className={Styles.bookContainer}>
-      {state.appointmentDate}
       <div className={Styles.bookElement}>
         <div>
           <h6>Arrival date</h6>
@@ -100,6 +112,7 @@ const BookComp = () => {
           <Counter
             numberOfPeople={state.numberOfPeople}
             updateNumberOfPeople={dispatch}
+            CounterStyles={Styles}
           />
         </div>
         <div className={Styles.line}></div>
@@ -124,65 +137,38 @@ const BookComp = () => {
       <div className={Styles.bookElement}>
         <div>
           <h6>Which service</h6>
-          <div className={Styles.dropdown}>
-            <div
-              className={Styles.chosenService}
-              onClick={() => {
-                !DropDownDetails.show
-                  ? (svg.current.style.transform = "rotate(180deg)")
-                  : (svg.current.style.transform = "rotate(0deg)");
-                setDropDownDetails((prev) => {
-                  return { ...prev, show: !prev.show };
-                });
-              }}
-            >
-              <div className={Styles.chosenServiceTitle}>
-                {DropDownDetails.currentChosenService}
-              </div>
-              <div ref={svg} className={Styles.svgContainer}>
-                <DropDownIcon />
-              </div>
-            </div>
-            {DropDownDetails.show && (
-              <div className={Styles.dropDownComp}>
-                {DropDownDetails.services.map((service) => {
-                  if (service !== DropDownDetails.currentChosenService) {
-                    return (
-                      <div
-                        className={Styles.service}
-                        onClick={() => {
-                          setDropDownDetails((prev) => {
-                            return {
-                              ...prev,
-                              currentChosenService: service,
-                            };
-                          });
-                        }}
-                      >
-                        {service}
-                      </div>
-                    );
-                  }
-                })}
-              </div>
-            )}
-          </div>
+          <ServiceDropDown
+            DropDownDetails={DropDownDetails}
+            setDropDownDetails={setDropDownDetails}
+            DropDownStyles={Styles}
+          />
         </div>
       </div>
-      <BookButton text="BOOK NOW" />
+      <BookButton
+        text="BOOK NOW"
+        bookStraight
+        appointmentDetails={{
+          appointmentDate: state.appointmentDate,
+          numberOfPeople: state.numberOfPeople,
+          email: state.email,
+          service: DropDownDetails.currentChosenService,
+          bookedOn: new Date().toDateString(),
+        }}
+      />
     </div>
   );
 };
 export default BookComp;
 
-function Counter(props: {
+export function Counter(props: {
   numberOfPeople: number;
   updateNumberOfPeople: React.Dispatch<any>;
+  CounterStyles: { readonly [key: string]: string };
 }) {
   return (
-    <div className={Styles.counterComp}>
+    <div className={props.CounterStyles.counterComp}>
       <div
-        className={Styles.button}
+        className={props.CounterStyles.button}
         onClick={() => {
           props.updateNumberOfPeople({
             type: "DecreaseNumberOfPeople",
@@ -192,9 +178,11 @@ function Counter(props: {
       >
         <MinusIcon />
       </div>
-      <div className={Styles.numberOfPeople}>{props.numberOfPeople}</div>
+      <div className={props.CounterStyles.numberOfPeople}>
+        {props.numberOfPeople}
+      </div>
       <div
-        className={`${Styles.button} ${Styles.plusButton}`}
+        className={`${props.CounterStyles.button} ${props.CounterStyles.plusButton}`}
         onClick={() => {
           props.updateNumberOfPeople({
             type: "IncreaseNumberOfPeople",
@@ -207,3 +195,64 @@ function Counter(props: {
     </div>
   );
 }
+
+export const ServiceDropDown = ({
+  DropDownDetails,
+  setDropDownDetails,
+  DropDownStyles,
+}: {
+  DropDownDetails: DropDown;
+  setDropDownDetails: React.Dispatch<React.SetStateAction<DropDown>>;
+  DropDownStyles: { readonly [key: string]: string };
+}) => {
+  const svg = useRef<any>(null);
+  return (
+    <div className={DropDownStyles.dropdown}>
+      <div
+        className={DropDownStyles.chosenService}
+        onClick={(e) => {
+          e.stopPropagation();
+          console.log("i am a king");
+          e.nativeEvent.stopImmediatePropagation();
+          !DropDownDetails.show
+            ? (svg.current.style.transform = "rotate(180deg)")
+            : (svg.current.style.transform = "rotate(0deg)");
+          setDropDownDetails((prev) => {
+            return { ...prev, show: !prev.show };
+          });
+        }}
+      >
+        <div className={DropDownStyles.chosenServiceTitle}>
+          {DropDownDetails.currentChosenService}
+        </div>
+        <div ref={svg} className={DropDownStyles.svgContainer}>
+          <DropDownIcon />
+        </div>
+      </div>
+      {DropDownDetails.show && (
+        <div className={DropDownStyles.dropDownComp}>
+          {DropDownDetails.services.map((service, i) => {
+            if (service !== DropDownDetails.currentChosenService) {
+              return (
+                <div
+                  className={DropDownStyles.service}
+                  onClick={(e) => {
+                    setDropDownDetails((prev) => {
+                      return {
+                        ...prev,
+                        currentChosenService: service,
+                      };
+                    });
+                  }}
+                  key={i}
+                >
+                  {service}
+                </div>
+              );
+            }
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
