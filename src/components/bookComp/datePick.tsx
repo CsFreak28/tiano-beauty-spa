@@ -23,7 +23,6 @@ export const DatePick = (props: { setDate: React.Dispatch<any> }) => {
         value={value}
         onChange={(newValue) => {
           setValue(newValue);
-          console.log(newValue);
         }}
         renderInput={(params) => <TextField {...params} />}
       />

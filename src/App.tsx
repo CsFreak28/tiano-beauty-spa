@@ -6,7 +6,6 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import "./styles/App.scss";
 import { FourOFourPage } from "./components/404Page";
-import { AppointmentPopup } from "./components/popupBook/popupBook";
 const AboutPage = lazy(() => import("./pages/about/aboutPage"));
 const DashBoard = lazy(() => import("./pages/dashboard/dashboard"));
 const Authenticate = lazy(() => import("./pages/auth/authenticate"));
@@ -14,6 +13,7 @@ const SettingsPage = lazy(() => import("./pages/dashboard/settings"));
 const ProfileOverview = lazy(() => import("./pages/dashboard/profileOverview"));
 const NotficationPage = lazy(() => import("./pages/dashboard/notification"));
 const ProtectedRoutes = lazy(() => import("./pages/auth/protectedRoutes"));
+const AppointmentPopup = lazy(() => import("./components/popupBook/popupBook"));
 function App() {
   let mobileNavRef = useRef<any>(null);
   let hamburgerMenu = useRef<any>(null);
@@ -49,16 +49,6 @@ function App() {
   return (
     <div className="App">
       {/* <div className="background"></div> */}
-      <div>
-        <button
-          onClick={() => {
-            setShowAppointmentPopup((prev) => !prev);
-          }}
-        >
-          open appointment popup
-        </button>
-        {showAppointmentPopup && <AppointmentPopup />}
-      </div>
       <div ref={mobileNavRef} className="mobileNav">
         <div className="innerContainer">
           <Link to="/auth/signUp">
@@ -99,6 +89,7 @@ function App() {
             }
           />
           <Route path="/auth/:typeOfAuth" element={<Authenticate />} />
+          <Route path="book-appointment" element={<AppointmentPopup />} />
           <Route element={<ProtectedRoutes />}>
             <Route element={<DashBoard />}>
               <Route

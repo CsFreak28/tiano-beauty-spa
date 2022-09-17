@@ -1,5 +1,5 @@
 import signUpImg from "../../assets/images/signupPageImg.jpg";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Styles from "./authenticate.module.scss";
@@ -232,7 +232,26 @@ const Authenticate = () => {
                             refferalCodeInput.current,
                             nameInput.current,
                           ]);
-                          signUp(extractedValues);
+                          signUp(extractedValues).then(
+                            (data: UserCredential | null) => {
+                              if (data !== null) {
+                                console.log(data);
+                                storeValuesInSessionStorage(
+                                  data.user.uid,
+                                  "uid"
+                                );
+                                data.user.displayName !== null &&
+                                  storeValuesInSessionStorage(
+                                    data.user.displayName,
+                                    "displayName"
+                                  );
+                                navigate("/auth/dashboard/profile", {
+                                  replace: true,
+                                });
+                              }
+                              console.log(data);
+                            }
+                          );
                         }
                       } else {
                         let inputsAreProvided =
@@ -286,7 +305,7 @@ const Authenticate = () => {
           <FooterSection showSocialMediaLinks={false} />
         </div>
       ) : (
-        <div>Page not found</div>
+        <Navigate to={"/404page"} />
       )}
     </>
   );

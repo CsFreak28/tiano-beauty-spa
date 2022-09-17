@@ -23,12 +23,21 @@ interface authCredentials {
 }
 
 export async function signUp(credentials: authCredentials) {
-  createUserWithEmailAndPassword(auth, credentials.email, credentials.password)
+  let payload: UserCredential | null = null;
+  await createUserWithEmailAndPassword(
+    auth,
+    credentials.email,
+    credentials.password
+  )
     .then((data) => {
+      if (data.user.displayName) {
+        sessionStorage.setItem("displayName", data.user.displayName);
+      }
       if (auth.currentUser) {
         updateProfile(auth.currentUser, {
           displayName: credentials.name,
         });
+        payload = data;
         setDoc(doc(db, "users", data.user.uid), {
           fullName: credentials.name,
           email: credentials.email,
@@ -39,23 +48,14 @@ export async function signUp(credentials: authCredentials) {
               ? credentials.refferalCode
               : "no refferer",
           currentAppointment: "",
-        }).then(() => {
-          //confirm if the document was added to firedbase firestore
-          const docRef = doc(db, "users", data.user.uid);
-          getDoc(docRef).then((data) => {
-            console.log(data.data());
-          });
-
-          //store data that needs to be persisted in the session storage
-          storeValuesInSessionStorage(data.user.uid, "uid");
-          data.user.displayName !== null &&
-            storeValuesInSessionStorage(data.user.displayName, "userName");
         });
       }
     })
     .catch((e) => {
       console.log(e);
+      payload = null;
     });
+  return payload;
 }
 
 export async function signIn(credentials: authCredentials) {

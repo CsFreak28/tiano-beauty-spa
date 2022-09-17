@@ -1,0 +1,92 @@
+.container {
+  width: 100%;
+  background-color: #075432;
+  color: #f3f3f3;
+  position: relative;
+  .heading {
+    font-size: 5rem;
+    text-align: center;
+  }
+  .testimonialsCarousel {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    align-items: center;
+    .testimonial {
+      background-color: rgb(133, 133, 133);
+      border-radius: 10px;
+      width: 20%;
+      height: 40vh;
+      opacity: 0.4;
+      position: relative;
+    }
+    .thirdTestimonial {
+      width: 40%;
+      height: 50vh;
+      opacity: 1;
+    }
+  }
+  .clientsTestimonial {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width:580px) {
+    .container{
+        .testimonialsCarousel{
+            width:200%;
+            position: relative;
+            transform: translateX(-25%);
+            .testimonial{
+                height: 35vh;
+            }
+            .thirdTestimonial{
+                height: 40vh;
+            }
+        }
+    }
+}
+@media screen and (max-width:450px) {
+    .container{
+        .heading{
+            font-size: 3.6rem;
+        }
+        .testimonialsCarousel{
+            width:200%;
+            position: relative;
+            transform: translateX(-25%);
+            .testimonial{
+                height: 30vh;
+            }
+            .thirdTestimonial{
+                height: 40vh;
+            }
+        }
+        .clientsTestimonial{
+            font-size: 1.5rem;
+        }
+    }
+}
+@media screen and (max-width:400px) {
+    .container{
+        .heading{
+            font-size: 3.6rem;
+        }
+        .testimonialsCarousel{
+            width:200%;
+            position: relative;
+            transform: translateX(-25%);
+            .testimonial{
+                height: 26vh;
+            }
+            .thirdTestimonial{
+                height: 35vh;
+            }
+        }
+        .clientsTestimonial{
+            font-size: 1.5rem;
+        }
+    }
+}

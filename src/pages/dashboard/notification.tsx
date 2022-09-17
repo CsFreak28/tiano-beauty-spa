@@ -1,0 +1,1 @@
+export { NotificationPage as default } from "./dashboardComponents";
