@@ -1,9 +1,9 @@
 import Styles from "./popup.module.scss";
-import { DatePick } from "../bookComp/datePick";
-import { useState, useReducer, useEffect } from "react";
+import { useState, useReducer, useEffect, lazy } from "react";
 import { ServiceDropDown } from "../bookComp/bookComp";
 import { Counter } from "../bookComp/bookComp";
 import BookButton from "../bookComp/bookButton";
+const DatePick = lazy(() => import("../bookComp/datePick"));
 const AppointmentPopup = () => {
   const [date, setDate] = useState<string>();
   interface DropDown {

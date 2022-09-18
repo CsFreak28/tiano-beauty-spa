@@ -18,8 +18,6 @@ function App() {
   let mobileNavRef = useRef<any>(null);
   let hamburgerMenu = useRef<any>(null);
   const [menuState, setMenuState] = useState<boolean>(false);
-  const [showAppointmentPopup, setShowAppointmentPopup] =
-    useState<boolean>(false);
   function removeMobileNavBar() {
     if (hamburgerMenu.current !== null) {
       let arrayOfChildren: Array<HTMLElement> = [];
