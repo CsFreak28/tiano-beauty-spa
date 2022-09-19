@@ -16,7 +16,6 @@ import { useEffect, useRef } from "react";
 const OurServicesSection = () => {
   const container = useRef<any>(null);
   useEffect(() => {
-    console.log(ManicureImg1);
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {

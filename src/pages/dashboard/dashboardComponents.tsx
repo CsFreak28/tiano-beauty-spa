@@ -18,17 +18,29 @@ import { ReactComponent as ReplyIcon } from "../../assets/svgs/replyIcon.svg";
 import { ReactComponent as CheckMarkIcon } from "../../assets/svgs/secondCheckMark.svg";
 import { ReactComponent as TrashCanIcon } from "../../assets/svgs/trashcan.svg";
 import { toggleExpandParagraph } from "../helperFunctions";
+import { getNextAppointment } from "./dbFunctions";
 import { ReactComponent as ReScheduleIcon } from "../../assets/svgs/redoIcon.svg";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import UserProfilePicture from "../../assets/images/userProfPic.png";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { getNextAppointmentStatus } from "./dbFunctions";
 export const ProfileOverview = () => {
+  useEffect(() => {
+    getNextAppointment().then((header) => {
+      setNextAppointmentHeader(header);
+    });
+    getNextAppointmentStatus();
+  }, []);
+  const [nextAppointmentHeader, setNextAppointmentHeader] =
+    useState<string>("loading");
+  const [lastAppointmentHeader, setLastAppointmentHeader] =
+    useState<string>("loading");
   return (
     <div className={Styles.profileOverViewContainer}>
       <div className={Styles.responsiveFlex}>
         <div className={Styles.featuresFlexContainer}>
           <FeatureComp
-            heading="August 1st 2022"
+            heading={nextAppointmentHeader}
             subHeading="Your next"
             underHeading="appointment"
             icon={NextApptIcon}
@@ -128,7 +140,7 @@ const Notification = (props: {
     </div>
   );
 };
-export const NotficationPage = () => {
+export const NotificationPage = () => {
   return (
     <div className={Styles.notificationPage}>
       <p className={Styles.pageTitle}>My Notifications</p>
@@ -177,7 +189,7 @@ export const DashboardHeaderComp = (props: { userName: string }) => {
   return (
     <div className={Styles.DashboardHeaderContainer}>
       <UserNameComp name={props.userName} />
-      <BookButton text="Book an appointment" />
+      <BookButton text="Book an appointment" bookStraight={false} />
     </div>
   );
 };

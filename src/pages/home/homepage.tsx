@@ -6,14 +6,16 @@ import ExtraSection from "../../components/sections/extra.section";
 import EmailCollectionSection from "../../components/sections/email.section";
 import FooterSection from "../../components/sections/footer.section";
 function Homepage() {
-  return <div>
-    <HeroSection/>
-    <AboutUsSection/>
-    <OurServicesSection/>
-    <TestimonialsSection/>
-    <ExtraSection/>
-    <EmailCollectionSection/>
-    <FooterSection showSocialMediaLinks={true}/>
-  </div>;
+  return (
+    <div>
+      <HeroSection />
+      <AboutUsSection />
+      <OurServicesSection />
+      <TestimonialsSection />
+      <ExtraSection />
+      <EmailCollectionSection />
+      <FooterSection showSocialMediaLinks={true} />
+    </div>
+  );
 }
 export default Homepage;

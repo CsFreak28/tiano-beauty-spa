@@ -1,10 +1,10 @@
 import Styles from "./popup.module.scss";
-import { DatePick } from "../bookComp/datePick";
-import { useState, useReducer } from "react";
+import { useState, useReducer, useEffect, lazy } from "react";
 import { ServiceDropDown } from "../bookComp/bookComp";
 import { Counter } from "../bookComp/bookComp";
 import BookButton from "../bookComp/bookButton";
-export const AppointmentPopup = () => {
+const DatePick = lazy(() => import("../bookComp/datePick"));
+const AppointmentPopup = () => {
   const [date, setDate] = useState<string>();
   interface DropDown {
     show: boolean;
@@ -23,6 +23,7 @@ export const AppointmentPopup = () => {
     ],
     currentChosenService: "body massage",
   });
+
   interface appointmentDetails {
     appointmentDate: string;
     numberOfPeople: number;
@@ -131,7 +132,7 @@ export const AppointmentPopup = () => {
           <div className={Styles.bookButtonContainer}>
             <BookButton
               text="Book an appointment now"
-              bookStraight = {false}
+              bookStraight={false}
               appointmentDetails={{
                 bookedOn: new Date().toDateString(),
                 service: DropDownDetails.currentChosenService,
@@ -146,3 +147,5 @@ export const AppointmentPopup = () => {
     </>
   );
 };
+
+export default AppointmentPopup;

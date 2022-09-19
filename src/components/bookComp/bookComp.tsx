@@ -1,20 +1,18 @@
 import Styles from "./bookComp.module.scss";
 import BookButton from "./bookButton";
 import { ReactComponent as BookArrow } from "../../assets/svgs/bookArrow.svg";
-import { DatePick } from "./datePick";
-import { useState, useReducer, useRef, useContext, useEffect } from "react";
+import { useState, useReducer, useRef, useEffect, lazy } from "react";
 import { ReactComponent as MinusIcon } from "../../assets/svgs/minusIcon.svg";
 import { ReactComponent as PlusIcon } from "../../assets/svgs/plusIcon.svg";
 import { ReactComponent as DropDownIcon } from "../../assets/svgs/dropdown.svg";
-import { ThemeContext } from "../../App";
 interface DropDown {
   show: boolean;
   services: Array<string>;
   currentChosenService: string;
 }
 
+const DatePick = lazy(() => import("./datePick"));
 const BookComp = () => {
-  const closeElements = useContext(ThemeContext);
   const [showDateInput, setShowDateInput] = useState<boolean>(false);
   const svg = useRef<any>(null);
   const [DropDownDetails, setDropDownDetails] = useState<DropDown>({
@@ -106,7 +104,7 @@ const BookComp = () => {
         </div>
         {!showDateInput && <div className={Styles.line}></div>}
       </div>
-      <div className={Styles.bookElement}>
+      <div className={`${Styles.bookElement} ${Styles.numberOfPeople}`}>
         <div>
           <h6>Number of people</h6>
           <Counter
@@ -117,7 +115,7 @@ const BookComp = () => {
         </div>
         <div className={Styles.line}></div>
       </div>
-      <div className={Styles.bookElement}>
+      <div className={`${Styles.bookElement}`}>
         <div>
           <h6>Your email</h6>
           <p>
@@ -134,7 +132,7 @@ const BookComp = () => {
         </div>
         <div className={Styles.line}></div>
       </div>
-      <div className={Styles.bookElement}>
+      <div className={`${Styles.bookElement} ${Styles.service}`}>
         <div>
           <h6>Which service</h6>
           <ServiceDropDown

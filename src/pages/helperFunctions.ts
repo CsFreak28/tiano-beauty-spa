@@ -21,7 +21,7 @@ export function toggleExpandParagraph(
   }
 }
 
-export async function bookAppointmentAnonymously(appoitmentDetails: {
+export async function bookAppointmentAnonymously(appointmentDetails: {
   appointmentDate: string;
   numberOfPeople: number;
   email: string;
@@ -31,7 +31,7 @@ export async function bookAppointmentAnonymously(appoitmentDetails: {
   const db = getFirestore(app);
   const collectionRef = collection(db, "anonymous appointments");
   await addDoc(collectionRef, {
-    ...appoitmentDetails,
+    ...appointmentDetails,
     completedAppointment: false,
     completedOn: "",
     appointmentType: "anonymous",

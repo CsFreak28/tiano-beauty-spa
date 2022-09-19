@@ -14,6 +14,7 @@
   .bookElement {
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     h6 {
       font-size: 14px;
@@ -35,13 +36,13 @@
       height: 2rem;
       background-color: rgb(66, 66, 66);
       margin-left: 2rem;
-      align-self: flex-end;
+      align-self: center;
     }
     .emailInput {
-      padding: 7px 10px;
+      padding: 15px 10px;
       font-family: "helvetica_medium";
-      border: 1px solid black;
-      border-radius: 5px;
+      border: 1px solid rgb(104, 104, 104);
+      border-radius: 4px;
     }
     .emailInput::placeholder {
       font-family: "helvetica_medium";
@@ -54,9 +55,9 @@
       .chosenService {
         font-size: 13px;
         background-color: white;
-        border: 1px solid black;
+        border: 1px solid rgb(77, 77, 77);
         color: #5e5e5e;
-        padding: 7px 20px;
+        padding: 15px 20px;
         border-radius: 5px;
         display: flex;
         align-items: center;
@@ -115,18 +116,48 @@
     }
   }
 }
+@media only screen and (max-width: 1040px) {
+  .bookContainer {
+    width: 100%;
+    left: 0;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .bookContainer {
+    .bookElement {
+      .line {
+        display: none;
+      }
+    }
+  }
+}
 
 @media only screen and (max-width: 780px) {
   .bookContainer {
     bottom: 12rem;
-    left: 10%;
     .bookElement {
       h6 {
-        font-size: 12px;
       }
       p {
-        font-size: 10px;
       }
+      .line {
+        display: none;
+      }
+    }
+    .service {
+      display: none;
+    }
+  }
+}
+@media only screen and (max-width: 650px) {
+  .bookContainer {
+    .bookElement {
+      .line {
+        display: none;
+      }
+    }
+    .numberOfPeople {
+      display: none;
     }
   }
 }

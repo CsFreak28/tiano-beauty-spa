@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Dayjs } from "dayjs";
 import React from "react";
 import { useEffect } from "react";
-export const DatePick = (props: { setDate: React.Dispatch<any> }) => {
+const DatePick = (props: { setDate: React.Dispatch<any> }) => {
   const [value, setValue] = useState<Dayjs | null>();
   useEffect(() => {
     if (value) {
@@ -23,10 +23,11 @@ export const DatePick = (props: { setDate: React.Dispatch<any> }) => {
         value={value}
         onChange={(newValue) => {
           setValue(newValue);
-          console.log(newValue);
         }}
         renderInput={(params) => <TextField {...params} />}
       />
     </LocalizationProvider>
   );
 };
+
+export default DatePick;

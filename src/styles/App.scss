@@ -28,6 +28,9 @@ $gideon: #000;
   margin: 0;
   box-sizing: border-box;
   user-select: none;
+  font-display: block;
+  body{
+  }
   a {
     text-decoration: none;
     color: black;
@@ -60,6 +63,7 @@ $gideon: #000;
 body {
   font-family: "ogg_thin2";
   background-color: #f3f3f3;
+  position: relative;
   overflow-x: hidden;
   font-display: block;
 }

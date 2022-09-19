@@ -26,19 +26,26 @@ tweak founder image in about section**
 notifications text expanding...**
 getDiscount function **
 number of people counter **
+window.onClick close dropdown or toggle components**
+tweak fourofourpage **
+make the navbar sticky**
+add which appointment would you like to book**
 
+
+
+window.onClick for appointment popup
 tweak the hero section book component when going responsive
 dashboard greeting should be dynamic based on time 
-tweak fourofourpage
 notifications 5 mins ago feature
 dashboard backend functionality
 background grain effect adjustment
 add chat page
 notifications drag and drop in trash can
 change overview icon
-make the navbar sticky
-add which appointment would you like to book
 make bookcomponent responsive
+dynamic greeting when in dashboard
+when signing a user up, first check if a user is logged In and log that user out
+add anonymous bookings to user's registered bookings
 
 problems and issues
 responsive design doesnt look good and work well on iphone
