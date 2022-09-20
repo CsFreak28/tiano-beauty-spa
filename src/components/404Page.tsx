@@ -5,7 +5,7 @@ export const FourOFourPage = () => {
     <div className={Styles.container}>
       <div className={Styles.innerDiv}>
         <p className={Styles.mainText}>
-          4 <Logo /> 4
+          4 <Logo width={'30px'} height='20px'/> 4
         </p>
         <p className={Styles.secondaryText}>oops... the page you were looking for was not found 🤔</p>
     </div>

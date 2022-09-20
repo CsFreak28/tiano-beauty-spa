@@ -29,8 +29,7 @@ $gideon: #000;
   box-sizing: border-box;
   user-select: none;
   font-display: block;
-  body{
-  }
+  
   a {
     text-decoration: none;
     color: black;
@@ -120,9 +119,6 @@ body {
 }
 
 @media (min-width: 700px) {
-  body {
-    overflow-y: scroll;
-  }
   .mobileNav {
     display: none;
   }

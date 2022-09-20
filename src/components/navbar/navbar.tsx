@@ -1,11 +1,9 @@
 import Styles from "./navbar.module.scss";
 import { ReactComponent as LogoSvg } from "../../assets/svgs/logo.svg";
 import { Link } from "react-router-dom";
-import { auth } from "../../pages/auth/auth";
 const Navbar = ({
   mobileNav,
   random,
-  menuState,
 }: {
   mobileNav: { current: HTMLElement };
   random: { current: HTMLDivElement };
@@ -54,7 +52,7 @@ const Navbar = ({
       </div>
       <div className={Styles.logo}>
         <p>tiano</p>
-        <LogoSvg />
+        <LogoSvg width={'30px'} height='20px'/>
       </div>
       <div className={Styles.navLinks}>
         <ul>
