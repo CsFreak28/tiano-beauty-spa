@@ -1,17 +1,23 @@
 import { ReactComponent as LogoSvg } from "../../assets/svgs/logo.svg";
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import animateLoader from "../animations/loaderAnimation";
-const LoadingScreen = () => {
+interface LoadingScreenProps {
+  loadSections: React.Dispatch<any>;
+  lcpHasLoaded: boolean;
+}
+const LoadingScreen = (props: LoadingScreenProps) => {
   const paragraphRef = useRef<any>(null);
   const [showText, setShowText] = useState<boolean>(false);
+  console.log(props.lcpHasLoaded)
   useEffect(() => {
-    document.body.style.overflowY = "hidden";
     document.fonts.addEventListener("loadingdone", () => {
       setShowText((prev) => true);
     });
     if (showText) {
       let paragraph = paragraphRef.current as HTMLParagraphElement;
-      animateLoader(paragraph);
+      animateLoader(paragraph).then(() => {
+        props.loadSections(true);
+      });
     }
   }, [showText]);
   return (
@@ -28,28 +34,89 @@ const LoadingScreen = () => {
         alignItems: "center",
       }}
     >
+      <div className="background"></div>
       <div>
         <LogoSvg width="150" height={"140px"} />
         {showText && (
           <p
             style={{
               fontFamily: "helvetica_medium",
-              fontSize: "1rem",
+              fontSize: "1.2rem",
               textAlign: "center",
               marginLeft: "10px",
             }}
             ref={paragraphRef}
           >
-            <span>l</span>
-            <span>o</span>
-            <span>a</span>
-            <span>d</span>
-            <span>i</span>
-            <span>n</span>
-            <span>g</span>
-            <span>.</span>
-            <span>.</span>
-            <span>.</span>
+            <span
+              style={{
+                opacity: "0",
+              }}
+            >
+              l
+            </span>
+            <span
+              style={{
+                opacity: "0",
+              }}
+            >
+              o
+            </span>
+            <span
+              style={{
+                opacity: "0",
+              }}
+            >
+              a
+            </span>
+            <span
+              style={{
+                opacity: "0",
+              }}
+            >
+              d
+            </span>
+            <span
+              style={{
+                opacity: "0",
+              }}
+            >
+              i
+            </span>
+            <span
+              style={{
+                opacity: "0",
+              }}
+            >
+              n
+            </span>
+            <span
+              style={{
+                opacity: "0",
+              }}
+            >
+              g
+            </span>
+            <span
+              style={{
+                opacity: "0",
+              }}
+            >
+              .
+            </span>
+            <span
+              style={{
+                opacity: "0",
+              }}
+            >
+              .
+            </span>
+            <span
+              style={{
+                opacity: "0",
+              }}
+            >
+              .
+            </span>
           </p>
         )}
       </div>
