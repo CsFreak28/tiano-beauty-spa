@@ -1,4 +1,3 @@
-import EmailCollectionSection from "../../components/sections/email.section";
 import { useState, useEffect } from "react";
 import LoadingScreen from "../../components/loader/loader";
 function Homepage() {
@@ -8,9 +7,9 @@ function Homepage() {
   const [AboutSection, setAboutSection] = useState<any>(() => "div");
   const [TestimonialsSection, setTestimonialsSection] = useState<any>(
     () => "div"
-    );
-    
+  );
   const [FooterSection, setFooterSection] = useState<any>(() => "div");
+  const [EmailSection, setEmailSection] = useState<any>(() => "div");
   const [OurServicesSection, setOurServicesSection] = useState<any>(
     () => "div"
   );
@@ -36,6 +35,9 @@ function Homepage() {
       import("../../components/sections/extra.section").then((value) => {
         setExtraSection(<value.default />);
       });
+      import("../../components/sections/email.section").then((value) => {
+        setEmailSection(<value.default />);
+      });
       if (lcpHasLoaded) {
         setTimeout(() => {
           document.body.style.overflowY = "scroll";
@@ -45,10 +47,10 @@ function Homepage() {
   }, [showSections, lcpHasLoaded]);
   return (
     <div>
-        <LoadingScreen
-          loadSections={setShowSections}
-          lcpHasLoaded={lcpHasLoaded}
-        />
+      <LoadingScreen
+        loadSections={setShowSections}
+        lcpHasLoaded={lcpHasLoaded}
+      />
       {showSections !== false && (
         <>
           <div>{HeroSection}</div>
@@ -56,10 +58,10 @@ function Homepage() {
           <div>{OurServicesSection}</div>
           <div>{TestimonialsSection}</div>
           <div>{ExtraSection}</div>
+          <div>{EmailSection}</div>
+          <div>{FooterSection}</div>
         </>
       )}
-      <EmailCollectionSection />
-      FooterSection
     </div>
   );
 }
