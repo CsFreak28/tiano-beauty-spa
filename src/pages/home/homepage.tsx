@@ -21,19 +21,19 @@ function Homepage() {
         setHeroSection(<value.default setLcpHasLoaded={setLcpHasLoaded} />);
       });
       import("../../components/sections/about.section").then((value) => {
-        setAboutSection(<value.default />);
+        setAboutSection(<value.default lcpHasLoaded={lcpHasLoaded}/>);
       });
       import("../../components/sections/footer.section").then((value) => {
         setFooterSection(<value.default showSocialMediaLinks />);
       });
       import("../../components/sections/testimonials.section").then((value) => {
-        setTestimonialsSection(<value.default />);
+        setTestimonialsSection(<value.default lcpHasLoaded={lcpHasLoaded}/>);
       });
       import("../../components/sections/ourServices.section").then((value) => {
-        setOurServicesSection(<value.default />);
+        setOurServicesSection(<value.default lcpHasLoaded={lcpHasLoaded}/>);
       });
       import("../../components/sections/extra.section").then((value) => {
-        setExtraSection(<value.default />);
+        setExtraSection(<value.default lcpHasLoaded={lcpHasLoaded}/>);
       });
       import("../../components/sections/email.section").then((value) => {
         setEmailSection(<value.default />);
