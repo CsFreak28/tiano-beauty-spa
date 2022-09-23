@@ -13,8 +13,8 @@ const LoadingScreen = (props: LoadingScreenProps) => {
   const [showText, setShowText] = useState<boolean>(false);
   useEffect(() => {
     console.log("i have been called", showText);
-    document.fonts.addEventListener("loadingdone", () => {
-      setShowText((prev) => true);
+    document.fonts.ready.then(() => {
+      setShowText(true);
     });
     if (showText) {
       let paragraph = paragraphRef.current as HTMLParagraphElement;
@@ -31,11 +31,7 @@ const LoadingScreen = (props: LoadingScreenProps) => {
             }
           }, 1500);
         });
-    } else {
-      document.fonts.ready.then(() => {
-        setShowText(true);
-      });
-    }
+    } 
   }, [props.lcpHasLoaded, showText]);
   return (
     <>
