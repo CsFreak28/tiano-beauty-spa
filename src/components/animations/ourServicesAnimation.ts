@@ -16,7 +16,6 @@ export default function animateOurServicesSection(section: HTMLDivElement) {
       scrub: true,
       start: "top 90%",
       end: "50px center",
-      markers: { startColor: "green", endColor: "red", fontSize: "12px" },
     },
   });
   gsap.to(allSpanElements, 0.1, {
@@ -30,4 +29,19 @@ export default function animateOurServicesSection(section: HTMLDivElement) {
       end: "50px center",
     },
   });
+}
+
+export function bounceImages(imgs: Array<HTMLImageElement>) {
+  imgs.forEach((img) => {
+    let tl = gsap.timeline();
+    let speed = img.dataset.speed ? parseInt(img.dataset.speed) / 10 : 0;
+    console.log(speed);
+    tl.to(img,1.1, {
+      y: "12px",
+      repeat: -1,
+      yoyo: true,
+      delay: speed,
+    });
+  });
+
 }
