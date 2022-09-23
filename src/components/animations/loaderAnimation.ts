@@ -26,4 +26,33 @@ function randomizeArray(arrayOfElements: Array<HTMLSpanElement>) {
 }
 export default animateLoader;
 
-async function removeLoader() {}
+export async function removeLoader(
+  svg: SVGElement,
+  paragraph: HTMLParagraphElement,
+  container: HTMLDivElement
+) {
+  let ArrayOfSpanElements: Array<HTMLSpanElement> = [];
+  for (let i = 0; i < paragraph.children.length; i++) {
+    ArrayOfSpanElements.push(paragraph.children[i] as HTMLSpanElement);
+  }
+  let arrayOfRandomSpanElements = randomizeArray(ArrayOfSpanElements);
+  let tl = gsap.timeline();
+  tl.to(arrayOfRandomSpanElements, 0.7, {
+    opacity: 0,
+    ease: "power2.out",
+    stagger: 0.1,
+  })
+    .to(container, 1, {
+      opacity: "0",
+      ease: "power3.out",
+    })
+    .to(container, 1, {
+      css: {
+        display: "none",
+      },
+    });
+  gsap.to(svg, 1, {
+    y: "150px",
+    ease: "power3.out",
+  });
+}

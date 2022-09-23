@@ -2,8 +2,20 @@ import Styles from "./hero.module.scss";
 import HeroImg from "../../assets/images/heroImg.png";
 import BookComp from "../bookComp/bookComp";
 import BookButton from "../bookComp/bookButton";
+import { useEffect, useRef } from "react";
 import { NotNowButton } from "../bookComp/bookButton";
-const HeroSection = () => {
+const HeroSection = ({
+  setLcpHasLoaded,
+}: {
+  setLcpHasLoaded: React.Dispatch<boolean>;
+}) => {
+  let imageRef = useRef<any>(null);
+  useEffect(() => {
+    let image = imageRef.current as HTMLImageElement;
+    if (image) {
+      setLcpHasLoaded(true);
+    }
+  }, [imageRef]);
   return (
     <div className={Styles.heroContainer}>
       <div className={Styles.split}>
@@ -75,7 +87,7 @@ const HeroSection = () => {
           </div>
         </div>
         <div className={Styles.imgHolder}>
-          <img src={HeroImg} alt="" className={Styles.heroImg} />
+          <img src={HeroImg} alt="" className={Styles.heroImg} ref={imageRef} />
           <img src={HeroImg} alt="" className={Styles.secondHeroImg} />
         </div>
         <BookComp />
