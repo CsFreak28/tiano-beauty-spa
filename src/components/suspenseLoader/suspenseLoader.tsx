@@ -12,6 +12,8 @@ const SuspenseLoader = ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        width: "100vw",
+        height: "100vh",
       }}
     >
       <LogoIcon width={width} height={height} />
