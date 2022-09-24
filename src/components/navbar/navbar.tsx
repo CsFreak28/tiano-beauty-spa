@@ -1,16 +1,32 @@
 import Styles from "./navbar.module.scss";
 import { ReactComponent as LogoSvg } from "../../assets/svgs/logo.svg";
 import { Link } from "react-router-dom";
+import { Theme } from "../../App";
+import { useContext, useEffect, useRef } from "react";
+import { animateNavBar } from "../animations/navbarAnimation";
 const Navbar = ({
   mobileNav,
-  random,
+  hamburgerMenuElement,
 }: {
   mobileNav: { current: HTMLElement };
-  random: { current: HTMLDivElement };
+  hamburgerMenuElement: { current: HTMLDivElement };
   menuState: boolean;
 }) => {
-  let hamburgerMenu = random;
+  let hamburgerMenu = hamburgerMenuElement;
   let menuIsOpened: boolean = false;
+  let loaderHasFinished = useContext(Theme);
+  const authLinksRef = useRef<any>(null);
+  const pageLinksRef = useRef<any>(null);
+  console.log(loaderHasFinished);
+  useEffect(() => {
+    if (loaderHasFinished) {
+      let pageLinks = pageLinksRef.current as HTMLUListElement;
+      let authLinks = authLinksRef.current as HTMLDivElement;
+      if (authLinks && pageLinks) {
+        animateNavBar(authLinks, pageLinks);
+      }
+    }
+  }, [loaderHasFinished]);
   function toggleHamburgerMenu(
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void {
@@ -42,7 +58,7 @@ const Navbar = ({
   }
   return (
     <div className={Styles.container}>
-      <div className={Styles.authLinks}>
+      <div className={Styles.authLinks} ref={authLinksRef}>
         <Link to="/auth/signUp">
           <p>sign up</p>
         </Link>
@@ -52,10 +68,10 @@ const Navbar = ({
       </div>
       <div className={Styles.logo}>
         <p>tiano</p>
-        <LogoSvg width={'30px'} height='20px'/>
+        <LogoSvg width={"30px"} height="20px" />
       </div>
       <div className={Styles.navLinks}>
-        <ul>
+        <ul ref={pageLinksRef}>
           <Link to="/">
             <li>home</li>
           </Link>
