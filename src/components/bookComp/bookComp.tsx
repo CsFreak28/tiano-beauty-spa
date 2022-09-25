@@ -16,6 +16,7 @@ interface DropDown {
 const DatePick = lazy(() => import("./datePick"));
 const BookComp = () => {
   const containerRef = useRef<any>(null);
+  const floatTitleRef = useRef<any>(null);
   const [showDateInput, setShowDateInput] = useState<boolean>(false);
   const svg = useRef<any>(null);
   const [DropDownDetails, setDropDownDetails] = useState<DropDown>({
@@ -50,7 +51,7 @@ const BookComp = () => {
       });
     });
     setTimeout(() => {
-      animateBookComp(containerRef.current);
+      animateBookComp(containerRef.current, floatTitleRef.current);
     }, 1000);
   }, [containerRef]);
   function reducer(state: appointmentDetails, action: ActionInterface) {
@@ -95,6 +96,18 @@ const BookComp = () => {
   }
   return (
     <div className={Styles.bookContainer} ref={containerRef}>
+      <p
+        style={{
+          display: "none",
+          textAlign: "center",
+          color: "#f3f3f3",
+          fontSize: "13px",
+        }}
+        ref={floatTitleRef}
+        className="floatTitle"
+      >
+        Book Now
+      </p>
       <div className={Styles.bookElement}>
         <div className={Styles.arrival}>
           <h6>Arrival date</h6>
