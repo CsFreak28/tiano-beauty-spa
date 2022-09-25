@@ -12,10 +12,18 @@ import ButtEnlargementImg2 from "../../assets/images/buttEnlargement2.png";
 import ManicureImg1 from "../../assets/images/manicure1.png";
 import ManicureImg2 from "../../assets/images/manicure2.png";
 import { useEffect, useRef } from "react";
-
-const OurServicesSection = () => {
+import animateOurServicesSection from "../animations/ourServicesAnimation";
+import { bounceImages } from "../animations/ourServicesAnimation";
+const OurServicesSection = ({ lcpHasLoaded }: { lcpHasLoaded: boolean }) => {
   const container = useRef<any>(null);
   useEffect(() => {
+    if (lcpHasLoaded) {
+      setTimeout(() => {
+        animateOurServicesSection(container.current);
+        let images = [...container.current.querySelectorAll("img")];
+        bounceImages(images);
+      }, 3000);
+    }
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -42,12 +50,9 @@ const OurServicesSection = () => {
       ];
       ArrayOfChildren.forEach((service) => {
         observer.observe(service);
-        // let children = [
-        //   ...service.querySelectorAll(".ourServices_imgsContainer__-EUfM"),
-        // ];
       });
     }
-  }, []);
+  }, [lcpHasLoaded]);
 
   return (
     <div className={Styles.ourServicesSectionContainer} ref={container}>
@@ -62,13 +67,13 @@ const OurServicesSection = () => {
           <img
             data-src={TeethWhiteningImg}
             alt="body massage image"
-            loading="lazy"
+            data-speed='0'
           />
           <img
             data-src={TeethWhiteningImg2}
             className={Styles.firstImg}
             alt="body massage image"
-            loading="lazy"
+            data-speed="0"
           />
         </div>
       </div>
@@ -82,16 +87,8 @@ const OurServicesSection = () => {
           masseuses.
         </p>
         <div className={Styles.imgsContainer}>
-          <img
-            data-src={BodyMassageImg2}
-            alt="body massage image"
-            loading="lazy"
-          />
-          <img
-            data-src={BodyMassageImg1}
-            alt="body massage image"
-            loading="lazy"
-          />
+          <img data-src={BodyMassageImg2} alt="body massage image" data-speed="2"/>
+          <img data-src={BodyMassageImg1} alt="body massage image" data-speed="2"/>
         </div>
       </div>
 
@@ -105,8 +102,8 @@ const OurServicesSection = () => {
         </p>
 
         <div className={Styles.imgsContainer}>
-          <img data-src={FacialsImg2} alt="facials image" loading="lazy" />
-          <img data-src={FacialsImg1} alt="facials image" loading="lazy" />
+          <img data-src={FacialsImg2} alt="facials image" loading="lazy" data-speed="1"/>
+          <img data-src={FacialsImg1} alt="facials image" loading="lazy" data-speed="1"/>
         </div>
       </div>
 
@@ -123,11 +120,13 @@ const OurServicesSection = () => {
             data-src={HairTreatmentImg2}
             alt="hair treatment image"
             loading="lazy"
+            data-speed="1"
           />
           <img
             data-src={HairTreatmentImg1}
             alt="hair treatment image"
             loading="lazy"
+            data-speed="1"
           />
         </div>
       </div>
@@ -145,11 +144,13 @@ const OurServicesSection = () => {
             data-src={ButtEnlargementImg2}
             alt="hair treatment image"
             loading="lazy"
+            data-speed="3"
           />
           <img
             data-src={ButtEnlargementImg1}
             alt="hair treatment image"
             loading="lazy"
+            data-speed="3"
           />
         </div>
       </div>
@@ -162,8 +163,8 @@ const OurServicesSection = () => {
           standard practices.
         </p>
         <div className={Styles.imgsContainer}>
-          <img data-src={ManicureImg1} alt="manicure image" loading="lazy" />
-          <img data-src={ManicureImg2} alt="manicure image" loading="lazy" />
+          <img data-src={ManicureImg1} alt="manicure image" loading="lazy" data-speed="0"/>
+          <img data-src={ManicureImg2} alt="manicure image" loading="lazy" data-speed="0"/>
         </div>
       </div>
     </div>
