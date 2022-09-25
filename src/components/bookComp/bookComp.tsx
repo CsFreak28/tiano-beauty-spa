@@ -51,7 +51,10 @@ const BookComp = () => {
       });
     });
     setTimeout(() => {
-      animateBookComp(containerRef.current, floatTitleRef.current);
+      let width = window.innerWidth;
+      if (width >= 700) {
+        animateBookComp(containerRef.current, floatTitleRef.current);
+      }
     }, 1000);
   }, [containerRef]);
   function reducer(state: appointmentDetails, action: ActionInterface) {
@@ -95,7 +98,7 @@ const BookComp = () => {
     setShowDateInput((prev) => true);
   }
   return (
-    <div className={Styles.bookContainer} ref={containerRef}>
+    <div className={`${Styles.bookContainer} bookContainer`} ref={containerRef}>
       <p
         style={{
           display: "none",
