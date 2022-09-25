@@ -7,6 +7,7 @@ import { ReactComponent as PlusIcon } from "../../assets/svgs/plusIcon.svg";
 import { ReactComponent as DropDownIcon } from "../../assets/svgs/dropdown.svg";
 import SuspenseLoader from "./../suspenseLoader/suspenseLoader";
 import animateBookComp from "./../animations/bookCompAnimation";
+import { ReactComponent as ArrowSvg } from "../../assets/svgs/downArrowSvg.svg";
 interface DropDown {
   show: boolean;
   services: Array<string>;
@@ -53,7 +54,7 @@ const BookComp = () => {
     setTimeout(() => {
       let width = window.innerWidth;
       if (width >= 700) {
-        animateBookComp(containerRef.current, floatTitleRef.current);
+        animateBookComp(containerRef.current, floatTitleRef.current,svg.current);
       }
     }, 1000);
   }, [containerRef]);
@@ -167,6 +168,9 @@ const BookComp = () => {
         </div>
       </div>
       <div className={Styles.buttonContainer}>
+        <p className={`${Styles.closeButton}`}>
+           <ArrowSvg width={"23px"} height={"23px"} ref={svg}/>
+        </p>
         <BookButton
           text="BOOK NOW"
           bookStraight
@@ -273,6 +277,8 @@ export const ServiceDropDown = ({
                   {service}
                 </div>
               );
+            } else {
+              return <div></div>;
             }
           })}
         </div>
