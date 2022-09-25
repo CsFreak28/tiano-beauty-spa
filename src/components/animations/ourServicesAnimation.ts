@@ -6,21 +6,44 @@ export default function animateOurServicesSection(section: HTMLDivElement) {
   const tl = gsap.timeline();
   let allSpanElements = [...body.querySelectorAll("span")];
   let svgElements = [...body.querySelectorAll("svg")];
+  console.log(svgElements);
+  const bookContainer = body.querySelector(".bookContainer");
+  let floatTitle = bookContainer?.querySelector(".floatTitle") as HTMLElement;
   gsap.to(body, 0.1, {
     css: {
       backgroundColor: "#075432",
-      color: "white",
+      color: "#f3f3f3",
     },
     scrollTrigger: {
       trigger: section,
       scrub: true,
       start: "top 90%",
       end: "50px center",
+      onEnter: () => {
+        floatTitle.style.color = "black";
+        gsap.to(bookContainer, 0.5, {
+          css: {
+            backgroundColor: "white",
+          },
+        });
+      },
+      onLeaveBack: () => {
+        floatTitle.style.color = "white";
+        gsap.to(bookContainer, 0.5, {
+          css: {
+            backgroundColor: "#075432",
+          },
+        });
+      },
     },
+  });
+
+  svgElements.forEach((svg) => {
+    svg.style.fill = "white";
   });
   gsap.to(allSpanElements, 0.1, {
     css: {
-      color: "white",
+      color: "#f3f3f3",
     },
     scrollTrigger: {
       trigger: section,
@@ -35,13 +58,13 @@ export function bounceImages(imgs: Array<HTMLImageElement>) {
   imgs.forEach((img) => {
     let tl = gsap.timeline();
     let speed = img.dataset.speed ? parseInt(img.dataset.speed) / 10 : 0;
-    console.log(speed);
-    tl.to(img,1.1, {
+    tl.to(img, 1.5, {
       y: "12px",
       repeat: -1,
-      yoyo: true,
+      ease: "power2.easeOut",
       delay: speed,
+      yoyo: true,
+      repeatDelay: 0.1,
     });
   });
-
 }
