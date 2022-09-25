@@ -1,10 +1,12 @@
 import Styles from "./bookComp.module.scss";
 import BookButton from "./bookButton";
 import { ReactComponent as BookArrow } from "../../assets/svgs/bookArrow.svg";
-import { useState, useReducer, useRef, useEffect, lazy } from "react";
+import { useState, useReducer, useRef, useEffect, lazy, Suspense } from "react";
 import { ReactComponent as MinusIcon } from "../../assets/svgs/minusIcon.svg";
 import { ReactComponent as PlusIcon } from "../../assets/svgs/plusIcon.svg";
 import { ReactComponent as DropDownIcon } from "../../assets/svgs/dropdown.svg";
+import SuspenseLoader from "./../suspenseLoader/suspenseLoader";
+import animateBookComp from "./../animations/bookCompAnimation";
 interface DropDown {
   show: boolean;
   services: Array<string>;
@@ -13,6 +15,7 @@ interface DropDown {
 
 const DatePick = lazy(() => import("./datePick"));
 const BookComp = () => {
+  const containerRef = useRef<any>(null);
   const [showDateInput, setShowDateInput] = useState<boolean>(false);
   const svg = useRef<any>(null);
   const [DropDownDetails, setDropDownDetails] = useState<DropDown>({
@@ -46,7 +49,10 @@ const BookComp = () => {
         };
       });
     });
-  }, []);
+    setTimeout(() => {
+      animateBookComp(containerRef.current);
+    }, 1000);
+  }, [containerRef]);
   function reducer(state: appointmentDetails, action: ActionInterface) {
     if (action.type === "IncreaseNumberOfPeople") {
       let numberOfPeople = state.numberOfPeople + 1;
@@ -88,12 +94,14 @@ const BookComp = () => {
     setShowDateInput((prev) => true);
   }
   return (
-    <div className={Styles.bookContainer}>
+    <div className={Styles.bookContainer} ref={containerRef}>
       <div className={Styles.bookElement}>
-        <div>
+        <div className={Styles.arrival}>
           <h6>Arrival date</h6>
           {showDateInput ? (
-            <DatePick setDate={dispatch} />
+            <Suspense fallback={<SuspenseLoader width="30px" height="30px" />}>
+              <DatePick setDate={dispatch} />
+            </Suspense>
           ) : (
             <>
               <p onClick={toggleShowDateInput}>
@@ -142,17 +150,19 @@ const BookComp = () => {
           />
         </div>
       </div>
-      <BookButton
-        text="BOOK NOW"
-        bookStraight
-        appointmentDetails={{
-          appointmentDate: state.appointmentDate,
-          numberOfPeople: state.numberOfPeople,
-          email: state.email,
-          service: DropDownDetails.currentChosenService,
-          bookedOn: new Date().toDateString(),
-        }}
-      />
+      <div className={Styles.buttonContainer}>
+        <BookButton
+          text="BOOK NOW"
+          bookStraight
+          appointmentDetails={{
+            appointmentDate: state.appointmentDate,
+            numberOfPeople: state.numberOfPeople,
+            email: state.email,
+            service: DropDownDetails.currentChosenService,
+            bookedOn: new Date().toDateString(),
+          }}
+        />
+      </div>
     </div>
   );
 };
