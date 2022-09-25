@@ -4,18 +4,34 @@ import BookComp from "../bookComp/bookComp";
 import BookButton from "../bookComp/bookButton";
 import { useEffect, useRef } from "react";
 import { NotNowButton } from "../bookComp/bookButton";
+import animateHeroSection from "../animations/heroSectionAnimation";
 const HeroSection = ({
   setLcpHasLoaded,
+  lcpHasLoaded,
 }: {
   setLcpHasLoaded: React.Dispatch<boolean>;
+  lcpHasLoaded: boolean;
 }) => {
   let imageRef = useRef<any>(null);
+  let secondImgRef = useRef<any>(null);
+  let secondImgHiderRef = useRef<any>(null);
+  let firstImgHiderRef = useRef<any>(null);
   useEffect(() => {
     let image = imageRef.current as HTMLImageElement;
     if (image) {
       setLcpHasLoaded(true);
     }
-  }, [imageRef]);
+    if (lcpHasLoaded) {
+      console.log("the lcp has loaded");
+      let firstImgHider = firstImgHiderRef.current as HTMLDivElement;
+      let secondImgHider = secondImgHiderRef.current as HTMLDivElement;
+      let firstImage = imageRef.current as HTMLImageElement;
+      let secondImage = secondImgRef.current as HTMLImageElement;
+      setTimeout(() => {
+        animateHeroSection([firstImage, secondImage]);
+      }, 2500);
+    }
+  }, [imageRef, lcpHasLoaded]);
   return (
     <div className={Styles.heroContainer}>
       <div className={Styles.split}>
@@ -88,7 +104,20 @@ const HeroSection = ({
         </div>
         <div className={Styles.imgHolder}>
           <img src={HeroImg} alt="" className={Styles.heroImg} ref={imageRef} />
-          <img src={HeroImg} alt="" className={Styles.secondHeroImg} />
+          <div
+            className={Styles.topImageContainer}
+            ref={firstImgHiderRef}
+          ></div>
+          <img
+            src={HeroImg}
+            alt=""
+            className={Styles.secondHeroImg}
+            ref={secondImgRef}
+          />
+          <div
+            className={Styles.underImageContainer}
+            ref={secondImgHiderRef}
+          ></div>
         </div>
         <BookComp />
       </div>
