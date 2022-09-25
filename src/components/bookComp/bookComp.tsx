@@ -53,7 +53,7 @@ const BookComp = () => {
     });
     setTimeout(() => {
       let width = window.innerWidth;
-      if (width >= 700) {
+      if (width >= 590) {
         animateBookComp(containerRef.current, floatTitleRef.current,svg.current);
       }
     }, 1000);
