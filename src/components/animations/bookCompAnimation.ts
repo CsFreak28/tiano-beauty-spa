@@ -7,6 +7,7 @@ function animateBookComp(
   svg: SVGElement
 ) {
   let containerChildren = [...container.children];
+  let currentBgColor: string = "";
   gsap.to(container, 0.3, {
     scrollTrigger: {
       trigger: container,
@@ -36,6 +37,8 @@ function animateBookComp(
         });
         let newContainerChildren = containerChildren as Array<HTMLElement>;
         const revFunction = () => {
+          console.log(container.style.backgroundColor);
+          currentBgColor = container.style.backgroundColor
           reverseStyle(container, newContainerChildren, floatTitle, {
             positon: "fixed",
             bottom: "2rem",
@@ -66,7 +69,7 @@ function animateBookComp(
             delay: 0.5,
             css: {
               borderRadius: "8px",
-              backgroundColor: "#075432",
+              backgroundColor: currentBgColor,
             },
           });
           container.addEventListener("click", revFunction);
