@@ -21,10 +21,8 @@ const BookButton = (props: ButtonProps) => {
         props.Styles ? props.Styles.bookButton : Styles.bookButton
       }`}
       onClick={() => {
-        // if (props.bookStraight) {
           props.appointmentDetails &&
             bookAppointmentAnonymously(props.appointmentDetails);
-        // }
       }}
     >
       {props.text}
