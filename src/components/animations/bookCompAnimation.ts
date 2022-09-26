@@ -8,6 +8,7 @@ function animateBookComp(
 ) {
   let containerChildren = [...container.children];
   let currentBgColor: string = "";
+  let body = document.body;
   gsap.to(container, 0.3, {
     scrollTrigger: {
       trigger: container,
@@ -37,8 +38,8 @@ function animateBookComp(
         });
         let newContainerChildren = containerChildren as Array<HTMLElement>;
         const revFunction = () => {
-          console.log(container.style.backgroundColor);
-          currentBgColor = container.style.backgroundColor
+          currentBgColor = body.style.backgroundColor;
+          container.setAttribute("data-opened", "true");
           reverseStyle(container, newContainerChildren, floatTitle, {
             positon: "fixed",
             bottom: "2rem",
@@ -48,7 +49,10 @@ function animateBookComp(
         };
         container.addEventListener("click", revFunction);
         svg.addEventListener("click", (e) => {
+          console.log(currentBgColor);
+          currentBgColor = body.style.backgroundColor;
           e.stopPropagation();
+          container.setAttribute("data-opened", "false");
           containerChildren.forEach((child) => {
             let theChild = child as HTMLElement;
             theChild.style.display = "none";
@@ -65,11 +69,14 @@ function animateBookComp(
             },
           });
           floatTitle.style.display = "block";
+          floatTitle.style.color =
+            currentBgColor == "rgb(243, 243, 243)" ? "white" : "black";
           gsap.to(container, 0.3, {
             delay: 0.5,
             css: {
               borderRadius: "8px",
-              backgroundColor: currentBgColor,
+              backgroundColor:
+                currentBgColor == "rgb(243, 243, 243)" ? "#075432" : "white",
             },
           });
           container.addEventListener("click", revFunction);
