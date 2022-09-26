@@ -1,10 +1,13 @@
 import Styles from "./bookComp.module.scss";
 import BookButton from "./bookButton";
 import { ReactComponent as BookArrow } from "../../assets/svgs/bookArrow.svg";
-import { useState, useReducer, useRef, useEffect, lazy } from "react";
+import { useState, useReducer, useRef, useEffect, lazy, Suspense } from "react";
 import { ReactComponent as MinusIcon } from "../../assets/svgs/minusIcon.svg";
 import { ReactComponent as PlusIcon } from "../../assets/svgs/plusIcon.svg";
 import { ReactComponent as DropDownIcon } from "../../assets/svgs/dropdown.svg";
+import SuspenseLoader from "./../suspenseLoader/suspenseLoader";
+import animateBookComp from "./../animations/bookCompAnimation";
+import { ReactComponent as ArrowSvg } from "../../assets/svgs/downArrowSvg.svg";
 interface DropDown {
   show: boolean;
   services: Array<string>;
@@ -13,6 +16,8 @@ interface DropDown {
 
 const DatePick = lazy(() => import("./datePick"));
 const BookComp = () => {
+  const containerRef = useRef<any>(null);
+  const floatTitleRef = useRef<any>(null);
   const [showDateInput, setShowDateInput] = useState<boolean>(false);
   const svg = useRef<any>(null);
   const [DropDownDetails, setDropDownDetails] = useState<DropDown>({
@@ -46,7 +51,13 @@ const BookComp = () => {
         };
       });
     });
-  }, []);
+    setTimeout(() => {
+      let width = window.innerWidth;
+      if (width >= 590) {
+        animateBookComp(containerRef.current, floatTitleRef.current,svg.current);
+      }
+    }, 1000);
+  }, [containerRef]);
   function reducer(state: appointmentDetails, action: ActionInterface) {
     if (action.type === "IncreaseNumberOfPeople") {
       let numberOfPeople = state.numberOfPeople + 1;
@@ -88,12 +99,26 @@ const BookComp = () => {
     setShowDateInput((prev) => true);
   }
   return (
-    <div className={Styles.bookContainer}>
+    <div className={`${Styles.bookContainer} bookContainer`} ref={containerRef}>
+      <p
+        style={{
+          display: "none",
+          textAlign: "center",
+          color: "#f3f3f3",
+          fontSize: "13px",
+        }}
+        ref={floatTitleRef}
+        className="floatTitle"
+      >
+        Book Now
+      </p>
       <div className={Styles.bookElement}>
-        <div>
+        <div className={Styles.arrival}>
           <h6>Arrival date</h6>
           {showDateInput ? (
-            <DatePick setDate={dispatch} />
+            <Suspense fallback={<SuspenseLoader width="30px" height="30px" />}>
+              <DatePick setDate={dispatch} />
+            </Suspense>
           ) : (
             <>
               <p onClick={toggleShowDateInput}>
@@ -142,17 +167,22 @@ const BookComp = () => {
           />
         </div>
       </div>
-      <BookButton
-        text="BOOK NOW"
-        bookStraight
-        appointmentDetails={{
-          appointmentDate: state.appointmentDate,
-          numberOfPeople: state.numberOfPeople,
-          email: state.email,
-          service: DropDownDetails.currentChosenService,
-          bookedOn: new Date().toDateString(),
-        }}
-      />
+      <div className={Styles.buttonContainer}>
+        <p className={`${Styles.closeButton}`}>
+           <ArrowSvg width={"23px"} height={"23px"} ref={svg}/>
+        </p>
+        <BookButton
+          text="BOOK NOW"
+          bookStraight
+          appointmentDetails={{
+            appointmentDate: state.appointmentDate,
+            numberOfPeople: state.numberOfPeople,
+            email: state.email,
+            service: DropDownDetails.currentChosenService,
+            bookedOn: new Date().toDateString(),
+          }}
+        />
+      </div>
     </div>
   );
 };
@@ -247,6 +277,8 @@ export const ServiceDropDown = ({
                   {service}
                 </div>
               );
+            } else {
+              return <div></div>;
             }
           })}
         </div>

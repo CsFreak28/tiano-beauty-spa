@@ -35,18 +35,8 @@ function App() {
       setMenuState((oldState) => !oldState);
     }
   }
-  useEffect(() => {
-    if (visualViewport !== null) {
-      visualViewport.addEventListener("resize", (e) => {
-        if (visualViewport && visualViewport.width > 700) {
-          document.body.style.overflowY = "scroll";
-        }
-      });
-    }
-  }, []);
   return (
     <div className="App">
-      {/* <div className="background"></div> */}
       <div ref={mobileNavRef} className="mobileNav">
         <div className="innerContainer">
           <Link to="/auth/signUp">
