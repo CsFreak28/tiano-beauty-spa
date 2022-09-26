@@ -6,7 +6,6 @@ export default function animateOurServicesSection(section: HTMLDivElement) {
   const tl = gsap.timeline();
   let allSpanElements = [...body.querySelectorAll("span")];
   let svgElements = [...body.querySelectorAll("svg")];
-  console.log(svgElements);
   const bookContainer = body.querySelector(".bookContainer");
   let floatTitle = bookContainer?.querySelector(".floatTitle") as HTMLElement;
   gsap.to(body, 0.1, {
@@ -38,9 +37,7 @@ export default function animateOurServicesSection(section: HTMLDivElement) {
     },
   });
 
-  svgElements.forEach((svg) => {
-    svg.style.fill = "white";
-  });
+  
   gsap.to(allSpanElements, 0.1, {
     css: {
       color: "#f3f3f3",
