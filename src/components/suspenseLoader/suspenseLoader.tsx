@@ -2,9 +2,13 @@ import { ReactComponent as LogoIcon } from "../../assets/svgs/logo.svg";
 const SuspenseLoader = ({
   width,
   height,
+  containerWidth,
+  containerHeight,
 }: {
   width: string;
   height: string;
+  containerWidth:string;
+  containerHeight:string;
 }) => {
   return (
     <div
@@ -12,8 +16,8 @@ const SuspenseLoader = ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        width: "100vw",
-        height: "100vh",
+        width: containerWidth,
+        height: containerHeight,
       }}
     >
       <LogoIcon width={width} height={height} />
