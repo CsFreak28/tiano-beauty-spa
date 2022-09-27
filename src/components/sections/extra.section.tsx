@@ -3,9 +3,15 @@ import BookButton from "../bookComp/bookButton";
 import darkImage from "../../assets/images/dark image 1.jpg";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-const ExtraSection = () => {
-  const img = useRef<any>(null);
+import animateExtraSection from "../animations/extraSectionAnimation";
+const ExtraSection = ({ lcpHasLoaded }: { lcpHasLoaded: boolean }) => {
+  const container = useRef<any>(null);
   useEffect(() => {
+    if (lcpHasLoaded) {
+      setTimeout(() => {
+        animateExtraSection(container.current);
+      }, 5000);
+    }
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -14,14 +20,14 @@ const ExtraSection = () => {
         }
       });
     });
-    let imageContainer = img.current as HTMLDivElement;
+    let imageContainer = container.current as HTMLDivElement;
     if (imageContainer !== null) {
       let image = imageContainer.querySelector("img") as HTMLImageElement;
       observer.observe(image);
     }
-  }, [img.current]);
+  }, [container.current, lcpHasLoaded]);
   return (
-    <div className={Styles.container} ref={img}>
+    <div className={Styles.container} ref={container}>
       <div className={Styles.content}>
         <p>
           we want you to relax and <br /> enjoy our <span>premium</span>{" "}
