@@ -10,12 +10,14 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  // display: none;
   .bookElement {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    .arrival{
+      height: 80px;
+    }
     h6 {
       font-size: 14px;
       font-family: "helvetica_medium";
@@ -76,9 +78,7 @@
     .dropDownComp {
       position: absolute;
       left: -30%;
-      box-shadow: 8px 10px 15px -1px rgba(0, 0, 0, 0.23);
-      -webkit-box-shadow: 8px 10px 15px -1px rgba(0, 0, 0, 0.23);
-      -moz-box-shadow: 8px 10px 15px -1px rgba(0, 0, 0, 0.23);
+      top: -110%;
       width: 210%;
       margin-top: 10px;
       border-radius: 7px;
@@ -98,6 +98,7 @@
   .counterComp {
     display: flex;
     align-items: center;
+    height: 50px;
     .numberOfPeople {
       font-size: 1.2rem;
     }
@@ -112,6 +113,20 @@
       background-color: #075432;
       svg {
         transform: translateY(10%);
+      }
+    }
+  }
+  .buttonContainer {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    .closeButton{
+      height: 60px;
+      svg{
+        transform: rotate(-90deg);
+        cursor: pointer;
       }
     }
   }

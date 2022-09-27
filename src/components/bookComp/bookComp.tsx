@@ -54,7 +54,11 @@ const BookComp = () => {
     setTimeout(() => {
       let width = window.innerWidth;
       if (width >= 590) {
-        animateBookComp(containerRef.current, floatTitleRef.current,svg.current);
+        animateBookComp(
+          containerRef.current,
+          floatTitleRef.current,
+          svg.current
+        );
       }
     }, 1000);
   }, [containerRef]);
@@ -116,7 +120,16 @@ const BookComp = () => {
         <div className={Styles.arrival}>
           <h6>Arrival date</h6>
           {showDateInput ? (
-            <Suspense fallback={<SuspenseLoader width="30px" height="30px" />}>
+            <Suspense
+              fallback={
+                <SuspenseLoader
+                  width="30px"
+                  height="30px"
+                  containerHeight="auto"
+                  containerWidth="auto"
+                />
+              }
+            >
               <DatePick setDate={dispatch} />
             </Suspense>
           ) : (
@@ -169,7 +182,7 @@ const BookComp = () => {
       </div>
       <div className={Styles.buttonContainer}>
         <p className={`${Styles.closeButton}`}>
-           <ArrowSvg width={"23px"} height={"23px"} ref={svg}/>
+          <ArrowSvg width={"21px"} height={"21px"} ref={svg} />
         </p>
         <BookButton
           text="BOOK NOW"
@@ -240,7 +253,6 @@ export const ServiceDropDown = ({
         className={DropDownStyles.chosenService}
         onClick={(e) => {
           e.stopPropagation();
-          console.log("i am a king");
           e.nativeEvent.stopImmediatePropagation();
           !DropDownDetails.show
             ? (svg.current.style.transform = "rotate(180deg)")
